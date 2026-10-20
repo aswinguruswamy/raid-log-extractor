@@ -2,7 +2,9 @@
 
 Turn the notes from a team call into a RAID log in less than one minute.
 
-> **Status:** Work in progress. Version 1.0 is planned for October 27, 2026. The live demo link and a demo GIF come with the final README.
+**[Try the live demo](https://raid-log-extractor.streamlit.app/)**: no sign-in and no API key.
+
+> **Status:** Work in progress. Version 1.0 is planned for October 27, 2026.
 
 ## What it does
 
