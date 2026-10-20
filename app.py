@@ -114,6 +114,12 @@ def demo_mode() -> None:
 
 def own_notes_mode() -> None:
     st.markdown(
+        "**Why a key?** This mode sends your notes to Claude through the Anthropic API, and the API needs a key "
+        "for each request. The key belongs to you, and Anthropic bills your account: about $0.01 for a short call "
+        "and about $0.05 for a 1-hour transcript. This site has no key of its own. To see the tool with no key, "
+        "use the demo mode."
+    )
+    st.markdown(
         "**Privacy:** the page sends your notes to the Anthropic API and does not store them. "
         "Do not upload confidential client data. Your API key stays in this browser session only."
     )
