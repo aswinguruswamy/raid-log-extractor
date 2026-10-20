@@ -93,18 +93,37 @@ def extract_items(text: str, *, client=None, model: str = DEFAULT_MODEL, source_
 
         client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from the environment
 
+    # Some current models reject a forced tool_choice ("tool"/"any"), so the request uses
+    # "auto" and the prompt tells the model to call the tool. If the model answers in plain
+    # text, we ask one more time.
+    messages = [{"role": "user", "content": f"<notes>\n{text}\n</notes>"}]
     started = time.perf_counter()
-    response = client.messages.create(
-        model=model,
-        max_tokens=MAX_OUTPUT_TOKENS,
-        system=SYSTEM_PROMPT,
-        tools=[TOOL],
-        tool_choice={"type": "tool", "name": TOOL_NAME},
-        messages=[{"role": "user", "content": f"<notes>\n{text}\n</notes>"}],
-    )
+    input_tokens = output_tokens = 0
+    tool_input = None
+    for attempt in range(2):
+        response = client.messages.create(
+            model=model,
+            max_tokens=MAX_OUTPUT_TOKENS,
+            system=SYSTEM_PROMPT,
+            tools=[TOOL],
+            tool_choice={"type": "auto"},
+            messages=messages,
+        )
+        usage = getattr(response, "usage", None)
+        input_tokens += getattr(usage, "input_tokens", 0) or 0
+        output_tokens += getattr(usage, "output_tokens", 0) or 0
+        tool_input = _tool_input(response)
+        if tool_input is not None:
+            break
+        messages = messages + [
+            {"role": "assistant", "content": response.content},
+            {"role": "user", "content": f"Call the {TOOL_NAME} tool now with all the items."},
+        ]
     seconds = time.perf_counter() - started
 
-    raw_items = _tool_input(response).get("items")
+    if tool_input is None:
+        raise ExtractionError("Claude did not call the record_raid_items tool.")
+    raw_items = tool_input.get("items")
     if not isinstance(raw_items, list):
         raise ExtractionError("Claude's answer has no 'items' list.")
 
@@ -114,22 +133,22 @@ def extract_items(text: str, *, client=None, model: str = DEFAULT_MODEL, source_
 
     items = [item for raw in raw_items if (item := _to_item(raw, text, warnings)) is not None]
 
-    usage = getattr(response, "usage", None)
     return ExtractionResult(
         log=RaidLog(source_file=source_file, items=items),
         model=model,
-        input_tokens=getattr(usage, "input_tokens", 0) or 0,
-        output_tokens=getattr(usage, "output_tokens", 0) or 0,
+        input_tokens=input_tokens,
+        output_tokens=output_tokens,
         seconds=seconds,
         warnings=warnings,
     )
 
 
-def _tool_input(response) -> dict:
+def _tool_input(response):
+    """The input of the record_raid_items call, or None when the model did not call it."""
     for block in getattr(response, "content", []) or []:
         if getattr(block, "type", None) == "tool_use" and getattr(block, "name", None) == TOOL_NAME:
             return block.input or {}
-    raise ExtractionError("Claude did not call the record_raid_items tool.")
+    return None
 
 
 def _to_item(raw: dict, notes: str, warnings: list[str]) -> RaidItem | None:

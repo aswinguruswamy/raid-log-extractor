@@ -16,15 +16,21 @@ class FakeClient:
     """Records the request and returns a prepared tool_use answer."""
 
     def __init__(self, items, stop_reason="tool_use", call_tool=True):
-        self.items, self.stop_reason, self.call_tool = items, stop_reason, call_tool
+        # call_tool: True/False for every call, or a list with one value per call.
+        self.items, self.stop_reason = items, stop_reason
+        self.plan = list(call_tool) if isinstance(call_tool, list) else None
+        self.call_tool = call_tool
         self.request = None
+        self.calls = 0
         self.messages = self
 
     def create(self, **request):
         self.request = request
+        calls_tool = self.plan[self.calls] if self.plan is not None else self.call_tool
+        self.calls += 1
         block = (
             SimpleNamespace(type="tool_use", name=TOOL_NAME, input={"items": self.items})
-            if self.call_tool
+            if calls_tool
             else SimpleNamespace(type="text", text="Here are the items...")
         )
         return SimpleNamespace(
@@ -48,11 +54,13 @@ def item(**changes):
 
 # --- KAN-9: tool use with a JSON schema; every output passes validation ------
 
-def test_request_forces_the_tool_with_a_json_schema():
+def test_request_gives_the_tool_with_a_json_schema():
     client = FakeClient([item()])
     extract_items(NOTES, client=client)
     assert client.request["tools"] == [TOOL]
-    assert client.request["tool_choice"] == {"type": "tool", "name": TOOL_NAME}
+    # Forced tool_choice is rejected by some current models, so the request uses "auto".
+    assert client.request["tool_choice"] == {"type": "auto"}
+    assert f"Call the {TOOL_NAME} tool" in client.request["system"]
     assert TOOL["input_schema"]["properties"]["items"]["items"]["properties"]["type"]["enum"] == [
         t.value for t in ItemType
     ]
@@ -81,9 +89,20 @@ def test_invalid_type_is_dropped_with_a_warning():
     assert any("Skipped an invalid item" in w for w in result.warnings)
 
 
-def test_no_tool_call_is_an_error():
+def test_text_answer_is_retried_once_then_succeeds():
+    client = FakeClient([item()], call_tool=[False, True])
+    result = extract_items(NOTES, client=client)
+    assert client.calls == 2
+    assert len(result.log.items) == 1
+    assert (result.input_tokens, result.output_tokens) == (2400, 600)  # both calls counted
+    assert client.request["messages"][-1]["content"].startswith(f"Call the {TOOL_NAME} tool")
+
+
+def test_no_tool_call_after_retry_is_an_error():
+    client = FakeClient([], call_tool=False)
     with pytest.raises(ExtractionError):
-        extract_items(NOTES, client=FakeClient([], call_tool=False))
+        extract_items(NOTES, client=client)
+    assert client.calls == 2
 
 
 def test_cut_off_answer_gives_a_warning():
