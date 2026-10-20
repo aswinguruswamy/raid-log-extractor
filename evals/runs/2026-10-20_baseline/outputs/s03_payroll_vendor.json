@@ -1,0 +1,74 @@
+{
+  "sample": "s03_payroll_vendor.vtt",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1297,
+  "output_tokens": 694,
+  "seconds": 3.88,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The parallel run showed overtime is being calculated incorrectly for night-shift staff.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The parallel run found that overtime was calculated wrong for night-shift staff.",
+      "quote_verified": true
+    },
+    {
+      "type": "Dependency",
+      "description": "The HR system feed cannot be built until the new vendor sends the API credentials, which have not arrived yet.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The new vendor still hasn't sent the API credentials, and we need them before we can build the HR system feed.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Raise the overtime calculation problem with the vendor's support team this week.",
+      "owner": "Victor Alvarez",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "I'll raise the overtime problem with the vendor's support team this week.",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "Employees may be paid late in January if the bank file format is not approved in time.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "There's a chance employees get paid late in January if the bank file format isn't approved in time.",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "The team assumes the vendor's single sign-on works with their identity provider, though it has not been tested.",
+      "owner": "Priya Raman",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "I'm assuming the vendor's single sign-on works with our identity provider. Nobody has tested it yet.",
+      "quote_verified": true
+    },
+    {
+      "type": "Decision",
+      "description": "The team agreed to keep the old provider for contractors until March.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "We agreed to keep the old provider for contractors until March.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Send the vendor the SSO test plan.",
+      "owner": "Priya Raman",
+      "due_date": "2026-11-06",
+      "status": "Open",
+      "source_quote": "Priya, please send the vendor the SSO test plan by 2026-11-06.",
+      "quote_verified": true
+    }
+  ]
+}

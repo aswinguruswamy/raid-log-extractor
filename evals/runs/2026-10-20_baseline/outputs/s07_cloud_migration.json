@@ -1,0 +1,74 @@
+{
+  "sample": "s07_cloud_migration.vtt",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1357,
+  "output_tokens": 623,
+  "seconds": 3.54,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "Nightly backups on the old data center have been failing since Monday.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The nightly backups have been failing on the old data center since Monday.",
+      "quote_verified": true
+    },
+    {
+      "type": "Decision",
+      "description": "The payment service will move in wave two rather than wave one.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "the payment service goes in wave two, not wave one.",
+      "quote_verified": true
+    },
+    {
+      "type": "Dependency",
+      "description": "Moving the payment service requires security review sign-off, which can only happen after the pen test.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "we need the security review signed off, and that review only happens after the pen test.",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "The team assumes current database licences can move to the cloud without extra cost.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "We are assuming our current database licences can move to the cloud without extra cost.",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "If egress costs exceed the estimate, the monthly bill could go over budget.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "If egress costs are higher than the estimate, the monthly bill could go over budget.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Claire will open a ticket with the backup vendor today, right after the call.",
+      "owner": "Claire Dubois",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Yes, I'll do it right after this call.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Arjun will update the wave plan and share it.",
+      "owner": "Arjun Mehta",
+      "due_date": "2026-10-27",
+      "status": "Open",
+      "source_quote": "I'll update the wave plan and share it by 2026-10-27.",
+      "quote_verified": true
+    }
+  ]
+}
