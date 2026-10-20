@@ -4,11 +4,15 @@
 # Python
 __pycache__/
 *.pyc
+.pytest_cache/
 .venv/
 venv/
 
 # Tool output
 output/
+
+# Personal working files (for example the KAN-17 manual timing workbook)
+samples/*.xlsx
 
 # OS and editor files
 .DS_Store
