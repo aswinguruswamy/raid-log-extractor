@@ -2,14 +2,14 @@
   "sample": "s06_holiday_campaign.txt",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1200,
-  "output_tokens": 649,
+  "input_tokens": 1378,
+  "output_tokens": 667,
   "seconds": 4.09,
   "warnings": [],
   "items": [
     {
       "type": "Dependency",
-      "description": "Building the landing page cannot start until legal approves the landing page copy.",
+      "description": "Landing page build cannot start until legal approves the landing page copy, which has not happened yet.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
@@ -27,7 +27,7 @@
     },
     {
       "type": "Risk",
-      "description": "The influencer partner may pull out because the contract has not been signed.",
+      "description": "The influencer partner might pull out because the contract is still unsigned.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",

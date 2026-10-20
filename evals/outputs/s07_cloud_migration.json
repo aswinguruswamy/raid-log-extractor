@@ -2,9 +2,9 @@
   "sample": "s07_cloud_migration.vtt",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1357,
-  "output_tokens": 623,
-  "seconds": 3.54,
+  "input_tokens": 1535,
+  "output_tokens": 640,
+  "seconds": 3.68,
   "warnings": [],
   "items": [
     {
@@ -17,21 +17,21 @@
       "quote_verified": true
     },
     {
+      "type": "Dependency",
+      "description": "Moving the payment service requires the security review to be signed off, which only happens after the pen test.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Before we move the payment service we need the security review signed off, and that review only happens after the pen test.",
+      "quote_verified": true
+    },
+    {
       "type": "Decision",
       "description": "The payment service will move in wave two rather than wave one.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
       "source_quote": "the payment service goes in wave two, not wave one.",
-      "quote_verified": true
-    },
-    {
-      "type": "Dependency",
-      "description": "Moving the payment service requires security review sign-off, which can only happen after the pen test.",
-      "owner": "Not stated",
-      "due_date": "Not stated",
-      "status": "Open",
-      "source_quote": "we need the security review signed off, and that review only happens after the pen test.",
       "quote_verified": true
     },
     {
@@ -58,7 +58,7 @@
       "owner": "Claire Dubois",
       "due_date": "Not stated",
       "status": "Open",
-      "source_quote": "Yes, I'll do it right after this call.",
+      "source_quote": "Claire, can you open a ticket with the backup vendor today?",
       "quote_verified": true
     },
     {
@@ -67,7 +67,7 @@
       "owner": "Arjun Mehta",
       "due_date": "2026-10-27",
       "status": "Open",
-      "source_quote": "I'll update the wave plan and share it by 2026-10-27.",
+      "source_quote": "And I'll update the wave plan and share it by 2026-10-27.",
       "quote_verified": true
     }
   ]

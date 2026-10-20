@@ -2,9 +2,9 @@
   "sample": "s03_payroll_vendor.vtt",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1297,
-  "output_tokens": 694,
-  "seconds": 3.88,
+  "input_tokens": 1475,
+  "output_tokens": 705,
+  "seconds": 4.09,
   "warnings": [],
   "items": [
     {
@@ -18,7 +18,7 @@
     },
     {
       "type": "Dependency",
-      "description": "The HR system feed cannot be built until the new vendor sends the API credentials, which have not arrived yet.",
+      "description": "Building the HR system feed depends on the new vendor sending the API credentials, which have not arrived yet.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
@@ -27,7 +27,7 @@
     },
     {
       "type": "Action",
-      "description": "Raise the overtime calculation problem with the vendor's support team this week.",
+      "description": "Victor will raise the overtime calculation problem with the vendor's support team this week.",
       "owner": "Victor Alvarez",
       "due_date": "Not stated",
       "status": "Open",
@@ -45,8 +45,8 @@
     },
     {
       "type": "Assumption",
-      "description": "The team assumes the vendor's single sign-on works with their identity provider, though it has not been tested.",
-      "owner": "Priya Raman",
+      "description": "The team assumes the vendor's single sign-on works with the company's identity provider, though it has not been tested.",
+      "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
       "source_quote": "I'm assuming the vendor's single sign-on works with our identity provider. Nobody has tested it yet.",
@@ -63,7 +63,7 @@
     },
     {
       "type": "Action",
-      "description": "Send the vendor the SSO test plan.",
+      "description": "Priya will send the vendor the SSO test plan by 2026-11-06.",
       "owner": "Priya Raman",
       "due_date": "2026-11-06",
       "status": "Open",

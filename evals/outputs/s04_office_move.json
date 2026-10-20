@@ -2,14 +2,14 @@
   "sample": "s04_office_move.txt",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1291,
-  "output_tokens": 699,
-  "seconds": 3.88,
+  "input_tokens": 1469,
+  "output_tokens": 678,
+  "seconds": 3.72,
   "warnings": [],
   "items": [
     {
       "type": "Decision",
-      "description": "The group decided to keep the move date of 2026-12-12 instead of delaying the move to January.",
+      "description": "The group decided to keep the move date of 2026-12-12 instead of delaying to January.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
@@ -27,7 +27,7 @@
     },
     {
       "type": "Action",
-      "description": "Ines will chase the landlord for approval of the fibre installation work by 2026-10-30.",
+      "description": "Ines will chase the landlord for approval of the fibre installation work.",
       "owner": "Ines Duarte",
       "due_date": "2026-10-30",
       "status": "Open",
@@ -36,7 +36,7 @@
     },
     {
       "type": "Risk",
-      "description": "If the furniture order is not placed this week, given the six-week supplier lead time, the desks may not arrive before the move.",
+      "description": "If the furniture order is not placed this week, the desks may not arrive before the move because of the six-week lead time.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",

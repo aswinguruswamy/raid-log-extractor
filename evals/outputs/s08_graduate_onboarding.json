@@ -2,9 +2,9 @@
   "sample": "s08_graduate_onboarding.docx",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1250,
-  "output_tokens": 635,
-  "seconds": 3.5,
+  "input_tokens": 1428,
+  "output_tokens": 632,
+  "seconds": 3.57,
   "warnings": [],
   "items": [
     {
@@ -20,7 +20,7 @@
       "type": "Dependency",
       "description": "Laptops for the new graduates must arrive from procurement before the start date of 2027-01-11.",
       "owner": "Not stated",
-      "due_date": "2027-01-11",
+      "due_date": "Not stated",
       "status": "Open",
       "source_quote": "The laptops for the new graduates must arrive from procurement before the start date of 2027-01-11.",
       "quote_verified": true
@@ -36,7 +36,7 @@
     },
     {
       "type": "Assumption",
-      "description": "The team assumes all graduates will pass their background checks before the start date.",
+      "description": "All graduates are assumed to pass their background checks before the start date.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
@@ -45,7 +45,7 @@
     },
     {
       "type": "Decision",
-      "description": "The group decided to run the first week fully in person.",
+      "description": "The team decided to run the first week fully in person.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",

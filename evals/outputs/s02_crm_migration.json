@@ -2,14 +2,14 @@
   "sample": "s02_crm_migration.txt",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1310,
-  "output_tokens": 705,
-  "seconds": 3.86,
+  "input_tokens": 1488,
+  "output_tokens": 778,
+  "seconds": 4.89,
   "warnings": [],
   "items": [
     {
       "type": "Issue",
-      "description": "18% of legacy customer records lack an email address, which is currently a problem for the dedupe step.",
+      "description": "18% of legacy customer records have no email address, which is currently a problem for the dedupe step.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
@@ -68,6 +68,15 @@
       "due_date": "Not stated",
       "status": "Open",
       "source_quote": "Ruth to tell the sales team about the freeze date.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Ask the CRM vendor about raising the import limit.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Ask the CRM vendor about raising the import limit.",
       "quote_verified": true
     }
   ]

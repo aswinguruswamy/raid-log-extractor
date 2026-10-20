@@ -2,9 +2,9 @@
   "sample": "s05_erp_steering.docx",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1365,
+  "input_tokens": 1543,
   "output_tokens": 802,
-  "seconds": 4.02,
+  "seconds": 4.11,
   "warnings": [],
   "items": [
     {
@@ -45,7 +45,7 @@
     },
     {
       "type": "Assumption",
-      "description": "The plan assumes there will be no change freeze over the holiday period.",
+      "description": "The plan assumes there is no change freeze over the holiday period.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
@@ -54,7 +54,7 @@
     },
     {
       "type": "Action",
-      "description": "Fix the unit-of-measure mapping and rerun the load.",
+      "description": "Fix the unit-of-measure mapping and rerun the data load.",
       "owner": "Kwame Asante",
       "due_date": "2026-11-04",
       "status": "Open",

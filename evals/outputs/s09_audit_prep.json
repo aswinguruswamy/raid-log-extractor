@@ -2,9 +2,9 @@
   "sample": "s09_audit_prep.txt",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1353,
+  "input_tokens": 1531,
   "output_tokens": 803,
-  "seconds": 4.6,
+  "seconds": 4.29,
   "warnings": [],
   "items": [
     {
@@ -18,7 +18,7 @@
     },
     {
       "type": "Risk",
-      "description": "If the outstanding access reviews are not finished before the audit, the organisation may receive a major non-conformity.",
+      "description": "If the outstanding access reviews are not completed before the audit, the organisation may receive a major non-conformity.",
       "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
@@ -54,7 +54,7 @@
     },
     {
       "type": "Action",
-      "description": "Fatima Zahra will complete the remaining access reviews.",
+      "description": "Fatima Zahra to complete the remaining access reviews.",
       "owner": "Fatima Zahra",
       "due_date": "2026-11-06",
       "status": "Open",
@@ -63,7 +63,7 @@
     },
     {
       "type": "Action",
-      "description": "Leo Fernandes will provide training records for new joiners.",
+      "description": "Leo Fernandes to provide training records for new joiners.",
       "owner": "Leo Fernandes",
       "due_date": "2026-11-10",
       "status": "Open",
@@ -72,7 +72,7 @@
     },
     {
       "type": "Action",
-      "description": "Oliver Grant will book a dry-run session, with the date still to be agreed.",
+      "description": "Oliver Grant to book a dry-run session, with the date still to be agreed.",
       "owner": "Oliver Grant",
       "due_date": "Not stated",
       "status": "Open",

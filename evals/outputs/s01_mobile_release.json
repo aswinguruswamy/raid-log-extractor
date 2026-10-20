@@ -2,9 +2,9 @@
   "sample": "s01_mobile_release.vtt",
   "model": "claude-sonnet-5-5",
   "run_date": "2026-10-20",
-  "input_tokens": 1434,
-  "output_tokens": 695,
-  "seconds": 5.0,
+  "input_tokens": 1612,
+  "output_tokens": 719,
+  "seconds": 4.42,
   "warnings": [],
   "items": [
     {
@@ -27,11 +27,11 @@
     },
     {
       "type": "Dependency",
-      "description": "The app release cannot go out until the new login API is deployed to production.",
-      "owner": "Daniel Kim",
+      "description": "The app release depends on the new login API being deployed to production, which has not happened yet.",
+      "owner": "Not stated",
       "due_date": "Not stated",
       "status": "Open",
-      "source_quote": "The app release cannot go out until that API is live.",
+      "source_quote": "the new login API is not deployed to production yet. The app release cannot go out until that API is live.",
       "quote_verified": true
     },
     {

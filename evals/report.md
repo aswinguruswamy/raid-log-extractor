@@ -10,52 +10,49 @@
 | Assumption | 9 | 9 | 100% | 100% |
 | Issue | 10 | 10 | 100% | 100% |
 | Dependency | 9 | 9 | 100% | 100% |
-| Action | 22 | 21 | 91% | 95% |
+| Action | 22 | 22 | 100% | 100% |
 | Decision | 9 | 9 | 100% | 100% |
-| **All** | **68** | **67** | **97%** | **99%** |
+| **All** | **68** | **68** | **100%** | **100%** |
 
 ## Charter targets
 
 | Metric | Target | Result | Met |
 |---|---|---|---|
-| Recall on risks, issues, dependencies, actions | 85% or more | 96% | ✅ |
-| Precision on all item types | 80% or more | 99% | ✅ |
+| Recall on risks, issues, dependencies, actions | 85% or more | 100% | ✅ |
+| Precision on all item types | 80% or more | 100% | ✅ |
 | Owners or dates that the tool invents | 0 | 0 | ✅ |
 
 ## Owners and dates (on matched items)
 
 | Check | Result |
 |---|---|
-| Correct owner | 20 of 22 (91%) |
-| Correct due date | 11 of 12 (92%) |
-| Owner given where the notes name nobody | 2 |
+| Correct owner | 21 of 21 (100%) |
+| Correct due date | 11 of 11 (100%) |
+| Owner given where the notes name nobody | 0 |
 | Owner not in the notes at all (invented) | 0 |
 | Date not in the notes at all (invented) | 0 |
 
 ## Cost and time
 
-All 10 samples: $0.0912 in total, 38.2 s in total (average $0.0091 and 3.8 s for each sample).
+All 10 samples: $0.0960 in total, 38.6 s in total (average $0.0096 and 3.9 s for each sample).
 
 ## Manual baseline (story S2-03, KAN-17)
 
 | Sample | Manual RAID log | Tool run |
 |---|---|---|
-| s02_crm_migration.txt | 8 min | 3.9 s |
-| s05_erp_steering.docx | 6 min | 4.0 s |
-| s07_cloud_migration.vtt | 6 min | 3.5 s |
+| s02_crm_migration.txt | 8 min | 4.9 s |
+| s05_erp_steering.docx | 6 min | 4.1 s |
+| s07_cloud_migration.vtt | 6 min | 3.7 s |
 
 Manual times were measured on 2026-10-20 (s02: 17:32-17:40, s05: 17:46-17:52, s07: 17:57-18:03). These samples are short (about 140-160 words). Notes from a 1-hour call are much longer, so the manual time for a real call is higher. The charter's assumption of 20-40 minutes for a full call is not yet measured.
 
 ## Details by sample
 
 **s01_mobile_release.vtt** — expected 7, found 7, matched 7
-- Guessed owner: Daniel Kim for 'App release needs the new login API live in production'
 
-**s02_crm_migration.txt** — expected 8, found 7, matched 7
-- Missed: Action: Ask the vendor about raising the import limit
+**s02_crm_migration.txt** — expected 8, found 8, matched 8
 
 **s03_payroll_vendor.vtt** — expected 7, found 7, matched 7
-- Guessed owner: Priya Raman for 'Vendor SSO works with our identity provider (untested)'
 
 **s04_office_move.txt** — expected 7, found 7, matched 7
 
@@ -63,9 +60,7 @@ Manual times were measured on 2026-10-20 (s02: 17:32-17:40, s05: 17:46-17:52, s0
 
 **s06_holiday_campaign.txt** — expected 7, found 7, matched 7
 
-**s07_cloud_migration.vtt** — expected 7, found 7, matched 6
-- Missed: Action: Open a ticket with the backup vendor
-- Extra: Action: Claire will open a ticket with the backup vendor today, right after the call.
+**s07_cloud_migration.vtt** — expected 7, found 7, matched 7
 
 **s08_graduate_onboarding.docx** — expected 7, found 7, matched 7
 
