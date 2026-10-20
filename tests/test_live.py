@@ -60,6 +60,25 @@ def test_kan10_no_owners_in_notes_gives_not_stated(name):
     assert owners == {NOT_STATED}
 
 
+def test_kan13_command_writes_excel_with_the_real_api(tmp_path, capsys):
+    from raid.__main__ import main
+
+    assert main(["extract", str(FIXTURES / "teams_call.vtt"), "--out", str(tmp_path)]) == 0
+    assert (tmp_path / "teams_call_raid_log.xlsx").is_file()
+    print("\n" + capsys.readouterr().out)
+
+
+def test_kan14_one_hour_transcript_costs_less_than_target():
+    from raid.cost import COST_TARGET_USD, format_run, run_cost
+
+    base = read_notes(FIXTURES / "teams_call.vtt")
+    long_notes = "\n".join(f"[Part {n}]\n{base}" for n in range(1, 44))
+    result = extract_items(long_notes)
+    cost = run_cost(result.model, result.input_tokens, result.output_tokens)
+    print("\n" + format_run(result.model, result.input_tokens, result.output_tokens, result.seconds))
+    assert cost is not None and cost < COST_TARGET_USD
+
+
 def test_kan11_all_quotes_are_word_for_word():
     result = extract_items(read_notes(FIXTURES / "teams_call.vtt"))
     for item in result.unverified:
