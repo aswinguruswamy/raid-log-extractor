@@ -1,0 +1,62 @@
+{
+  "sample": "s08_graduate_onboarding.docx",
+  "project_type": "HR programme",
+  "items": [
+    {
+      "id": "s08-01",
+      "type": "Issue",
+      "summary": "Only 12 of 25 mentors signed up",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "only 12 of 25 mentors have signed up"
+    },
+    {
+      "id": "s08-02",
+      "type": "Dependency",
+      "summary": "Graduate laptops must arrive from procurement before the start",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "The laptops for the new graduates must arrive from procurement"
+    },
+    {
+      "id": "s08-03",
+      "type": "Risk",
+      "summary": "Renovation delay may force another induction venue",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "the induction week may need another venue"
+    },
+    {
+      "id": "s08-04",
+      "type": "Assumption",
+      "summary": "All graduates pass background checks before start",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "assumes all graduates will pass their background checks"
+    },
+    {
+      "id": "s08-05",
+      "type": "Decision",
+      "summary": "First week fully in person",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "decided to run the first week fully in person"
+    },
+    {
+      "id": "s08-06",
+      "type": "Action",
+      "summary": "Draft the welcome pack",
+      "owner": "Mei Lin",
+      "due_date": "2026-11-13",
+      "evidence": "Mei will draft the welcome pack"
+    },
+    {
+      "id": "s08-07",
+      "type": "Action",
+      "summary": "Remind managers to sign up as mentors",
+      "owner": "Elena Rossi",
+      "due_date": "Not stated",
+      "evidence": "Elena will send a reminder to the managers"
+    }
+  ]
+}

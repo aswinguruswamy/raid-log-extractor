@@ -1,0 +1,70 @@
+{
+  "sample": "s09_audit_prep.txt",
+  "project_type": "Compliance audit",
+  "items": [
+    {
+      "id": "s09-01",
+      "type": "Issue",
+      "summary": "Q3 access review incomplete: 3 of 11 systems outstanding",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "The Q3 access review is not complete"
+    },
+    {
+      "id": "s09-02",
+      "type": "Risk",
+      "summary": "Major non-conformity if access reviews are not done before the audit",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "we may receive a major non-conformity"
+    },
+    {
+      "id": "s09-03",
+      "type": "Dependency",
+      "summary": "Supplier check evidence depends on procurement uploading questionnaires",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "depends on the procurement team uploading the signed questionnaires"
+    },
+    {
+      "id": "s09-04",
+      "type": "Assumption",
+      "summary": "Auditor accepts the new risk register format",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "We assume the auditor will accept the new risk register format"
+    },
+    {
+      "id": "s09-05",
+      "type": "Decision",
+      "summary": "Internal audit report shared with the auditor in advance",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "the internal audit report will be shared with the auditor in advance"
+    },
+    {
+      "id": "s09-06",
+      "type": "Action",
+      "summary": "Complete the remaining access reviews",
+      "owner": "Fatima Zahra",
+      "due_date": "2026-11-06",
+      "evidence": "Fatima Zahra to complete the remaining access reviews"
+    },
+    {
+      "id": "s09-07",
+      "type": "Action",
+      "summary": "Provide training records for new joiners",
+      "owner": "Leo Fernandes",
+      "due_date": "2026-11-10",
+      "evidence": "Leo Fernandes to provide training records for new joiners"
+    },
+    {
+      "id": "s09-08",
+      "type": "Action",
+      "summary": "Book a dry-run session",
+      "owner": "Oliver Grant",
+      "due_date": "Not stated",
+      "evidence": "Oliver Grant to book a dry-run session"
+    }
+  ]
+}

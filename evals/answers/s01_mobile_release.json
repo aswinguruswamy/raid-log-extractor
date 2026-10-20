@@ -1,0 +1,62 @@
+{
+  "sample": "s01_mobile_release.vtt",
+  "project_type": "Software release",
+  "items": [
+    {
+      "id": "s01-01",
+      "type": "Issue",
+      "summary": "Android 12 crash rate of 4% in beta blocks the release",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "crash rate on Android 12 devices is at four percent"
+    },
+    {
+      "id": "s01-02",
+      "type": "Action",
+      "summary": "Fix the Android crash in the build",
+      "owner": "Omar Haddad",
+      "due_date": "2026-10-28",
+      "evidence": "I'll take the Android crash and have a fix in the build"
+    },
+    {
+      "id": "s01-03",
+      "type": "Dependency",
+      "summary": "App release needs the new login API live in production",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "The app release cannot go out until that API is live"
+    },
+    {
+      "id": "s01-04",
+      "type": "Risk",
+      "summary": "Late app store review may miss the November 3 marketing date",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "if we submit late we may miss the marketing date"
+    },
+    {
+      "id": "s01-05",
+      "type": "Assumption",
+      "summary": "Design team will not change the onboarding screens again",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "We are assuming the design team won't change the onboarding screens again"
+    },
+    {
+      "id": "s01-06",
+      "type": "Decision",
+      "summary": "Dark-mode toggle moves from 3.2 to 3.3",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "we drop the dark-mode toggle from 3.2 and move it to 3.3"
+    },
+    {
+      "id": "s01-07",
+      "type": "Action",
+      "summary": "Give QA the final test build by Thursday",
+      "owner": "Omar Haddad",
+      "due_date": "Not stated",
+      "evidence": "can you make sure Sofia has the build by Thursday"
+    }
+  ]
+}

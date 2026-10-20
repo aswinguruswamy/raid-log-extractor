@@ -1,0 +1,70 @@
+{
+  "sample": "s05_erp_steering.docx",
+  "project_type": "ERP rollout",
+  "items": [
+    {
+      "id": "s05-01",
+      "type": "Issue",
+      "summary": "Inventory data load failed: unit-of-measure codes do not match",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "The inventory module data load failed"
+    },
+    {
+      "id": "s05-02",
+      "type": "Risk",
+      "summary": "Go-live readiness at risk if finance staff cannot attend training",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "go-live readiness is at risk"
+    },
+    {
+      "id": "s05-03",
+      "type": "Decision",
+      "summary": "Two extra weeks of hypercare approved",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "approved an extra two weeks of hypercare"
+    },
+    {
+      "id": "s05-04",
+      "type": "Dependency",
+      "summary": "Go-live depends on the warehouse scanner upgrade",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "go-live depends on the hardware vendor upgrading the warehouse scanners"
+    },
+    {
+      "id": "s05-05",
+      "type": "Assumption",
+      "summary": "No change freeze over the holidays",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "The plan assumes no change freeze over the holiday period"
+    },
+    {
+      "id": "s05-06",
+      "type": "Action",
+      "summary": "Fix the unit-of-measure mapping and rerun the load",
+      "owner": "Kwame Asante",
+      "due_date": "2026-11-04",
+      "evidence": "Fix the unit-of-measure mapping and rerun the load"
+    },
+    {
+      "id": "s05-07",
+      "type": "Action",
+      "summary": "Agree a training release plan with finance managers",
+      "owner": "Lucy Zhang",
+      "due_date": "2026-11-09",
+      "evidence": "Agree a training release plan with finance managers"
+    },
+    {
+      "id": "s05-08",
+      "type": "Action",
+      "summary": "Confirm the scanner upgrade date with the vendor",
+      "owner": "Nadia Petrova",
+      "due_date": "Not stated",
+      "evidence": "Confirm the scanner upgrade date with the vendor"
+    }
+  ]
+}

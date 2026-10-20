@@ -1,0 +1,70 @@
+{
+  "sample": "s02_crm_migration.txt",
+  "project_type": "Data migration",
+  "items": [
+    {
+      "id": "s02-01",
+      "type": "Issue",
+      "summary": "18% of legacy records have no email address",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "18% of legacy customer records have no email address"
+    },
+    {
+      "id": "s02-02",
+      "type": "Risk",
+      "summary": "Import limit may stretch the migration to three weeks",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "the migration may take three weeks instead of one"
+    },
+    {
+      "id": "s02-03",
+      "type": "Assumption",
+      "summary": "Reps stop editing the old CRM from the freeze date",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "Sales ops assumes reps will stop editing the old CRM"
+    },
+    {
+      "id": "s02-04",
+      "type": "Dependency",
+      "summary": "Migration needs the SSO setup from IT",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "The migration cannot start until IT finishes the SSO setup"
+    },
+    {
+      "id": "s02-05",
+      "type": "Decision",
+      "summary": "Archive inactive records since 2019 instead of migrating",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "archive records with no activity since 2019"
+    },
+    {
+      "id": "s02-06",
+      "type": "Action",
+      "summary": "Write the dedupe rules",
+      "owner": "Aiko Tanaka",
+      "due_date": "2026-11-02",
+      "evidence": "Aiko to write the dedupe rules"
+    },
+    {
+      "id": "s02-07",
+      "type": "Action",
+      "summary": "Tell the sales team about the freeze date",
+      "owner": "Ruth Adeyemi",
+      "due_date": "Not stated",
+      "evidence": "Ruth to tell the sales team about the freeze date"
+    },
+    {
+      "id": "s02-08",
+      "type": "Action",
+      "summary": "Ask the vendor about raising the import limit",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "Ask the CRM vendor about raising the import limit"
+    }
+  ]
+}

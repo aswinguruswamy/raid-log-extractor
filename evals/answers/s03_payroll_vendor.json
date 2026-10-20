@@ -1,0 +1,62 @@
+{
+  "sample": "s03_payroll_vendor.vtt",
+  "project_type": "Vendor change",
+  "items": [
+    {
+      "id": "s03-01",
+      "type": "Issue",
+      "summary": "Overtime calculated wrong for night-shift staff",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "overtime was calculated wrong for night-shift staff"
+    },
+    {
+      "id": "s03-02",
+      "type": "Dependency",
+      "summary": "HR system feed needs the vendor's API credentials",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "we need them before we can build the HR system feed"
+    },
+    {
+      "id": "s03-03",
+      "type": "Action",
+      "summary": "Raise the overtime problem with vendor support",
+      "owner": "Victor Alvarez",
+      "due_date": "Not stated",
+      "evidence": "I'll raise the overtime problem with the vendor's support team"
+    },
+    {
+      "id": "s03-04",
+      "type": "Risk",
+      "summary": "Employees paid late in January if bank file format not approved",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "employees get paid late in January"
+    },
+    {
+      "id": "s03-05",
+      "type": "Assumption",
+      "summary": "Vendor SSO works with our identity provider (untested)",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "I'm assuming the vendor's single sign-on works with our identity provider"
+    },
+    {
+      "id": "s03-06",
+      "type": "Decision",
+      "summary": "Keep the old provider for contractors until March",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "keep the old provider for contractors until March"
+    },
+    {
+      "id": "s03-07",
+      "type": "Action",
+      "summary": "Send the vendor the SSO test plan",
+      "owner": "Priya Raman",
+      "due_date": "2026-11-06",
+      "evidence": "please send the vendor the SSO test plan"
+    }
+  ]
+}

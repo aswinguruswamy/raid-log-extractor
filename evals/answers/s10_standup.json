@@ -1,0 +1,22 @@
+{
+  "sample": "s10_standup.vtt",
+  "project_type": "Daily stand-up",
+  "items": [
+    {
+      "id": "s10-01",
+      "type": "Issue",
+      "summary": "Shared drive is full; new files cannot be saved",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "The shared drive is full"
+    },
+    {
+      "id": "s10-02",
+      "type": "Action",
+      "summary": "Ask IT to add more space",
+      "owner": "Nina Berg",
+      "due_date": "Not stated",
+      "evidence": "I'll ask IT to add more space"
+    }
+  ]
+}

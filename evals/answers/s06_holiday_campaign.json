@@ -1,0 +1,65 @@
+{
+  "sample": "s06_holiday_campaign.txt",
+  "project_type": "Marketing campaign",
+  "items": [
+    {
+      "id": "s06-01",
+      "type": "Dependency",
+      "summary": "Landing page build needs legal approval of the copy",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "build can't start without it",
+      "also_accept_types": [
+        "Issue"
+      ]
+    },
+    {
+      "id": "s06-02",
+      "type": "Issue",
+      "summary": "Paid social budget cut by 20%",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "finance cut the paid social budget by 20%"
+    },
+    {
+      "id": "s06-03",
+      "type": "Risk",
+      "summary": "Influencer partner may pull out",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "influencer partner might pull out"
+    },
+    {
+      "id": "s06-04",
+      "type": "Assumption",
+      "summary": "Q3 email list is still GDPR-compliant",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "assuming the Q3 email list is still GDPR-compliant"
+    },
+    {
+      "id": "s06-05",
+      "type": "Decision",
+      "summary": "Launch moves from Nov 20 to Nov 24",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "launch date moves from Nov 20 to Nov 24"
+    },
+    {
+      "id": "s06-06",
+      "type": "Action",
+      "summary": "Send revised timeline to stakeholders",
+      "owner": "Jo",
+      "due_date": "2026-10-23",
+      "evidence": "Jo to send revised timeline to stakeholders"
+    },
+    {
+      "id": "s06-07",
+      "type": "Action",
+      "summary": "Make new banner sizes for display ads",
+      "owner": "Ben",
+      "due_date": "Not stated",
+      "evidence": "Ben - new banner sizes"
+    }
+  ]
+}

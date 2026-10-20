@@ -1,0 +1,62 @@
+{
+  "sample": "s07_cloud_migration.vtt",
+  "project_type": "Cloud migration",
+  "items": [
+    {
+      "id": "s07-01",
+      "type": "Issue",
+      "summary": "Nightly backups failing since Monday",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "The nightly backups have been failing"
+    },
+    {
+      "id": "s07-02",
+      "type": "Dependency",
+      "summary": "Payment service move needs security review sign-off",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "we need the security review signed off"
+    },
+    {
+      "id": "s07-03",
+      "type": "Decision",
+      "summary": "Payment service goes in wave two",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "the payment service goes in wave two"
+    },
+    {
+      "id": "s07-04",
+      "type": "Assumption",
+      "summary": "Database licences move to the cloud at no extra cost",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "We are assuming our current database licences can move to the cloud"
+    },
+    {
+      "id": "s07-05",
+      "type": "Risk",
+      "summary": "Higher egress costs could push the bill over budget",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "the monthly bill could go over budget"
+    },
+    {
+      "id": "s07-06",
+      "type": "Action",
+      "summary": "Open a ticket with the backup vendor",
+      "owner": "Claire Dubois",
+      "due_date": "Not stated",
+      "evidence": "can you open a ticket with the backup vendor today"
+    },
+    {
+      "id": "s07-07",
+      "type": "Action",
+      "summary": "Update and share the wave plan",
+      "owner": "Arjun Mehta",
+      "due_date": "2026-10-27",
+      "evidence": "I'll update the wave plan and share it"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "sample": "s04_office_move.txt",
+  "project_type": "Office move",
+  "items": [
+    {
+      "id": "s04-01",
+      "type": "Decision",
+      "summary": "Keep the move date of 2026-12-12",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "decided to keep the move date of 2026-12-12"
+    },
+    {
+      "id": "s04-02",
+      "type": "Dependency",
+      "summary": "Fibre installation needs landlord approval",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "will not be installed until the landlord approves the work"
+    },
+    {
+      "id": "s04-03",
+      "type": "Action",
+      "summary": "Chase the landlord for approval",
+      "owner": "Ines Duarte",
+      "due_date": "2026-10-30",
+      "evidence": "Ines will chase the landlord for approval"
+    },
+    {
+      "id": "s04-04",
+      "type": "Risk",
+      "summary": "Desks may not arrive before the move",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "the desks may not arrive before the move"
+    },
+    {
+      "id": "s04-05",
+      "type": "Action",
+      "summary": "Place the furniture order",
+      "owner": "Felix Novak",
+      "due_date": "Not stated",
+      "evidence": "Felix will place the order on Friday"
+    },
+    {
+      "id": "s04-06",
+      "type": "Issue",
+      "summary": "Only 40 parking spaces for 90 people; staff complaining",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "only 40 parking spaces for 90 people"
+    },
+    {
+      "id": "s04-07",
+      "type": "Assumption",
+      "summary": "Old office accessible for two weeks after the move",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "evidence": "assumes the old office can be accessed for two weeks after the move"
+    }
+  ]
+}
