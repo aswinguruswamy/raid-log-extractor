@@ -1,0 +1,76 @@
+{
+  "sample": "s01_mobile_release.vtt",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1612,
+  "output_tokens": 719,
+  "seconds": 4.42,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The crash rate on Android 12 devices is four percent in the beta, which currently blocks the release.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The crash rate on Android 12 devices is at four percent in the beta, so right now that is a release blocker.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Omar will fix the Android crash and have the fix in the build by 2026-10-28.",
+      "owner": "Omar Haddad",
+      "due_date": "2026-10-28",
+      "status": "Open",
+      "source_quote": "I'll take the Android crash and have a fix in the build by 2026-10-28.",
+      "quote_verified": true
+    },
+    {
+      "type": "Dependency",
+      "description": "The app release depends on the new login API being deployed to production, which has not happened yet.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "the new login API is not deployed to production yet. The app release cannot go out until that API is live.",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "App store review can take up to a week, so a late submission may miss the November 3 marketing date.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The app store review can take up to a week, so if we submit late we may miss the marketing date on November 3.",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "The team assumes the design team will not change the onboarding screens again.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "We are assuming the design team won't change the onboarding screens again.",
+      "quote_verified": true
+    },
+    {
+      "type": "Decision",
+      "description": "The dark-mode toggle is dropped from version 3.2 and moved to 3.3.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "we drop the dark-mode toggle from 3.2 and move it to 3.3.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Omar will make sure Sofia has the final test build by Thursday so she can finish regression.",
+      "owner": "Omar Haddad",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Omar, can you make sure Sofia has the build by Thursday?",
+      "quote_verified": true
+    }
+  ],
+  "label": "Mobile app release call (Teams transcript, .vtt)",
+  "source": "Eval run 2 (prompt v2), saved output. No API call is made in demo mode."
+}

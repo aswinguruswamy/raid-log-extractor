@@ -8,6 +8,7 @@ user can change it later.
 from __future__ import annotations
 
 from datetime import date
+from io import BytesIO
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -42,18 +43,28 @@ _WRAP = Alignment(wrap_text=True, vertical="top")
 _NOT_FOUND_FILL = PatternFill("solid", fgColor="FCE4D6")
 
 
-def to_excel(log: RaidLog, path: str | Path) -> Path:
-    """Write the log to an .xlsx file and return its path."""
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-
+def build_workbook(log: RaidLog) -> Workbook:
+    """The RAID log as an openpyxl workbook: a Summary sheet, then one sheet per item type."""
     workbook = Workbook()
     _write_summary(workbook.active, log)
     for item_type, items in log.by_type().items():
         _write_type_sheet(workbook.create_sheet(SHEET_NAMES[item_type]), items)
+    return workbook
 
-    workbook.save(path)
+
+def to_excel(log: RaidLog, path: str | Path) -> Path:
+    """Write the log to an .xlsx file and return its path."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    build_workbook(log).save(path)
     return path
+
+
+def to_excel_bytes(log: RaidLog) -> bytes:
+    """The .xlsx file as bytes, for a download button."""
+    buffer = BytesIO()
+    build_workbook(log).save(buffer)
+    return buffer.getvalue()
 
 
 def _write_summary(sheet, log: RaidLog) -> None:
