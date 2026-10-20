@@ -68,3 +68,17 @@ def test_excel_bytes_open_as_a_workbook():
     workbook = load_workbook(BytesIO(to_excel_bytes(log)))
     assert workbook.sheetnames[0] == "Summary"
     assert workbook["Risks"]["B2"].value == "The vendor may be late."
+
+
+def test_dollar_signs_show_as_plain_text(monkeypatch):
+    """Two "$" signs in Markdown become a maths formula; the page must escape them."""
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = run_app()
+    app.radio[0].set_value("Your own notes").run()
+    texts = [m.value for m in app.markdown] + [c.value for c in app.caption]
+    for text in texts:
+        unescaped = text.replace("\\$", "")
+        assert "$" not in unescaped, text
+    app.radio[0].set_value("Demo (no API key)").run()
+    run_line = next(c.value for c in app.caption if "Cost:" in c.value)
+    assert "\\$" in run_line

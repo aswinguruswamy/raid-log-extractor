@@ -81,6 +81,11 @@ def items_table(items: list[RaidItem]) -> pd.DataFrame:
     return table
 
 
+def plain(text: str) -> str:
+    """Escape "$" so that Streamlit does not show the text between two "$" signs as a maths formula."""
+    return text.replace("$", "\\$")
+
+
 def notes_from_upload(name: str, content: bytes) -> str:
     """Write the upload to a temporary file with the same suffix, then read it."""
     suffix = Path(name).suffix.lower()
@@ -130,10 +135,10 @@ def show_results(log: RaidLog, *, run_line: str, warnings: list[str], file_stem:
         if warnings:
             with st.expander(f"{len(warnings)} warning(s) to check"):
                 for warning in warnings:
-                    st.warning(warning)
+                    st.warning(plain(warning))
 
         left, right = st.columns([3, 1], vertical_alignment="center")
-        left.caption(run_line)
+        left.caption(plain(run_line))
         right.download_button(
             "Download Excel",
             data=to_excel_bytes(log),
@@ -173,8 +178,8 @@ def own_notes_mode() -> None:
         with st.expander("Why a key? · Privacy"):
             st.markdown(
                 "**Why a key?** This mode sends your notes to Claude through the Anthropic API, and the API "
-                "needs a key for each request. Anthropic bills your account: about $0.01 for a short call and "
-                "about $0.05 for a 1-hour transcript. This site has no key of its own.\n\n"
+                "needs a key for each request. Anthropic bills your account: about \\$0.01 for a short call and "
+                "about \\$0.05 for a 1-hour transcript. This site has no key of its own.\n\n"
                 "**Privacy:** the page sends your notes to the Anthropic API and does not store them or the key. "
                 "Do not upload confidential client data."
             )
