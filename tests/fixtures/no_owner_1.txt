@@ -1,0 +1,7 @@
+Website redesign — call notes
+
+- The new design system is not finished yet, so the page templates cannot start.
+- There is a risk that the content migration takes longer than six weeks.
+- The team assumes the old CMS stays online during the switch.
+- The analytics tags must be checked before go-live.
+- It was decided to launch the mobile layout first.

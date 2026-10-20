@@ -1,0 +1,45 @@
+WEBVTT
+
+0001
+00:00:02.000 --> 00:00:08.000
+<v Priya Shah>Okay, let's start. This is the weekly check-in for the billing system migration.</v>
+
+0002
+00:00:08.500 --> 00:00:16.000
+<v Priya Shah>First item. The staging database is down since yesterday, so nobody can run the integration tests.</v>
+
+0003
+00:00:16.500 --> 00:00:24.000
+<v Tom Lee>I talked to the infrastructure team. They say it is a disk problem. I will follow up with them and get an update by end of day today.</v>
+
+0004
+00:00:24.500 --> 00:00:33.000
+<v Priya Shah>Thanks Tom. Next, the payment gateway vendor. They still have not confirmed the new API version, and if they slip again we could miss the November cutover.</v>
+
+0005
+00:00:33.500 --> 00:00:40.000
+<v Grace Okafor>We are assuming that the vendor keeps the old API running until December. Nobody has confirmed that in writing.</v>
+
+0006
+00:00:40.500 --> 00:00:47.000
+<v Priya Shah>Good point. Grace, can you get written confirmation from the vendor by 2026-10-30?</v>
+
+0007
+00:00:47.500 --> 00:00:50.000
+<v Grace Okafor>Yes, I'll do that.</v>
+
+0008
+00:00:50.500 --> 00:00:59.000
+<v Tom Lee>Also, we cannot start the data migration until the security team signs off on the encryption design.</v>
+
+0009
+00:00:59.500 --> 00:01:08.000
+<v Priya Shah>On the database question, we agreed last week to compare options. Today we decided to go with PostgreSQL for the new invoicing service.</v>
+
+0010
+00:01:08.500 --> 00:01:14.000
+<v Ravi Menon>One more risk. Two of our testers are on leave in November, so regression testing may take longer than planned.</v>
+
+0011
+00:01:14.500 --> 00:01:19.000
+<v Priya Shah>Okay. Let's look at that next week. Thanks everyone.</v>

@@ -1,0 +1,7 @@
+Data warehouse project — sync notes
+
+The nightly load failed twice this week and the cause is not known.
+If the source system upgrade slips, the reporting deadline is at risk.
+The finance reports need the new customer table before they can be rebuilt.
+The group agreed to keep the old reports running in parallel for one month.
+Someone needs to update the data dictionary after the schema change.

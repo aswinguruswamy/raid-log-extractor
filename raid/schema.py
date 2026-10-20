@@ -45,6 +45,9 @@ class RaidItem(BaseModel):
     due_date: str = Field(default=NOT_STATED, description="YYYY-MM-DD, or 'Not stated'.")
     status: Status = Status.OPEN
     source_quote: str = Field(min_length=1, description="Exact words from the notes.")
+    quote_verified: bool | None = Field(
+        default=None, description="True when the quote was found word for word in the notes (KAN-11)."
+    )
 
     @field_validator("description", "source_quote", mode="before")
     @classmethod
