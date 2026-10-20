@@ -1,0 +1,83 @@
+{
+  "sample": "s09_audit_prep.txt",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1353,
+  "output_tokens": 803,
+  "seconds": 4.6,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The Q3 access review is incomplete, with 3 of 11 systems still outstanding.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The Q3 access review is not complete; 3 of 11 systems are still outstanding.",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "If the outstanding access reviews are not finished before the audit, the organisation may receive a major non-conformity.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "If the outstanding access reviews are not complete before the audit, we may receive a major non-conformity.",
+      "quote_verified": true
+    },
+    {
+      "type": "Dependency",
+      "description": "Evidence for the supplier security checks depends on the procurement team uploading the signed questionnaires.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Evidence for the supplier security checks depends on the procurement team uploading the signed questionnaires.",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "The team assumes the auditor will accept the new risk register format.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "We assume the auditor will accept the new risk register format.",
+      "quote_verified": true
+    },
+    {
+      "type": "Decision",
+      "description": "The internal audit report will be shared with the auditor in advance.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Decision: the internal audit report will be shared with the auditor in advance.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Fatima Zahra will complete the remaining access reviews.",
+      "owner": "Fatima Zahra",
+      "due_date": "2026-11-06",
+      "status": "Open",
+      "source_quote": "Action: Fatima Zahra to complete the remaining access reviews by 2026-11-06.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Leo Fernandes will provide training records for new joiners.",
+      "owner": "Leo Fernandes",
+      "due_date": "2026-11-10",
+      "status": "Open",
+      "source_quote": "Action: Leo Fernandes to provide training records for new joiners by 2026-11-10.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Oliver Grant will book a dry-run session, with the date still to be agreed.",
+      "owner": "Oliver Grant",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Action: Oliver Grant to book a dry-run session (date to be agreed).",
+      "quote_verified": true
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "sample": "s06_holiday_campaign.txt",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1200,
+  "output_tokens": 649,
+  "seconds": 4.09,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Dependency",
+      "description": "Building the landing page cannot start until legal approves the landing page copy.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "legal hasn't approved the landing page copy yet. build can't start without it",
+      "quote_verified": true
+    },
+    {
+      "type": "Issue",
+      "description": "Finance cut the paid social budget by 20%, leaving the team short of funds for the ads already booked.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "finance cut the paid social budget by 20% yesterday, we're already short for the ads we booked",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "The influencer partner may pull out because the contract has not been signed.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "influencer partner might pull out, contract still not signed",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "The team assumes the Q3 email list is still GDPR-compliant.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "assuming the Q3 email list is still GDPR-compliant",
+      "quote_verified": true
+    },
+    {
+      "type": "Decision",
+      "description": "The launch date was moved from Nov 20 to Nov 24.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "decided: launch date moves from Nov 20 to Nov 24",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Jo will send the revised timeline to stakeholders.",
+      "owner": "Jo",
+      "due_date": "2026-10-23",
+      "status": "Open",
+      "source_quote": "AI: Jo to send revised timeline to stakeholders by 2026-10-23",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Ben will produce new banner sizes for the display ads.",
+      "owner": "Ben",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "AI: Ben - new banner sizes for the display ads",
+      "quote_verified": true
+    }
+  ]
+}

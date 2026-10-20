@@ -1,0 +1,74 @@
+{
+  "sample": "s04_office_move.txt",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1291,
+  "output_tokens": 699,
+  "seconds": 3.88,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Decision",
+      "description": "The group decided to keep the move date of 2026-12-12 instead of delaying the move to January.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The group decided to keep the move date of 2026-12-12 rather than delay to January.",
+      "quote_verified": true
+    },
+    {
+      "type": "Dependency",
+      "description": "Installation of the fibre line in the new building depends on the landlord approving the work.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The fibre line in the new building will not be installed until the landlord approves the work.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Ines will chase the landlord for approval of the fibre installation work by 2026-10-30.",
+      "owner": "Ines Duarte",
+      "due_date": "2026-10-30",
+      "status": "Open",
+      "source_quote": "Ines will chase the landlord for approval by 2026-10-30.",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "If the furniture order is not placed this week, given the six-week supplier lead time, the desks may not arrive before the move.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "If the order is not placed this week, the desks may not arrive before the move.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Felix will place the furniture order on Friday.",
+      "owner": "Felix Novak",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Felix will place the order on Friday.",
+      "quote_verified": true
+    },
+    {
+      "type": "Issue",
+      "description": "The new site has only 40 parking spaces for 90 people, and staff are already complaining.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The new site has only 40 parking spaces for 90 people, and staff are already complaining about it.",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "The group assumes the old office can be accessed for two weeks after the move to collect remaining items.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The group assumes the old office can be accessed for two weeks after the move to collect remaining items.",
+      "quote_verified": true
+    }
+  ]
+}
