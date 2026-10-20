@@ -9,6 +9,7 @@ from __future__ import annotations
 import re
 from collections import defaultdict
 from enum import Enum
+from typing import Optional
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -45,7 +46,7 @@ class RaidItem(BaseModel):
     due_date: str = Field(default=NOT_STATED, description="YYYY-MM-DD, or 'Not stated'.")
     status: Status = Status.OPEN
     source_quote: str = Field(min_length=1, description="Exact words from the notes.")
-    quote_verified: bool | None = Field(
+    quote_verified: Optional[bool] = Field(
         default=None, description="True when the quote was found word for word in the notes (KAN-11)."
     )
 
