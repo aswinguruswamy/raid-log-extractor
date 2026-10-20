@@ -1,0 +1,15 @@
+CRM data migration – weekly sync
+
+Attendees: Marcus Bell (PM), Aiko Tanaka (data engineer), Ruth Adeyemi (sales ops)
+
+Discussion
+- Data quality: 18% of legacy customer records have no email address. This is a problem today for the dedupe step.
+- If the new CRM's import limit of 50,000 records per day stays in place, the migration may take three weeks instead of one.
+- Sales ops assumes reps will stop editing the old CRM from the freeze date.
+- The migration cannot start until IT finishes the SSO setup for the new CRM.
+- Agreed: archive records with no activity since 2019 instead of migrating them.
+
+Next steps
+- Aiko to write the dedupe rules by 2026-11-02.
+- Ruth to tell the sales team about the freeze date.
+- Ask the CRM vendor about raising the import limit.

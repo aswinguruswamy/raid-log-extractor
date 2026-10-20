@@ -1,0 +1,45 @@
+WEBVTT
+
+c9d1-01
+00:00:00.800 --> 00:00:05.000
+<v Yuki Sato>Hello everyone. How was the weekend?</v>
+
+c9d1-02
+00:00:05.500 --> 00:00:09.000
+<v Arjun Mehta>Good, too much coffee though. Let's start.</v>
+
+c9d1-03
+00:00:09.500 --> 00:00:15.000
+<v Claire Dubois>First thing. The nightly backups have been failing on the old data center since Monday.</v>
+
+c9d1-04
+00:00:15.500 --> 00:00:21.000
+<v Arjun Mehta>On the wave plan, I first thought we'd move the payment service in wave one.</v>
+
+c9d1-05
+00:00:21.500 --> 00:00:29.000
+<v Tomasz Nowak>Before we move the payment service we need the security review signed off, and that review only happens after the pen test.</v>
+
+c9d1-06
+00:00:29.500 --> 00:00:35.000
+<v Arjun Mehta>Okay, final answer: the payment service goes in wave two, not wave one.</v>
+
+c9d1-07
+00:00:35.500 --> 00:00:42.000
+<v Claire Dubois>We are assuming our current database licences can move to the cloud without extra cost.</v>
+
+c9d1-08
+00:00:42.500 --> 00:00:49.000
+<v Tomasz Nowak>If egress costs are higher than the estimate, the monthly bill could go over budget.</v>
+
+c9d1-09
+00:00:49.500 --> 00:00:53.000
+<v Yuki Sato>Claire, can you open a ticket with the backup vendor today?</v>
+
+c9d1-10
+00:00:53.500 --> 00:00:56.000
+<v Claire Dubois>Yes, I'll do it right after this call.</v>
+
+c9d1-11
+00:00:56.500 --> 00:01:02.000
+<v Arjun Mehta>And I'll update the wave plan and share it by 2026-10-27.</v>

@@ -1,0 +1,37 @@
+WEBVTT
+
+1
+00:00:00.500 --> 00:00:04.000
+Hannah Moore: Thanks for joining. This is the weekly payroll switch call.
+
+2
+00:00:04.500 --> 00:00:11.000
+Victor Alvarez: The parallel run found that overtime was calculated wrong for night-shift staff.
+
+3
+00:00:11.500 --> 00:00:19.000
+Priya Raman: The new vendor still hasn't sent the API credentials, and we need them before we can build the HR system feed.
+
+4
+00:00:19.500 --> 00:00:24.000
+Victor Alvarez: I'll raise the overtime problem with the vendor's support team this week.
+
+5
+00:00:24.500 --> 00:00:32.000
+Hannah Moore: There's a chance employees get paid late in January if the bank file format isn't approved in time.
+
+6
+00:00:32.500 --> 00:00:39.000
+Priya Raman: I'm assuming the vendor's single sign-on works with our identity provider. Nobody has tested it yet.
+
+7
+00:00:39.500 --> 00:00:44.000
+Hannah Moore: We agreed to keep the old provider for contractors until March.
+
+8
+00:00:44.500 --> 00:00:49.000
+Hannah Moore: Priya, please send the vendor the SSO test plan by 2026-11-06.
+
+9
+00:00:49.500 --> 00:00:51.000
+Priya Raman: Will do.
