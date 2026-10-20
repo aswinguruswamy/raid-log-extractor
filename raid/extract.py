@@ -33,12 +33,16 @@ Item types (use exactly one per item):
 
 Rules:
 1. Record only what the notes say. Do not add advice or items of your own.
-2. owner: the person the notes name as responsible. If the notes name nobody, write "{NOT_STATED}". Never guess an owner from who spoke.
-3. due_date: YYYY-MM-DD only when the notes give a full calendar date. For a relative date such as "by Friday" or "next week", write "{NOT_STATED}" and keep the relative words in the description.
-4. description: one clear sentence in your own words.
-5. source_quote: copy the exact words from the notes that support the item. Copy them character for character, as one continuous span, 5 to 40 words. Do not fix spelling or grammar in the quote.
-6. One fact gives one item. Do not repeat an item under two types.
-7. If the notes have no items of a type, record none of that type.
+2. Record every task that someone must do as an Action, also when the notes name no owner for it (for example "Ask the vendor about X").
+3. owner: the person the notes make responsible for the item.
+   - Action: the person who agreed to do the task, or was asked and agreed. If nobody is named, write "{NOT_STATED}".
+   - Risk, Assumption, Issue, Dependency, Decision: write "{NOT_STATED}" unless the notes give that item to a person (for example "Grace owns this risk").
+   - The person who speaks or reports an item is NOT its owner. Never guess an owner.
+4. due_date: YYYY-MM-DD only when the notes give a full calendar date. For a relative date such as "by Friday" or "next week", write "{NOT_STATED}" and keep the relative words in the description.
+5. description: one clear sentence in your own words.
+6. source_quote: copy the exact words from the notes that support the item. Copy them character for character, as one continuous span, 5 to 40 words. Do not fix spelling or grammar in the quote. When an action is agreed in two turns (a request and a short "yes"), quote the request that names the task, not the "yes".
+7. One fact gives one item. Do not repeat an item under two types.
+8. If the notes have no items of a type, record none of that type.
 
 Call the {TOOL_NAME} tool once with all items."""
 
