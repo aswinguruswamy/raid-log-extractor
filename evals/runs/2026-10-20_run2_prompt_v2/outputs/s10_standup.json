@@ -1,0 +1,29 @@
+{
+  "sample": "s10_standup.vtt",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1384,
+  "output_tokens": 204,
+  "seconds": 1.73,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The shared drive is full, so Paul cannot save new files there at the moment.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The shared drive is full, so I can't save new files there right now.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Nina will ask IT to add more space to the shared drive.",
+      "owner": "Nina Berg",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "I'll ask IT to add more space.",
+      "quote_verified": true
+    }
+  ]
+}

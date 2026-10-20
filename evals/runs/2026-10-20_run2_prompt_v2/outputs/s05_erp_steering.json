@@ -1,0 +1,83 @@
+{
+  "sample": "s05_erp_steering.docx",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1543,
+  "output_tokens": 802,
+  "seconds": 4.11,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The inventory module data load failed in the last test cycle because unit-of-measure codes do not match.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The inventory module data load failed in the last test cycle because the unit-of-measure codes do not match.",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "If the finance team cannot release staff for training in November, go-live readiness is at risk.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "if the finance team cannot release staff for training in November, go-live readiness is at risk.",
+      "quote_verified": true
+    },
+    {
+      "type": "Decision",
+      "description": "The committee approved an extra two weeks of hypercare after go-live.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The committee approved an extra two weeks of hypercare after go-live.",
+      "quote_verified": true
+    },
+    {
+      "type": "Dependency",
+      "description": "Phase 2 go-live depends on the hardware vendor upgrading the warehouse scanners.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Phase 2 go-live depends on the hardware vendor upgrading the warehouse scanners.",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "The plan assumes there is no change freeze over the holiday period.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The plan assumes no change freeze over the holiday period.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Fix the unit-of-measure mapping and rerun the data load.",
+      "owner": "Kwame Asante",
+      "due_date": "2026-11-04",
+      "status": "Open",
+      "source_quote": "Fix the unit-of-measure mapping and rerun the load | Kwame Asante | 2026-11-04",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Agree a training release plan with finance managers.",
+      "owner": "Lucy Zhang",
+      "due_date": "2026-11-09",
+      "status": "Open",
+      "source_quote": "Agree a training release plan with finance managers | Lucy Zhang | 2026-11-09",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Confirm the scanner upgrade date with the vendor.",
+      "owner": "Nadia Petrova",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Confirm the scanner upgrade date with the vendor | Nadia Petrova | Not set",
+      "quote_verified": true
+    }
+  ]
+}

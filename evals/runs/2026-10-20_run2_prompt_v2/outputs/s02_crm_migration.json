@@ -1,0 +1,83 @@
+{
+  "sample": "s02_crm_migration.txt",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1488,
+  "output_tokens": 778,
+  "seconds": 4.89,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "18% of legacy customer records have no email address, which is currently a problem for the dedupe step.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "18% of legacy customer records have no email address. This is a problem today for the dedupe step.",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "If the new CRM's import limit of 50,000 records per day stays, the migration may take three weeks instead of one.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "If the new CRM's import limit of 50,000 records per day stays in place, the migration may take three weeks instead of one.",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "Sales ops assumes reps will stop editing the old CRM from the freeze date.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Sales ops assumes reps will stop editing the old CRM from the freeze date.",
+      "quote_verified": true
+    },
+    {
+      "type": "Dependency",
+      "description": "The migration cannot start until IT finishes the SSO setup for the new CRM.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The migration cannot start until IT finishes the SSO setup for the new CRM.",
+      "quote_verified": true
+    },
+    {
+      "type": "Decision",
+      "description": "The team decided to archive records with no activity since 2019 instead of migrating them.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Agreed: archive records with no activity since 2019 instead of migrating them.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Aiko will write the dedupe rules by 2026-11-02.",
+      "owner": "Aiko Tanaka",
+      "due_date": "2026-11-02",
+      "status": "Open",
+      "source_quote": "Aiko to write the dedupe rules by 2026-11-02.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Ruth will tell the sales team about the freeze date.",
+      "owner": "Ruth Adeyemi",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Ruth to tell the sales team about the freeze date.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Ask the CRM vendor about raising the import limit.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Ask the CRM vendor about raising the import limit.",
+      "quote_verified": true
+    }
+  ]
+}

@@ -34,3 +34,26 @@ One round of prompt changes aimed at findings 1, 2, and 4:
 3. For an action agreed in two turns (a request and a "yes"), quote the request that names the task.
 
 Rule: the change stays only if the scores are better than this baseline.
+
+## Run 2 — prompt v2 (2026-10-20)
+
+Report: [`runs/2026-10-20_run2_prompt_v2/report.md`](runs/2026-10-20_run2_prompt_v2/report.md) · Model: `claude-sonnet-5-5` · Prompt: commit `a7ec47b`
+
+| Metric | Run 1 | Run 2 |
+|---|---|---|
+| Recall (all types) | 97% | **100%** (68 of 68) |
+| Precision (all types) | 99% | **100%** (68 of 68) |
+| Correct owner on matched items | 91% | **100%** |
+| Correct due date on matched items | 92% | **100%** |
+| Guessed owners | 2 | **0** |
+| Invented owners or dates | 0 | 0 |
+| Quotes not found word for word | 0 | 0 |
+| Cost and time, 10 samples | $0.091, 38 s | $0.096, 39 s |
+
+**Decision: keep prompt v2.** All scores are equal or better, and the cost rose by only $0.005 for the 10 samples.
+
+All three targeted findings are fixed: the ownerless action in s02 is found, speakers are no longer owners (s01, s03), and the two-turn action in s07 now quotes the request. The s08 date (finding 3) also became "Not stated", in line with the answer.
+
+### Limit of this result
+
+The prompt was changed after the errors on these same 10 samples were known. A perfect score on the samples used for tuning does not prove a perfect score on new notes. **Next step:** add a small held-out set of new samples (answers written first, and never used to change the prompt) to measure the tool on notes it was not tuned for.

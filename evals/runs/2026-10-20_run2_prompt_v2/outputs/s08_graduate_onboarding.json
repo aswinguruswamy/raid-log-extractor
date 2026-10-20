@@ -1,0 +1,74 @@
+{
+  "sample": "s08_graduate_onboarding.docx",
+  "model": "claude-sonnet-5-5",
+  "run_date": "2026-10-20",
+  "input_tokens": 1428,
+  "output_tokens": 632,
+  "seconds": 3.57,
+  "warnings": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "Only 12 of 25 mentors have signed up, and mentor matching starts next week.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "only 12 of 25 mentors have signed up so far.",
+      "quote_verified": true
+    },
+    {
+      "type": "Dependency",
+      "description": "Laptops for the new graduates must arrive from procurement before the start date of 2027-01-11.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The laptops for the new graduates must arrive from procurement before the start date of 2027-01-11.",
+      "quote_verified": true
+    },
+    {
+      "type": "Risk",
+      "description": "If the city office renovation runs late, the induction week may need another venue.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "if the city office renovation runs late, the induction week may need another venue.",
+      "quote_verified": true
+    },
+    {
+      "type": "Assumption",
+      "description": "All graduates are assumed to pass their background checks before the start date.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The team assumes all graduates will pass their background checks before the start date.",
+      "quote_verified": true
+    },
+    {
+      "type": "Decision",
+      "description": "The team decided to run the first week fully in person.",
+      "owner": "Not stated",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "The group decided to run the first week fully in person.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Mei will draft the welcome pack.",
+      "owner": "Mei Lin",
+      "due_date": "2026-11-13",
+      "status": "Open",
+      "source_quote": "Mei will draft the welcome pack by 2026-11-13.",
+      "quote_verified": true
+    },
+    {
+      "type": "Action",
+      "description": "Elena will send a reminder to the managers who have not signed up as mentors.",
+      "owner": "Elena Rossi",
+      "due_date": "Not stated",
+      "status": "Open",
+      "source_quote": "Elena will send a reminder to the managers who have not signed up as mentors.",
+      "quote_verified": true
+    }
+  ]
+}
