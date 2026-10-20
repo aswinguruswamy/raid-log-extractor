@@ -80,6 +80,8 @@
       "quote_verified": true
     }
   ],
-  "label": "ERP steering committee (Word minutes, .docx)",
+  "label": "ERP steering committee",
+  "format": "Word minutes with an action table (.docx)",
+  "tests": "Owners and dates read from a table.",
   "source": "Eval run 2 (prompt v2), saved output. No API call is made in demo mode."
 }

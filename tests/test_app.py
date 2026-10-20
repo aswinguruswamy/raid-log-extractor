@@ -24,10 +24,9 @@ def test_demo_mode_shows_results_without_a_key(monkeypatch):
     app = run_app()
     assert app.radio[0].value.startswith("Demo")
     assert len(app.selectbox[0].options) == 3
-    assert app.subheader[0].value.startswith("Results:")
-    assert len(app.metric) == 6
+    assert app.subheader[1].value.startswith("2. RAID log")
     assert len(app.tabs) == 6
-    assert "Cost:" in app.caption[-1].value or any("Cost:" in c.value for c in app.caption)
+    assert any("Cost:" in c.value for c in app.caption)
 
 
 def test_every_demo_sample_renders(monkeypatch):
@@ -36,8 +35,8 @@ def test_every_demo_sample_renders(monkeypatch):
     for option in app.selectbox[0].options:
         app.selectbox[0].select(option).run()
         assert not app.exception, option
-        total = sum(int(m.value) for m in app.metric)
-        assert app.subheader[0].value == f"Results: {total} items"
+        total = sum(int(t.label.rsplit("(", 1)[1].rstrip(")")) for t in app.tabs)
+        assert app.subheader[1].value == f"2. RAID log · {total} items"
 
 
 def test_own_notes_mode_asks_for_a_key(monkeypatch):
@@ -46,6 +45,8 @@ def test_own_notes_mode_asks_for_a_key(monkeypatch):
     app.radio[0].set_value("Your own notes").run()
     assert not app.exception
     assert app.text_input[0].label == "Anthropic API key"
+    assert app.button[0].disabled  # no key and no file yet
+    assert len(app.tabs) == 0      # no results before a run
 
 
 def test_upload_is_read_with_its_suffix():

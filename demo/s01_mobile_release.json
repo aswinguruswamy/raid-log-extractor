@@ -71,6 +71,8 @@
       "quote_verified": true
     }
   ],
-  "label": "Mobile app release call (Teams transcript, .vtt)",
+  "label": "Mobile app release call",
+  "format": "Teams transcript (.vtt)",
+  "tests": "Small talk, and an action agreed in two turns.",
   "source": "Eval run 2 (prompt v2), saved output. No API call is made in demo mode."
 }

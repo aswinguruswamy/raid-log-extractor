@@ -1,0 +1,9 @@
+[server]
+# Keep in step with MAX_UPLOAD_MB in app.py
+maxUploadSize = 2
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+primaryColor = "#1F4E78"
