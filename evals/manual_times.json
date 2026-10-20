@@ -1,0 +1,12 @@
+{
+  "story": "S2-03 (KAN-17)",
+  "date": "2026-10-20",
+  "method": "Manual RAID log in Excel, timed with a start and end time, before the tool ran on these samples and without the answer files.",
+  "minutes": {
+    "s02_crm_migration.txt": 8,
+    "s05_erp_steering.docx": 6,
+    "s07_cloud_migration.vtt": 6
+  },
+  "manual_accuracy": "23 of 23 expected items found with the correct type; 1 copy error (wrote 8% instead of 18%).",
+  "note": "Manual times were measured on 2026-10-20 (s02: 17:32-17:40, s05: 17:46-17:52, s07: 17:57-18:03). These samples are short (about 140-160 words). Notes from a 1-hour call are much longer, so the manual time for a real call is higher. The charter's assumption of 20-40 minutes for a full call is not yet measured."
+}
