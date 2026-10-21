@@ -74,7 +74,7 @@ raid/               the tool: parse, extract, export, cost, command line, eval s
 samples/            10 sample calls with invented names (no real data)
 evals/              correct answers, eval script, run outputs, report, findings
 demo/               saved results that the demo mode shows
-docs/               product decisions, release gate, and the demo GIF
+docs/               product decisions, corrective action log, release gate, demo GIF
 tests/              offline tests and live tests
 .streamlit/         web page settings (upload limit, colours)
 ```
