@@ -10,7 +10,7 @@ Turn the notes from a team call into a RAID log in less than one minute.
 
 ## The problem
 
-After a project call, a project manager writes the RAID log by hand. My own timed test took 6 to 8 minutes for a short call of about 150 words; a 1-hour call takes much longer. Items get lost, and owners and dates get guessed.
+After a project call, a project manager writes the RAID log by hand. My own timed test took 6 to 8 minutes for a short call of about 150 words. With the tool, the log and my check of every item took about 27 seconds ([`evals/review_times.json`](evals/review_times.json)). Items get lost, and owners and dates get guessed.
 
 The main risk of an AI tool here is a log that looks correct but is wrong. So every item has a source quote that the code checks against the notes, and the tool writes **"Not stated"** instead of a guess. The reasons and trade-offs are in [`docs/product-decisions.md`](docs/product-decisions.md).
 

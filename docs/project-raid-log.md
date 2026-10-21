@@ -22,7 +22,7 @@ The RAID log of this project itself, kept in the same six types that the tool ex
 | # | Assumption (from the charter) | Status | Result |
 |---|---|---|---|
 | A1 | The notes are in English and name the people in the call | Held | True for all 10 samples; other languages are in the 1.1 backlog (L-04) |
-| A2 | A manual RAID log takes 20 to 40 minutes for each call | Partly checked | 6 to 8 minutes for 3 short samples (about 150 words each). A full 1-hour call was not timed |
+| A2 | A manual RAID log takes 20 to 40 minutes for each call | Partly checked | 6 to 8 minutes for 3 short samples (about 150 words each). With the tool and a review: about 27 s. A full 1-hour call was not timed |
 | A3 | Sample notes with no real data are enough to show the quality | Held, with a limit | Enough for a portfolio demo. The samples were written with AI help and are cleaner than real notes |
 | A4 | Users of their own notes have a Claude API key | Held | The page asks for the user's own key and explains why |
 | A5 | Streamlit Community Cloud hosts the demo at no cost | Held | Live at no cost since 2026-10-20 |
@@ -47,7 +47,7 @@ The RAID log of this project itself, kept in the same six types that the tool ex
 
 | # | Action | Owner | Due date | Status |
 |---|---|---|---|---|
-| AC1 | Time the review of the tool's log on s02, s05, and s07 (value metric) | Aswin Guruswamy | 2026-10-26 | Open |
+| AC1 | Time the review of the tool's log (value metric) | Aswin Guruswamy | 2026-10-26 | Done 2026-10-21: about 27 s with the tool and a review, against 6–8 min by hand ([`review_times.json`](../evals/review_times.json)) |
 | AC2 | Publish the GitHub release v1.0.0 | Aswin Guruswamy | 2026-10-26 | Open |
 | AC3 | Add the project to the LinkedIn profile (Projects section) | Aswin Guruswamy | 2026-10-27 | Open |
 | AC4 | Write and approve the one-page case study | Aswin Guruswamy | 2026-10-27 | Open |

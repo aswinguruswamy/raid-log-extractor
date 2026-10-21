@@ -1,0 +1,16 @@
+{
+  "metric": "Value metric (charter): time to make a RAID log with a human review",
+  "date": "2026-10-21",
+  "method": "The owner opened each sample in the live demo and timed the check of every item against its source quote. Tool time is the eval run 2 time for the same sample.",
+  "samples": {
+    "s02_crm_migration.txt": {"items": 8, "tool_seconds": 4.9, "review_seconds": 22, "total_seconds": 26.9, "manual_seconds": 480},
+    "s05_erp_steering.docx": {"items": 8, "tool_seconds": 4.1, "review_seconds": 23, "total_seconds": 27.1, "manual_seconds": 360},
+    "s01_mobile_release.vtt": {"items": 7, "tool_seconds": 4.4, "review_seconds": 23, "total_seconds": 27.4, "manual_seconds": null}
+  },
+  "result": "About 27 seconds with the tool and a review, against 6 to 8 minutes by hand: 92% to 94% less time on s02 and s05.",
+  "limits": [
+    "s01 has no manual time: the manual baseline used s07, which is not in the demo. Only s02 and s05 compare directly.",
+    "The samples are short (about 150 words). A 1-hour call was not timed by hand.",
+    "The owner had seen these samples before, which can make the review faster."
+  ]
+}
