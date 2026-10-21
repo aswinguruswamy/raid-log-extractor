@@ -42,6 +42,13 @@ The correct answers for a sample are committed **before** the tool runs on that 
 
 10 samples, 68 expected items: 22 actions, 10 issues, 9 risks, 9 assumptions, 9 dependencies, 9 decisions.
 
-## Known limit
+## Known limits
 
-The samples and the answers were written with AI help (Claude), and the tool also uses Claude. This can make the samples easier for the tool than real notes. The eval report states this limit next to the scores.
+**Scoring limits** (in `raid/evaluate.py`):
+
+- **Matching:** a tool item matches an answer when at least 60% of the answer's evidence words are in the tool's source quote. A correct item with a very different quote counts as one miss and one extra item.
+- **Owner check:** the first names must match ("Mei" = "Mei Lin"). Two people with the same first name in one call would count as the same person.
+- **Invented date check:** the check looks for the exact text `YYYY-MM-DD` in the notes. A correct date that the notes write as "November 2" would count as invented. In this eval set, all full dates are written as `YYYY-MM-DD`, so this did not affect the scores.
+- **Invented owner check:** an owner counts as invented only when no part of the name is in the notes.
+
+**Sample limit:** the samples and the answers were written with AI help (Claude), and the tool also uses Claude. This can make the samples easier for the tool than real notes. The eval report states this limit next to the scores.

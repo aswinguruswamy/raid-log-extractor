@@ -82,3 +82,20 @@ def test_dollar_signs_show_as_plain_text(monkeypatch):
     app.radio[0].set_value("Demo (no API key)").run()
     run_line = next(c.value for c in app.caption if "Cost:" in c.value)
     assert "\\$" in run_line
+
+
+def test_page_and_excel_use_the_same_column_names():
+    """BUG-18: the page table and the Excel sheets must name the fields the same way."""
+    from raid.export import COLUMNS
+
+    import importlib.util, sys
+    from unittest import mock
+
+    with mock.patch.dict(sys.modules, {"streamlit": mock.MagicMock()}):
+        spec = importlib.util.spec_from_file_location("app_cols", APP)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    item = RaidItem(type="Risk", description="The vendor may be late.", source_quote="vendor may be late")
+    page_columns = list(module.items_table([item]).columns)
+    excel_columns = [name for name, _ in COLUMNS if name not in ("#", "Status")]  # the page leaves these out
+    assert page_columns == excel_columns

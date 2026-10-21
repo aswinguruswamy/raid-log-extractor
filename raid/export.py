@@ -25,7 +25,7 @@ COLUMNS = [  # (header, width)
     ("Due date", 12),
     ("Status", 12),
     ("Source quote", 60),
-    ("Quote checked", 14),
+    ("Quote found", 14),
 ]
 
 SHEET_NAMES = {

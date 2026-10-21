@@ -1,5 +1,7 @@
 # RAID Log Extractor
 
+[![tests](https://github.com/aswinguruswamy/raid-log-extractor/actions/workflows/tests.yml/badge.svg)](https://github.com/aswinguruswamy/raid-log-extractor/actions/workflows/tests.yml)
+
 Turn the notes from a team call into a RAID log in less than one minute.
 
 **[Try the live demo](https://raid-log-extractor.streamlit.app/)**: no sign-in and no API key.
@@ -66,6 +68,20 @@ python3 -m pytest          # offline tests, no API key
 python3 -m pytest -m live  # live tests with your key (a few cents)
 ```
 
+## How the project was run
+
+A solo project, run as a small software project: a charter, a MoSCoW backlog in Jira, three 2-day sprints, a release gate, and a bug log with root causes.
+
+| Document | What it shows |
+|---|---|
+| [`docs/product-decisions.md`](docs/product-decisions.md) | The product choices, the options not taken, and the trade-offs |
+| [`evals/FINDINGS.md`](evals/FINDINGS.md) | What each eval run found and what changed |
+| [`docs/corrective-actions.md`](docs/corrective-actions.md) | Every bug, with the root cause, the fix, and the prevention |
+| [`docs/project-raid-log.md`](docs/project-raid-log.md) | The RAID log of this project itself |
+| [`docs/release-gate-v1.0.md`](docs/release-gate-v1.0.md) | The checks that the release had to pass |
+
+Built with Claude as the coding partner; product decisions, evals, and testing by Aswin Guruswamy.
+
 ## Project structure
 
 ```
@@ -74,8 +90,9 @@ raid/               the tool: parse, extract, export, cost, command line, eval s
 samples/            10 sample calls with invented names (no real data)
 evals/              correct answers, eval script, run outputs, report, findings
 demo/               saved results that the demo mode shows
-docs/               product decisions, corrective action log, release gate, demo GIF
+docs/               decisions, bug log, project RAID log, release gate, demo GIF
 tests/              offline tests and live tests
+.github/workflows/  CI: offline tests on Python 3.9 and 3.12 on each push
 .streamlit/         web page settings (upload limit, colours)
 ```
 
