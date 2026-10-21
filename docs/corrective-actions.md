@@ -2,7 +2,7 @@
 
 Every bug and mismatch found in the project, from the first live test to the release audit. Each entry has the root cause, the fix, the evidence, and the step that stops the problem from coming back.
 
-- **System of record:** Jira (issue type Bug, KAN-39 to KAN-60). Each bug links to the story where it was found.
+- **System of record:** Jira (issue type Bug, KAN-39 to KAN-60, and KAN-61 for BUG-23). Each bug links to the story where it was found.
 - **Rule:** a bug closes only when the fix is verified. The commit ids below are on the `main` branch.
 - **Severity:** High = wrong output, privacy, or cost risk for the user. Medium = a visible defect or a gap in the evidence. Low = a cosmetic or process defect.
 
@@ -10,16 +10,17 @@ Every bug and mismatch found in the project, from the first live test to the rel
 
 | Status | High | Medium | Low | Total |
 |---|---|---|---|---|
-| Fixed | 6 | 7 | 4 | 17 |
-| Open (release backlog) | 0 | 2 | 3 | 5 |
-| **Total** | **6** | **9** | **7** | **22** |
+| Fixed | 6 | 9 | 7 | 22 |
+| Accepted, no change | 0 | 0 | 1 | 1 |
+| Open | 0 | 0 | 0 | 0 |
+| **Total** | **6** | **9** | **8** | **23** |
 
 | Where the bugs were found | Count |
 |---|---|
 | Live tests and real use on the Mac | 4 (BUG-01, 02, 03, 13) |
 | Eval runs | 3 (BUG-04, 05, 06) |
 | Page reviews with screenshots | 5 (BUG-09 to 12, 16) |
-| Project reviews and the SOP audit | 10 (BUG-07, 08, 14, 15, 17 to 22) |
+| Project reviews and the SOP audit | 11 (BUG-07, 08, 14, 15, 17 to 23) |
 
 ## Fixed
 
@@ -42,16 +43,17 @@ Every bug and mismatch found in the project, from the first live test to the rel
 | BUG-15 | KAN-53 | Medium | Review | `.gitignore` did not block the personal workbook | Covered secrets, not personal files | `samples/*.xlsx`, `.pytest_cache/` (`b837ee2`) | The release gate checks the tracked files |
 | BUG-16 | KAN-54 | High | KAN-25 | Demo recording showed personal file names in the save window | No warning in the recording steps | Part cut, button cropped (`99a4f8a`); 168-frame scan clean | Save downloads without a prompt; check every frame |
 | BUG-17 | KAN-55 | Low | Review | Epics stayed in To Do after all stories were Done | No epic step in the workflow | Epics closed on Oct 20 and 21 | Close the epic with its last story |
+| BUG-18 | KAN-56 | Low | SOP audit | Excel "Quote checked" and page "Quote found" did not match | Page column renamed, Excel column not | Excel column renamed (`6283793`); new test compares the two | The test stays in the suite |
+| BUG-19 | KAN-57 | Medium | SOP audit | The charter did not match the project as built (6 points) | No change record against the approved baseline | Charter corrected, with a change log and the actual dates (charter revision 28, 2026-10-21). The value metric is measured by the owner (project RAID log, AC1) | Record every change in the charter change log when it happens |
+| BUG-20 | KAN-60 | Low | SOP audit | The backlog document statuses did not match Jira | Jira became the system of record without a note | Statuses, L-06, L-07, and a system-of-record note (backlog revision 40, 2026-10-21) | Jira only; the document is a baseline |
+| BUG-21 | KAN-58 | Low | SOP audit | Mac commits showed the author "aswingurswamy" | Typo in the Git `user.name` on the Mac | The owner set `user.name` and confirmed "Aswin Guruswamy" (2026-10-21); the GitHub account was renamed to "aswinguruswamy". Old commits keep their text and stay linked to the account by its id | Check `git config user.name` on a new computer |
+| BUG-22 | KAN-59 | Medium | SOP audit | Package versions were not pinned | No tested versions recorded | Tested ranges in `requirements.txt` (`6283793`); 62 tests pass on Python 3.9 and 3.13 | CI on each push (`.github/workflows/tests.yml`) |
 
-## Open (fix before the GitHub release)
+## Accepted, no change
 
-| Bug | Jira | Sev. | Problem | Root cause | Planned fix | Owner |
-|---|---|---|---|---|---|---|
-| BUG-18 | KAN-56 | Low | Excel "Quote checked" and page "Quote found" do not match | Page column renamed, Excel column not | Rename in `raid/export.py`; tests (M3) | Claude |
-| BUG-19 | KAN-57 | Medium | Charter does not match the project as built (6 points) | No change record against the approved baseline | Correct the charter, add a change log and actual dates (M1); measure the value metric (Y1) | Claude, Aswin |
-| BUG-20 | KAN-60 | Low | Backlog document statuses do not match Jira | Jira became the system of record without a note | Update the document (M2) | Claude |
-| BUG-21 | KAN-58 | Low | Mac commits show the author "aswingurswamy" | Typo in Git `user.name` on the Mac | `git config --global user.name "Aswin Guruswamy"`; old commits stay, because their ids are in Jira and the docs | Aswin |
-| BUG-22 | KAN-59 | Medium | Package versions not pinned; a new release can break the live demo | No tested versions recorded | Pin the tested versions; test on 3.9 and 3.12 (M4) | Claude |
+| Bug | Jira | Sev. | Problem | Decision | Reason |
+|---|---|---|---|---|---|
+| BUG-23 | KAN-61 | Low | Commit authors are mixed: "Aswin Guruswamy" (14), "Claude" (10, after a workspace setting changed on 2026-10-21), "aswingurswamy" (2) | Keep the history as it is (owner decision, 2026-10-21) | Every Claude commit also has a "Co-Authored-By: Claude" line, and the README says that Claude was the coding partner. A rewrite would change every commit id in Jira and in this log |
 
 ## Lessons for the next project
 
