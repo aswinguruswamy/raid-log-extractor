@@ -4,7 +4,13 @@ Turn the notes from a team call into a RAID log in less than one minute.
 
 **[Try the live demo](https://raid-log-extractor.streamlit.app/)**: no sign-in and no API key.
 
-> **Status:** Work in progress. Version 1.0 is planned for October 27, 2026.
+![Demo: choose a sample call, see the actions with their source quotes, and download the Excel file](docs/demo.gif)
+
+## The problem
+
+After a project call, a project manager writes the RAID log by hand. My own timed test took 6 to 8 minutes for a short call of about 150 words; a 1-hour call takes much longer. Items get lost, and owners and dates get guessed.
+
+The main risk of an AI tool here is a log that looks correct but is wrong. So every item has a source quote that the code checks against the notes, and the tool writes **"Not stated"** instead of a guess. The reasons and trade-offs are in [`docs/product-decisions.md`](docs/product-decisions.md).
 
 ## What it does
 
@@ -68,7 +74,7 @@ raid/               the tool: parse, extract, export, cost, command line, eval s
 samples/            10 sample calls with invented names (no real data)
 evals/              correct answers, eval script, run outputs, report, findings
 demo/               saved results that the demo mode shows
-docs/               product decisions
+docs/               product decisions and the demo GIF
 tests/              offline tests and live tests
 .streamlit/         web page settings (upload limit, colours)
 ```
