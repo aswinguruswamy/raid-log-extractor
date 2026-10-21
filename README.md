@@ -79,6 +79,7 @@ A solo project, run as a small software project: a charter, a MoSCoW backlog in 
 | [`docs/corrective-actions.md`](docs/corrective-actions.md) | Every bug, with the root cause, the fix, and the prevention |
 | [`docs/project-raid-log.md`](docs/project-raid-log.md) | The RAID log of this project itself |
 | [`docs/release-gate-v1.0.md`](docs/release-gate-v1.0.md) | The checks that the release had to pass |
+| [`docs/project-report.md`](docs/project-report.md) | The close report: plan against actual, delivery by sprint, bugs, and the 1.1 backlog |
 
 Built with Claude as the coding partner; product decisions, evals, and testing by Aswin Guruswamy.
 
