@@ -37,3 +37,13 @@
 ## Scope change
 
 - KAN-27 (Markdown export, a Could story) moved to the version 1.1 backlog on 2026-10-21.
+
+## Re-run after the audit fixes
+
+**Date:** 2026-10-21 · **Commit checked:** `d2d9184` (version 1.0.0)
+
+The gate was run again on a fresh clone after the fixes for BUG-18 to BUG-22. Result: PASS, with no change to the scores.
+
+- 62 offline tests pass on Python 3.9 (Streamlit 1.50) and on Python 3.12 (Streamlit 1.66), installed from the pinned `requirements.txt`.
+- Eval re-scored from the saved outputs: recall 100%, precision 100%, 0 invented owners or dates.
+- 0 broken links, 0 keys in the Git history, 0 personal or secret files.
