@@ -56,10 +56,10 @@ gantt
 | Sprint 1: core tool (KAN-6 to KAN-14) | 9 | 9 | 0 | 13 |
 | Sprint 2: samples and evals (KAN-15 to KAN-20) | 6 | 6 | 0 | 12.5 |
 | Sprint 3: demo and documentation (KAN-21 to KAN-27) | 7 | 6 | 1 (KAN-27, Could) | 11 (12 with the Could story) |
-| Release and close (KAN-28 to KAN-32) | 5 | 4 | 0 | 4 |
-| **Total** | **27** | **25** | **1** | **40.5** |
+| Release and close (KAN-28 to KAN-32) | 5 | 5 | 0 | 4 |
+| **Total** | **27** | **26** | **1** | **40.5** |
 
-Open: KAN-30 (add the project to the LinkedIn profile), after the release by the owner's choice. The release post in the original plan was dropped on 2026-10-21.
+All version 1.0 work is closed in Jira. KAN-30 changed on 2026-10-21 from a release post to an entry in the LinkedIn profile; the owner added it the same day.
 
 ## Quality
 

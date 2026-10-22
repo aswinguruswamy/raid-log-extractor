@@ -48,11 +48,11 @@ The RAID log of this project itself, kept in the same six types that the tool ex
 | # | Action | Owner | Due date | Status |
 |---|---|---|---|---|
 | AC1 | Time the review of the tool's log (value metric) | Aswin Guruswamy | 2026-10-26 | Done 2026-10-21: about 27 s with the tool and a review, against 6–8 min by hand ([`review_times.json`](../evals/review_times.json)) |
-| AC2 | Publish the GitHub release v1.0.0 | Aswin Guruswamy | 2026-10-26 | Open |
-| AC3 | Add the project to the LinkedIn profile (Projects section) | Aswin Guruswamy | 2026-10-27 | Open |
-| AC4 | Write and approve the one-page case study | Aswin Guruswamy | 2026-10-27 | Open |
-| AC5 | Do the retrospective | Aswin Guruswamy | 2026-10-28 | Open |
-| AC6 | Update the reach tracker each month | Aswin Guruswamy | 2027-01-27 | Open |
+| AC2 | Publish the GitHub release v1.0.0 | Aswin Guruswamy | 2026-10-26 | Done 2026-10-21 |
+| AC3 | Add the project to the LinkedIn profile (Projects section) | Aswin Guruswamy | 2026-10-27 | Done 2026-10-21 |
+| AC4 | Write and approve the one-page case study | Aswin Guruswamy | 2026-10-27 | Done 2026-10-21 |
+| AC5 | Do the retrospective | Aswin Guruswamy | 2026-10-28 | Done 2026-10-21 (in the case study) |
+| AC6 | Update the reach tracker after each application or interview | Aswin Guruswamy | 2027-01-21 | Open (end of the 3-month window) |
 
 ## Decisions
 
