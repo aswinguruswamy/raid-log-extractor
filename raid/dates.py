@@ -62,7 +62,8 @@ def _with_year(meeting_date: date, month: int, day: int) -> str:
     meeting ("by 5 January" in a December meeting). Spec v1.2, R4.3."""
     same_year = _make(meeting_date.year, month, day)
     if same_year != NOT_STATED and (meeting_date - date.fromisoformat(same_year)).days > NEXT_YEAR_AFTER_DAYS:
-        return _make(meeting_date.year + 1, month, day)
+        next_year = _make(meeting_date.year + 1, month, day)
+        return same_year if next_year == NOT_STATED else next_year  # 29 February: keep the leap year
     return same_year
 
 

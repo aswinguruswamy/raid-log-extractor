@@ -102,3 +102,7 @@ def test_day_and_month_more_than_30_days_before_the_meeting_is_next_year(words, 
 
 def test_full_date_with_a_year_is_kept_as_given():
     assert to_date("by 5 January 2026", date(2026, 12, 15)) == "2026-01-05"
+
+
+def test_29_february_stays_in_the_leap_year():
+    assert to_date("by 29 February", date(2028, 4, 15)) == "2028-02-29"
