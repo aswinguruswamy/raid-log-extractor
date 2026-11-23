@@ -74,7 +74,7 @@ Model `claude-sonnet-5-5`, prompt 2.1. The same v2 metrics for every set ([`raid
 | Set | Calls | Written by | Recall | Precision | Invented owners | Invented dates | Wrong owners / dates | Owner state right | Found in all 5 runs | Cost |
 |---|---|---|---|---|---|---|---|---|---|---|
 | **Held-out** ([report](evals/heldout/report.md)) | 28 × 5 runs | Claude (AI); keys approved by Aswin Guruswamy before the run | **95%** | **99%** | **0** | **0** | 0 / 0 | 523 of 524 | 94% | $1.78 |
-| Tuning ([report](evals/report.md)) | 10 × 1 run | AI-assisted (Claude), v1 | 100% | 100% | 0 | 0 | 0 / 0 | – (v1 keys have no states) | – | $0.15 |
+| Tuning ([report](evals/report.md)) | 10 × 1 run | AI-assisted (Claude), v1 | 100% | 100% | 0 | 0 | 0 / 0 | 14 of 22 (v1 keys have no states; a named owner counts as Confirmed) | – | $0.15 |
 | Spec examples ([report](evals/spec_cases/report.md)) | 13 × 1 run | Claude (AI), from the approved spec | 100% | 100% | 0 | 0 | 0 / 0 | 15 of 15 | – | $0.10 |
 
 - **Release gate:** 0 invented owners and 0 invented dates on the held-out set, with the answer keys committed before the first run. Passed.
@@ -153,7 +153,7 @@ evals/              tuning answers and runs; spec_cases/ (spec examples); heldou
 specs/              approved v2 spec, requirements and constitution
 scripts/            release notes; demo builder
 demo/               saved v2 results that the demo mode shows
-docs/               decisions, bug log, project RAID log, release gate, demo GIF
+docs/               decisions, bug log, project RAID log, release gate, export guide, screenshots (images/)
 tests/              offline tests and live tests
 .github/workflows/  CI: offline tests (Python 3.11-3.14), scans, live eval on prompt changes, held-out run, release
 .streamlit/         web page settings (upload limit, colours)
@@ -162,6 +162,8 @@ tests/              offline tests and live tests
 ## Privacy
 
 The tool sends the text of your notes to the Anthropic API. It does not store the notes or your key. Do not use notes that your company or client does not permit you to share with a third-party service.
+
+**The hosted demo** runs on Streamlit Community Cloud. Streamlit keeps the app's server log (what the app prints and its errors), which only the app owner can see. This app does not print the notes, the key or the results. Streamlit also records how the site is used (for example page visits), under its own privacy policy. The demo mode sends nothing to the Anthropic API.
 
 ## License
 

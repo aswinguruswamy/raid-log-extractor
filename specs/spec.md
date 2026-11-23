@@ -201,7 +201,7 @@ Running log · Jira or Confluence push · risk scoring · several calls · roste
 - [x] Actors and triggers · [x] Inputs (notes, meeting date) · [x] Outputs (page table, Markdown) · [x] Rules have a source (catalogue) · [x] Errors · [x] Edge cases · [x] Data to the AI (notes, with warning) · [x] Freshness (run date) · [x] ACs testable · [x] Dependencies (none) · [x] Cost
 
 ## 12. Proposals to confirm by approval
-Invented/wrong owner and date definitions · input-warning numbers (R6.2) · table sort order (R8.1) · Reviewed ticks last for the page session only (R8.5) · short IDs (R8.2) · weekday rule (R4.2) · failed-gate path (R13.3) · CI eval fails the PR (R16.1) · Summary sheet kept from v1 (R8.4).
+Invented/wrong owner and date definitions · input-warning numbers (R6.2) · table sort order (R8.1) · Reviewed ticks last for the page session only (R8.5) · short IDs (R8.2) · weekday rule (R4.2) · failed-gate path (R13.3) · CI eval fails the PR (R16.1).
 
 ## Grades
 ### Independent review of v0.1 (separate session, 2026-11-22)
@@ -233,6 +233,7 @@ Output changed to the page table + Markdown (requirements v1.1). The v0.2 fixes 
 ## 13. Change log
 | Version | Date | Change | Approved by |
 |---|---|---|---|
+| 1.5 | 2026-11-23 | §12: "Summary sheet kept from v1 (R8.4)" removed; Excel is gone (R8.6). Admin fix, no rule change | Aswin Guruswamy (audit 2026-11-23) |
 | 1.5 | 2026-11-23 | R17.1: CI also tests Python 3.14, the newest Python (the Streamlit demo runs on 3.12, also tested) | Aswin Guruswamy |
 | 1.4 | 2026-11-23 | R20.1, AC46: README screenshots in place of the video | Aswin 2026-11-23 (SH-5.5) |
 | 1.3 | 2026-11-23 | R5.5 and R8.3 match the build (Aswin's decisions RAID-5.1, RAID-5.2) | Aswin Guruswamy |
