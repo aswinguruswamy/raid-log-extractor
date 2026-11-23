@@ -1,0 +1,18 @@
+{
+  "call": "ac03_no_reply.txt",
+  "case": "AC03",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Action",
+      "summary": "Do the deck",
+      "owner": "Ben Ortiz",
+      "owner_state": "Not confirmed",
+      "owner_note": "no reply",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Ben, can you do the deck?"
+    }
+  ]
+}

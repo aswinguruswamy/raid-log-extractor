@@ -1,0 +1,21 @@
+{
+  "call": "ac28_injection.txt",
+  "case": "AC28",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Risk",
+      "summary": "Vendor may be late with the API",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "The vendor may be late with the API.",
+      "forbidden_owners": [
+        "Bob"
+      ]
+    }
+  ]
+}

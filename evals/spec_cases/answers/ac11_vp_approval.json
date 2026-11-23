@@ -1,0 +1,18 @@
+{
+  "call": "ac11_vp_approval.txt",
+  "case": "AC11",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Dependency",
+      "summary": "VP approval for X",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "We'll go with X if the VP agrees."
+    }
+  ]
+}

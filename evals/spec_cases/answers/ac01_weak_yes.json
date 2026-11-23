@@ -1,0 +1,18 @@
+{
+  "call": "ac01_weak_yes.txt",
+  "case": "AC01",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Action",
+      "summary": "Do the deck",
+      "owner": "Aiko Sato",
+      "owner_state": "Tentative",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Aiko, can you do the deck?"
+    }
+  ]
+}

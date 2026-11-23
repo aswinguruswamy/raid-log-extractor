@@ -1,0 +1,38 @@
+{
+  "call": "ac06_owners_by_list.txt",
+  "case": "AC06",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Action",
+      "summary": "Test plan",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab – confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Jon, Alisa, Crab – the test plan, the pipeline and the release notes."
+    },
+    {
+      "type": "Action",
+      "summary": "Pipeline",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab – confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Jon, Alisa, Crab – the test plan, the pipeline and the release notes."
+    },
+    {
+      "type": "Action",
+      "summary": "Release notes",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab – confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Jon, Alisa, Crab – the test plan, the pipeline and the release notes."
+    }
+  ]
+}

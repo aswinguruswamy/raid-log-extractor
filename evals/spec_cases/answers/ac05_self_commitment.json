@@ -1,0 +1,18 @@
+{
+  "call": "ac05_self_commitment.txt",
+  "case": "AC05",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Action",
+      "summary": "Send the notes",
+      "owner": "Aiko Sato",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "I'll send the notes."
+    }
+  ]
+}

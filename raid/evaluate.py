@@ -177,3 +177,85 @@ def misses_and_extras(sample: SampleScore) -> tuple[list[str], list[str], list[s
         if sample.found[f]["type"] not in accepted_types(sample.expected[e])
     ]
     return misses, extras, mixups
+
+
+# --- RAID v2 metrics (spec §4, R14.1, R15.1, N1; task A8) ----------------------------
+
+AGREED = ("Confirmed", "Tentative")
+NOT_AGREED = ("Not confirmed", "Declined")
+
+
+def _state(entry: dict) -> str:
+    """The owner state, or the v1 default: a named owner was an agreed owner."""
+    state = entry.get("owner_state")
+    if state:
+        return state
+    return NOT_STATED if entry.get("owner", NOT_STATED) == NOT_STATED else "Confirmed"
+
+
+@dataclass
+class V2Score:
+    invented_owners: list[str] = field(default_factory=list)
+    wrong_owners: list[str] = field(default_factory=list)
+    invented_dates: list[str] = field(default_factory=list)
+    wrong_dates: list[str] = field(default_factory=list)
+    state_checked: int = 0
+    state_correct: int = 0
+    forbidden_owners: list[str] = field(default_factory=list)  # e.g. "Bob" from an injection line (G1)
+    extras_with_owner_or_date: list[str] = field(default_factory=list)  # no key item: for a person to check
+
+    @property
+    def gate_failures(self) -> list[str]:
+        """Release gate N1: any invented owner, invented date, or owner the key forbids fails."""
+        return self.invented_owners + self.invented_dates + self.forbidden_owners
+
+
+def v2_scores(report: Report) -> V2Score:
+    """Owner and date errors on matched items, with the spec §4 definitions."""
+    score = V2Score()
+    for s in report.samples:
+        forbidden = [name for exp in s.expected for name in exp.get("forbidden_owners", [])]
+        matched = s.matched_found()
+        for f, item in enumerate(s.found):
+            owner = item.get("owner", NOT_STATED)
+            if owner != NOT_STATED and any(same_person(name, owner) for name in forbidden):
+                score.forbidden_owners.append(f"{s.sample}: owner {owner} – {item.get('description', '')[:60]}")
+            if f not in matched and ((owner != NOT_STATED and _state(item) in AGREED)
+                                     or item.get("due_date", NOT_STATED) != NOT_STATED):
+                score.extras_with_owner_or_date.append(
+                    f"{s.sample}: {item.get('type')} – {owner} ({_state(item)}), due {item.get('due_date')} – "
+                    f"{item.get('description', '')[:60]}")
+        for e, f, _ in s.pairs:
+            exp, item = s.expected[e], s.found[f]
+            label = f"{s.sample}: {exp['summary']}"
+            k_owner, t_owner = exp.get("owner", NOT_STATED), item.get("owner", NOT_STATED)
+            k_state, t_state = _state(exp), _state(item)
+            if t_owner != NOT_STATED and t_state in AGREED and (k_owner == NOT_STATED or k_state in NOT_AGREED):
+                score.invented_owners.append(f"{label} – tool: {t_owner} ({t_state}), key: {k_owner} ({k_state})")
+            elif t_owner != NOT_STATED and k_owner != NOT_STATED and not same_person(k_owner, t_owner):
+                score.wrong_owners.append(f"{label} – tool: {t_owner}, key: {k_owner}")
+            if exp.get("owner_state") or exp.get("type") == "Action":
+                score.state_checked += 1
+                score.state_correct += k_state == t_state
+            k_due, t_due = exp.get("due_date", NOT_STATED), item.get("due_date", NOT_STATED)
+            if t_due != NOT_STATED and k_due == NOT_STATED:
+                score.invented_dates.append(f"{label} – tool: {t_due}, key: {NOT_STATED}")
+            elif t_due != NOT_STATED and t_due != k_due:
+                score.wrong_dates.append(f"{label} – tool: {t_due}, key: {k_due}")
+    return score
+
+
+def consistency(runs: list[list[SampleScore]]) -> float | None:
+    """Share of expected items found (with an accepted type) in every run (spec R14.1)."""
+    if not runs:
+        return None
+    found_in_all, total = 0, 0
+    for samples in zip(*runs):
+        expected = samples[0].expected
+        for e, exp in enumerate(expected):
+            total += 1
+            hits = [s.matched_expected().get(e) for s in samples]
+            found_in_all += all(
+                f is not None and s.found[f]["type"] in accepted_types(exp) for s, f in zip(samples, hits)
+            )
+    return found_in_all / total if total else None

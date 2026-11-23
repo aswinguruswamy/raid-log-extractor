@@ -1,9 +1,13 @@
-"""Run the tool on every sample, score it, and write evals/report.md.
+"""Run the tool on a set of calls, score it, and write the set's report.
 
-    python evals/run_eval.py            # calls the Claude API (about $0.10 for all samples)
-    python evals/run_eval.py --cached   # re-scores the saved outputs, no API call
+    python evals/run_eval.py                          # tuning set, 1 run (about $0.10)
+    python evals/run_eval.py --gate                   # ... and exit 1 on an invented owner or date (CI, R16.1)
+    python evals/run_eval.py --cached                 # re-score the saved outputs, no API call
+    python evals/run_eval.py --set spec --gate        # the spec's eval examples AC1-AC11, AC16, AC28
+    python evals/run_eval.py --set heldout --runs 5   # held-out set, 5 runs (release, R13-R15)
+    python evals/run_eval.py --set heldout --cached --gate   # release gate (N1, AC41)
 
-Story S2-04 (KAN-18). The report format is story S2-05 (KAN-19).
+Story S2-04 (KAN-18), S2-05 (KAN-19); RAID v2 task A8 (spec R14-R16, N1).
 """
 
 from __future__ import annotations
@@ -17,8 +21,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from evals.heldout_rules import check_key_order, missing_cases  # noqa: E402
 from raid.cost import run_cost  # noqa: E402
-from raid.evaluate import build_report, misses_and_extras, score_sample  # noqa: E402
+from raid.evaluate import (  # noqa: E402
+    build_report,
+    consistency,
+    misses_and_extras,
+    score_sample,
+    v2_scores,
+)
 from raid.extract import DEFAULT_MODEL  # noqa: E402
 from raid.parse import read_notes  # noqa: E402
 from raid.pipeline import analyse  # noqa: E402
@@ -29,12 +40,30 @@ ANSWERS = EVALS / "answers"
 OUTPUTS = EVALS / "outputs"
 SAMPLES = ROOT / "samples"
 MANUAL_TIMES = EVALS / "manual_times.json"
+HELDOUT = EVALS / "heldout"
+
+# name: (answers, calls, outputs, report, key with the call's file name)
+SETS = {
+    "tuning": (ANSWERS, SAMPLES, OUTPUTS, EVALS / "report.md", "sample"),
+    "heldout": (HELDOUT / "answers", HELDOUT / "calls", HELDOUT / "outputs", HELDOUT / "report.md", "call"),
+    # The spec's own eval examples (AC1-AC11, AC16, AC28): tuning material, not held out.
+    "spec": (EVALS / "spec_cases" / "answers", EVALS / "spec_cases" / "calls", EVALS / "spec_cases" / "outputs",
+             EVALS / "spec_cases" / "report.md", "call"),
+}
+HELDOUT_RUNS = 5  # spec N1: 28 calls x 5 runs
+TUNING_WRITER = "Claude (AI) with the project owner, v1 (see Known limits)"
 
 TARGETS = {"recall": 0.85, "precision": 0.80}
 RECALL_TARGET_TYPES = ["Risk", "Issue", "Dependency", "Action"]
 
 
-def run(cached: bool, model: str) -> int:
+def _output_file(outputs: Path, set_name: str, run_no: int, name: str) -> Path:
+    if set_name == "tuning" and run_no == 1:
+        return outputs / name  # v1 place, kept
+    return outputs / f"run{run_no}" / name
+
+
+def run(cached: bool, model: str, set_name: str = "tuning", runs: int = 1, gate: bool = False) -> int:
     try:
         from dotenv import load_dotenv
 
@@ -42,45 +71,83 @@ def run(cached: bool, model: str) -> int:
     except ImportError:
         pass
 
-    OUTPUTS.mkdir(exist_ok=True)
-    scores, runs = [], []
-    for answer_file in sorted(ANSWERS.glob("*.json")):
-        answer = json.loads(answer_file.read_text(encoding="utf-8"))
-        notes = read_notes(SAMPLES / answer["sample"])
-        output_file = OUTPUTS / answer_file.name
+    answers_dir, calls_dir, outputs, report_file, call_key = SETS[set_name]
+    if set_name == "heldout" and cached:
+        runs = max(runs, len(list(outputs.glob("run*"))))  # score every saved run
+    if runs < 1:
+        print("--runs must be 1 or more.", file=sys.stderr)
+        return 2
+    if gate and set_name == "heldout" and runs < HELDOUT_RUNS:
+        print(f"The release gate needs {HELDOUT_RUNS} runs of each held-out call; found {runs}.", file=sys.stderr)
+        return 2
+    answer_files = sorted(answers_dir.glob("*.json"))
+    if not answer_files:
+        print(f"No answer keys in {answers_dir}.", file=sys.stderr)
+        return 2
 
-        if cached:
-            if not output_file.exists():
-                print(f"No saved output for {answer['sample']}. Run without --cached first.", file=sys.stderr)
-                return 2
-            output = json.loads(output_file.read_text(encoding="utf-8"))
-        else:
-            print(f"Running {answer['sample']}...")
-            meeting = answer.get("meeting_date")
-            result = analyse(notes, date.fromisoformat(meeting) if meeting else None, model=model,
-                             source_file=answer["sample"])  # same code steps as the page (task A7)
-            output = {
-                "sample": answer["sample"],
-                "model": result.model,
-                "prompt_version": result.prompt_version,
-                "run_date": date.today().isoformat(),
-                "meeting_date": meeting,
-                "input_tokens": result.input_tokens,
-                "output_tokens": result.output_tokens,
-                "seconds": round(result.seconds, 2),
-                "warnings": result.warnings,
-                "needs_attention": [[a.short_id, a.text] for a in result.attention],
-                "items": [item.model_dump(mode="json") for item in result.log.items],
-            }
-            output_file.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
+    all_runs: list[list] = []
+    outputs_seen: list[dict] = []
+    writers = set()
+    for run_no in range(1, runs + 1):
+        scores = []
+        for answer_file in answer_files:
+            answer = json.loads(answer_file.read_text(encoding="utf-8"))
+            writers.add(answer.get("writer", TUNING_WRITER))
+            call = answer[call_key]
+            notes = read_notes(calls_dir / call)
+            output_file = _output_file(outputs, set_name, run_no, answer_file.name)
 
-        runs.append(output)
-        scores.append(score_sample(answer["sample"], notes, answer["items"], output["items"]))
+            if cached:
+                if not output_file.exists():
+                    print(f"No saved output for {call} (run {run_no}). Run without --cached first.", file=sys.stderr)
+                    return 2
+                output = json.loads(output_file.read_text(encoding="utf-8"))
+            else:
+                print(f"Run {run_no}: {call}...")
+                meeting = answer.get("meeting_date")
+                result = analyse(notes, date.fromisoformat(meeting) if meeting else None, model=model,
+                                 source_file=call)  # same code steps as the page (task A7)
+                output = {
+                    "sample": call,
+                    "model": result.model,
+                    "prompt_version": result.prompt_version,
+                    "run_date": date.today().isoformat(),
+                    "meeting_date": meeting,
+                    "input_tokens": result.input_tokens,
+                    "output_tokens": result.output_tokens,
+                    "seconds": round(result.seconds, 2),
+                    "warnings": result.warnings,
+                    "needs_attention": [[a.short_id, a.text] for a in result.attention],
+                    "items": [item.model_dump(mode="json") for item in result.log.items],
+                }
+                output_file.parent.mkdir(parents=True, exist_ok=True)
+                output_file.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
 
-    report = build_report(scores)
-    (EVALS / "report.md").write_text(render(report, runs), encoding="utf-8")
-    print(summary_line(report))
-    print(f"Report: {EVALS / 'report.md'}")
+            outputs_seen.append(output)
+            label = call if runs == 1 else f"{call} (run {run_no})"
+            scores.append(score_sample(label, notes, answer["items"], output["items"]))
+        all_runs.append(scores)
+
+    report = build_report([s for scores in all_runs for s in scores])
+    v2 = v2_scores(report)
+    spread = consistency(all_runs) if runs > 1 else None
+    first_run = outputs_seen[: len(answer_files)]
+    report_file.write_text(render(report, first_run, v2=v2, set_name=set_name, runs_count=runs, spread=spread,
+                                  writers=sorted(writers), all_outputs=outputs_seen), encoding="utf-8")
+    print(summary_line(report) + f" | Wrong owners {len(v2.wrong_owners)} | Wrong dates {len(v2.wrong_dates)}")
+    print(f"Report: {report_file}")
+
+    if gate:
+        failures = list(v2.gate_failures)
+        if set_name == "heldout":
+            failures += [f"No held-out call yet for case {case}" for case in missing_cases(HELDOUT)]
+            failures += [f"Answer key changed after the first held-out run: {path}" for path in check_key_order(ROOT)]
+        if failures:
+            print("GATE FAILED (0 invented owners, 0 invented dates, keys first):", file=sys.stderr)
+            for failure in failures:
+                print(f"  - {failure}", file=sys.stderr)
+            return 1
+        print("Gate passed: 0 invented owners, 0 invented dates.")
     return 0
 
 
@@ -89,17 +156,22 @@ def pct(value) -> str:
 
 
 def summary_line(report) -> str:
+    v2 = v2_scores(report)
     return (
         f"Recall {pct(report.total.recall)} | Precision {pct(report.total.precision)} | "
-        f"Invented owners {len(report.invented_owners)} | Invented dates {len(report.invented_dates)}"
+        f"Invented owners {len(v2.invented_owners)} | Invented dates {len(v2.invented_dates)}"
     )
 
 
-def render(report, runs) -> str:
-    models = sorted({r["model"] for r in runs})
-    run_dates = sorted({r["run_date"] for r in runs})
-    cost = sum(run_cost(r["model"], r["input_tokens"], r["output_tokens"]) or 0 for r in runs)
-    seconds = sum(r["seconds"] for r in runs)
+def render(report, runs, *, v2=None, set_name: str = "tuning", runs_count: int = 1, spread=None,
+           writers=(), all_outputs=None) -> str:
+    """`runs`: the outputs of run 1 (one per call); `all_outputs`: every run, for cost and time."""
+    v2 = v2 or v2_scores(report)
+    every = all_outputs or runs
+    models = sorted({r["model"] for r in every})
+    run_dates = sorted({r["run_date"] for r in every})
+    cost = sum(run_cost(r["model"], r["input_tokens"], r["output_tokens"]) or 0 for r in every)
+    seconds = sum(r["seconds"] for r in every)
     total = report.total
     key_recall_hits = sum(report.by_type[t].recall_hits for t in RECALL_TARGET_TYPES)
     key_recall_total = sum(report.by_type[t].expected for t in RECALL_TARGET_TYPES)
@@ -110,6 +182,33 @@ def render(report, runs) -> str:
         "",
         f"**Samples:** {len(runs)} | **Expected items:** {total.expected} | **Model:** {', '.join(models)} | "
         f"**Run date:** {', '.join(run_dates)} | **Report date:** {date.today().isoformat()}",
+        "",
+        "## v2 scores (spec R15.1)",
+        "",
+        f"**Set:** {set_name} | **Calls:** {len(runs)} | **Runs per call:** {runs_count} | "
+        f"**Prompt version:** {', '.join(sorted({str(r.get('prompt_version', '1')) for r in runs}))} | "
+        f"**Calls written by:** {'; '.join(writers) or '-'}",
+        "",
+        "| Metric | Result |",
+        "|---|---|",
+        f"| Recall | {pct(total.recall)} |",
+        f"| Precision | {pct(total.precision)} |",
+        f"| Invented owners (release gate: 0) | {len(v2.invented_owners)} |",
+        f"| Invented dates (release gate: 0) | {len(v2.invented_dates)} |",
+        f"| Wrong owners | {len(v2.wrong_owners)} |",
+        f"| Wrong dates | {len(v2.wrong_dates)} |",
+        f"| Owner state correct | {v2.state_correct} of {v2.state_checked} |",
+        f"| Items found in all {runs_count} runs | {pct(spread)} |",
+        f"| Owner the key forbids (release gate: 0) | {len(v2.forbidden_owners)} |",
+        f"| Extra items with an owner or a date (check by hand) | {len(v2.extras_with_owner_or_date)} |",
+        "",
+    ]
+    for label, entries in (("Invented owner", v2.invented_owners), ("Invented date", v2.invented_dates),
+                           ("Wrong owner", v2.wrong_owners), ("Wrong date", v2.wrong_dates),
+                           ("Forbidden owner", v2.forbidden_owners),
+                           ("Extra item with owner or date", v2.extras_with_owner_or_date)):
+        lines += [f"- {label}: {entry}" for entry in entries]
+    lines += [
         "",
         "## Scores by item type",
         "",
@@ -134,7 +233,7 @@ def render(report, runs) -> str:
         "|---|---|---|---|",
         f"| Recall on risks, issues, dependencies, actions | 85% or more | {pct(key_recall)} | {check(key_recall is not None and key_recall >= TARGETS['recall'])} |",
         f"| Precision on all item types | 80% or more | {pct(total.precision)} | {check(total.precision is not None and total.precision >= TARGETS['precision'])} |",
-        f"| Owners or dates that the tool invents | 0 | {len(report.invented_owners) + len(report.invented_dates)} | {check(not report.invented_owners and not report.invented_dates)} |",
+        f"| Owners or dates that the tool invents (v2 definitions) | 0 | {len(v2.gate_failures)} | {check(not v2.gate_failures)} |",
         "",
         "## Owners and dates (on matched items)",
         "",
@@ -143,13 +242,13 @@ def render(report, runs) -> str:
         f"| Correct owner | {report.owner_correct} of {report.owner_checked} ({pct(owner_acc)}) |",
         f"| Correct due date | {report.date_correct} of {report.date_checked} ({pct(date_acc)}) |",
         f"| Owner given where the notes name nobody | {len(report.guessed_owners)} |",
-        f"| Owner not in the notes at all (invented) | {len(report.invented_owners)} |",
-        f"| Date not in the notes at all (invented) | {len(report.invented_dates)} |",
+        f"| Owner not in the notes at all (v1 check) | {len(report.invented_owners)} |",
+        f"| Date not written as YYYY-MM-DD in the notes (v1 check; v2 converts date words) | {len(report.invented_dates)} |",
         "",
         "## Cost and time",
         "",
-        f"All {len(runs)} samples: ${cost:.4f} in total, {seconds:.1f} s in total "
-        f"(average ${cost / max(len(runs), 1):.4f} and {seconds / max(len(runs), 1):.1f} s for each sample).",
+        f"All {len(every)} call runs: ${cost:.4f} in total, {seconds:.1f} s in total "
+        f"(average ${cost / max(len(every), 1):.4f} and {seconds / max(len(every), 1):.1f} s for each call run).",
     ]
 
     if MANUAL_TIMES.exists():
@@ -173,8 +272,8 @@ def render(report, runs) -> str:
         misses, extras, mixups = misses_and_extras(s)
         lines.append(f"**{s.sample}** — expected {len(s.expected)}, found {len(s.found)}, matched {len(s.pairs)}")
         for label, entries in (("Missed", misses), ("Extra", extras), ("Type mix-up", mixups),
-                               ("Guessed owner", s.guessed_owners), ("Invented owner", s.invented_owners),
-                               ("Invented date", s.invented_dates)):
+                               ("Guessed owner", s.guessed_owners), ("Owner not in the notes (v1)", s.invented_owners),
+                               ("Date not written in the notes (v1)", s.invented_dates)):
             for entry in entries:
                 lines.append(f"- {label}: {entry}")
         lines.append("")
@@ -199,8 +298,11 @@ def render(report, runs) -> str:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Evaluate the RAID Log Extractor on the samples.")
+    parser = argparse.ArgumentParser(description="Evaluate the RAID Log Extractor on a set of calls.")
     parser.add_argument("--cached", action="store_true", help="Score the saved outputs; no API call.")
     parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--set", dest="set_name", choices=sorted(SETS), default="tuning")
+    parser.add_argument("--runs", type=int, default=1, help="Runs per call (5 for the held-out run).")
+    parser.add_argument("--gate", action="store_true", help="Exit 1 on any invented owner or date.")
     args = parser.parse_args()
-    sys.exit(run(args.cached, args.model))
+    sys.exit(run(args.cached, args.model, args.set_name, args.runs, args.gate))
