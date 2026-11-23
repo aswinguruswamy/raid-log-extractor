@@ -1,0 +1,8 @@
+Call – Payroll migration – status
+
+Yusuf Demir: Who can update the cut-over checklist?
+Elena Petrova: I'll do it by Monday.
+Yusuf Demir: Thanks. Next, the parallel run showed 12 pay differences that we can't explain yet.
+Elena Petrova: Actually, I can't do the checklist – I'm on leave from Friday.
+Yusuf Demir: Okay, we leave it open for now.
+Elena Petrova: Also, the bank needs our new file format two weeks before go-live.

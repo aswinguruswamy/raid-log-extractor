@@ -1,0 +1,8 @@
+Call – Data warehouse phase 2 – planning
+
+Sofia Lind: The finance board meets on Thursday to approve the phase 2 budget.
+Kwame Mensah: If the budget is approved, I'll start the data model on Monday.
+Sofia Lind: Good. I'll send the board pack by Wednesday.
+Kwame Mensah: One worry: the source system exports are often late, so the nightly load may fail.
+Sofia Lind: For the scheduler, let's go with the cloud scheduler, not the old cron server.
+Kwame Mensah: Agreed.

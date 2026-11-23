@@ -1,0 +1,8 @@
+Call – Customer conference – logistics
+
+Marta Ruiz: Dev, can you send the speaker list to the printer by Friday?
+Dev Patel: Not by Friday. Tuesday works.
+Marta Ruiz: Okay, Tuesday then.
+Dev Patel: The hotel block holds only 50 rooms, and 80 guests have already registered.
+Marta Ruiz: I'll call the hotel about more rooms by Thursday.
+Dev Patel: For catering, we assume the number stays at 80.
