@@ -49,6 +49,7 @@ def test_kan9_one_hour_transcript_works():
           f"{result.output_tokens} out, {result.seconds:.1f} s")
     assert result.log.items
     assert not any("cut off" in w for w in result.warnings)
+    assert result.seconds < 60  # RAID v2 spec N3, AC44: a long call in under 60 s
 
 
 @pytest.mark.parametrize("name", ["no_owner_1.txt", "no_owner_2.txt"])

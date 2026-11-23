@@ -4,7 +4,7 @@ All notable changes to this project. The format follows [Keep a Changelog](https
 
 ## [2.0.0] - 2026-11-23
 
-Hard cases right, proved on a held-out set (spec v1.2).
+Hard cases right, proved on a held-out set (spec v1.5).
 
 ### Added
 

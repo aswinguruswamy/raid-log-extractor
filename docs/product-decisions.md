@@ -2,6 +2,8 @@
 
 This document explains the main product choices, the options I did not take, and the trade-offs (story S3-06, KAN-26). The [decision log](#decision-log) at the end lists every decision with its date.
 
+> **v1 reasoning.** The parts about the Excel file (sections 1, 2 and 6, and the decision log) are v1 reasoning. v2 uses a page table (Type · Item · Owner · Due date · Reviewed) and a Markdown download; the Excel file is removed (RAID v2 spec R8.1–R8.6, R9.1). The v2 decisions are in [`specs/spec.md`](../specs/spec.md).
+
 ## The problem
 
 After a project call, a project manager writes the RAID log by hand: risks, assumptions, issues, dependencies, actions, and decisions. My own timed test took 6 to 8 minutes for a short call (about 150 words); a full 1-hour call takes much longer. Items get lost, and owners and dates get guessed.
