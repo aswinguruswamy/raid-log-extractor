@@ -6,17 +6,22 @@ Turn the notes from a team call into a RAID log in less than one minute.
 
 **[Try the live demo](https://raid-log-extractor.streamlit.app/)**: no sign-in and no API key.
 
-![Demo: choose a sample call, see the actions with their source quotes, and download the file (v1 demo; the v2 video comes with the v2.0.0 release)](docs/demo.gif)
+![Demo of v1: choose a sample call, see the items with their source quotes, and download the file](docs/demo.gif)
+
+The v2 video (2 minutes) is linked here at the v2.0.0 release.
 
 ## Known limits
 
-- **The 100% eval score is on the 10 calls that the prompt was tuned on.** There is no held-out test yet, so new notes may score lower. v2 adds a held-out test of 28 new calls.
-- The 10 sample calls and their correct answers were written with AI help (Claude), and the tool also uses Claude. This can make the samples easier than real notes.
-- English only. Other languages are not tested.
-- One call per run. The tool does not merge a new call into an existing log.
-- An answer that is cut off at the output limit gives only a warning today; v2 makes it an error.
-- Relative dates such as "by Friday" are written as "Not stated" (the words stay in the description). v2 converts them with the meeting date.
-- Your notes go to the Anthropic API. Do not upload notes that you may not share.
+- **The held-out score is on 28 calls written by Claude (AI).** Aswin Guruswamy approved every answer key before the first run, and no held-out call was used to tune the prompt. But the tool also uses Claude, so these calls may be easier than real notes. 28 calls (one per hard case) show a direction, not a statistical proof.
+- **The 100% tuning score is on the 10 calls that the prompt was tuned on.** Use the held-out score for new notes.
+- **Recall on new calls is about 95%.** Most misses are tasks that nobody owns and that are said as a plan, not a request ("the audit folder must be ready", "that goes into the next sprint").
+- **English only.** Notes that do not look like English get a warning.
+- **One call per run.** The tool does not merge a new call into an existing log.
+- **Long notes:** more than 15,000 words gets a warning. An answer cut off at the output limit is an error with no log ("split the notes"); the tool does not split them for you.
+- **Dates:** the code converts "by Friday", "2 November" and full dates with the meeting date. It writes "Not stated" (and keeps the words) for number-only dates ("02/11"), "next Friday", "next sprint", "end of month" and events ("after the release"). A day and month more than 30 days before the meeting take the next year.
+- **Speakers:** the tool cannot see a wrong speaker label in a transcript. An owner taken from a one-word reply ("Yes.") gets a check line in Needs attention.
+- **Page:** you see an item's quote by choosing the item in a box under the table (a table cell cannot be clicked). The Reviewed ticks last for the page session only; the Markdown download keeps them.
+- **Privacy:** your notes go to the Anthropic API. Do not upload notes that you may not share.
 
 ## The problem
 
@@ -37,11 +42,32 @@ The tool reads the notes from a team call (.txt, .docx, or a Teams/Zoom .vtt tra
 | Action | "Priya will send the migration plan by Monday." |
 | Decision | "We will use PostgreSQL for the new service." |
 
-Each item has an owner, a due date, a status, and a **source quote** from the notes. The code checks each quote word for word against the notes. When the notes do not give an owner or a date, the tool writes **"Not stated"**. It does not guess.
+Each item has an owner, a due date and a **source quote** from the notes. The code checks each quote word for word against the notes.
 
-## Eval result
+### What v2 adds
 
-10 sample calls, 68 expected items, model `claude-sonnet-5-5`: **100% recall and 100% precision**, 0 invented owners or dates, about $0.01 for each call. The prompt was tuned on these samples, so new notes may score lower. See [`evals/FINDINGS.md`](evals/FINDINGS.md) and [`evals/report.md`](evals/report.md).
+- **Owner states.** An owner is **Confirmed** only after a clear yes or an "I will". "I can try" is **Tentative**, "No" is **Declined**, and no reply, a withdrawn yes, a list of names or a person not on the call is **Not confirmed**. The page shows the state next to the owner: "Aiko (tentative)".
+- **Decisions need agreement.** "We could use Postgres" is not a decision. "We'll go with X if the VP agrees" is a dependency on that approval.
+- **Dates from code.** The model copies the date words ("by Friday"); the code turns them into a date with the meeting date you enter.
+- **Code checks before you see the log:** owner name not in the notes, owner or date far from the quote, date words not in the notes, duplicate items, an owner from a one-word reply.
+- **Needs attention** above the log lists what to check: unconfirmed owners, actions with no due date, and the check results.
+- **One table** (Type · Item · Owner · Due date · Reviewed), a **Markdown download** with run details and the quotes, and no Excel file.
+- **Fail loudly:** an answer cut off at the output limit is an error, not a short log.
+
+## Eval results
+
+Model `claude-sonnet-5-5`, prompt 2.1. The same v2 metrics for every set ([`raid/evaluate.py`](raid/evaluate.py)).
+
+| Set | Calls | Written by | Recall | Precision | Invented owners | Invented dates | Wrong owners / dates | Owner state right | Found in all 5 runs | Cost |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **Held-out** ([report](evals/heldout/report.md)) | 28 × 5 runs | Claude (AI); keys approved by Aswin Guruswamy before the run | **95%** | **99%** | **0** | **0** | 0 / 0 | 523 of 524 | 94% | $1.78 |
+| Tuning ([report](evals/report.md)) | 10 × 1 run | AI-assisted (Claude), v1 | 100% | 100% | 0 | 0 | 0 / 0 | – (v1 keys have no states) | – | $0.15 |
+| Spec examples ([report](evals/spec_cases/report.md)) | 13 × 1 run | Claude (AI), from the approved spec | 100% | 100% | 0 | 0 | 0 / 0 | 15 of 15 | – | $0.10 |
+
+- **Release gate:** 0 invented owners and 0 invented dates on the held-out set, with the answer keys committed before the first run. Passed.
+- **Invented owner:** the tool names a person as Confirmed or Tentative where the key has nobody, or has Not confirmed or Declined. **Invented date:** the tool gives a date where the key has "Not stated".
+- Every pull request that changes the prompt, the code checks or the model runs the tuning calls and the spec examples in CI, and fails on any invented owner or date.
+- The held-out set has one call for each of the 28 hard cases in the failure catalogue: non-committal replies, weak yes, refusals, conditions, counter-offers, no reply, withdrawn yes, hand-offs, lists of names, roles, people not on the call, same first names, unclear "he", relative and changed dates, proposals, reversed and pending decisions, negations, status-only calls, one-word replies, a long call, wrong-item quotes and a prompt-injection line.
 
 ## Quick start
 
@@ -63,13 +89,22 @@ python3 -m streamlit run app.py
 
 The demo mode needs no API key. The "Your own notes" mode uses the key in `.env`.
 
+Enter the meeting date before you upload, so that "by Friday" becomes a date. [How to export a Teams or Zoom transcript](docs/export-guide.md).
+
 **Command line:**
 
 ```bash
 python3 -m raid extract samples/s02_crm_migration.txt --meeting-date 2026-10-21
 ```
 
-The Markdown file goes into the `output/` folder. v2 writes no Excel file.
+The Markdown file goes into the `output/` folder.
+
+**Evals:**
+
+```bash
+python3 evals/run_eval.py --cached                        # re-score the saved tuning run, no API call
+python3 evals/run_eval.py --set heldout --cached --gate   # the release gate on the saved held-out run
+```
 
 **Tests:**
 
@@ -97,13 +132,17 @@ Built with Claude as the coding partner; product decisions, evals, and testing b
 
 ```
 app.py              Streamlit web page (demo mode and your own notes)
-raid/               the tool: parse, extract, export, cost, command line, eval scoring
-samples/            10 sample calls with invented names (no real data)
-evals/              correct answers, eval script, run outputs, report, findings
-demo/               saved results that the demo mode shows
+raid/               the tool: parse, extract (prompt), dates, checks, pipeline, view, Markdown export,
+                    cost, command line, eval scoring
+samples/            10 tuning calls with invented names (no real data)
+evals/              tuning answers and runs; spec_cases/ (spec examples); heldout/ (28 held-out calls,
+                    approved keys, 5-run outputs, report); eval script and findings
+specs/              approved v2 spec, requirements and constitution
+scripts/            release notes; demo builder
+demo/               saved v2 results that the demo mode shows
 docs/               decisions, bug log, project RAID log, release gate, demo GIF
 tests/              offline tests and live tests
-.github/workflows/  CI: offline tests on Python 3.11, 3.12 and 3.13 on each push
+.github/workflows/  CI: offline tests (Python 3.11-3.13), scans, live eval on prompt changes, held-out run, release
 .streamlit/         web page settings (upload limit, colours)
 ```
 
