@@ -66,3 +66,19 @@ def test_release_notes_come_from_the_changelog():
     ).stdout
     assert "The first public release." in out
     assert "## [" not in out
+
+
+def test_known_limits_is_the_first_readme_section():
+    # RAID v2 spec R19.1 (shared item SH5).
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    first = next(line for line in readme.splitlines() if line.startswith("## "))
+    assert first == "## Known limits"
+    limits = readme.split("\n## Known limits")[1].split("\n## ")[0]
+    assert "tuned" in limits and "held-out" in limits
+
+
+def test_contributing_rules_exist():
+    # Shared rules for MCF, SRG and RAID (constitution P9, P12; SH4).
+    text = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
+    for words in ("specs/", "test first", "bug", "CI"):
+        assert words in text, words
