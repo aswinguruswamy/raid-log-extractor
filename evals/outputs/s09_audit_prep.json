@@ -1,83 +1,143 @@
 {
   "sample": "s09_audit_prep.txt",
   "model": "claude-sonnet-5-5",
-  "run_date": "2026-10-20",
-  "input_tokens": 1531,
-  "output_tokens": 803,
-  "seconds": 4.29,
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": null,
+  "input_tokens": 2964,
+  "output_tokens": 1582,
+  "seconds": 9.21,
   "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-2",
+      "Owner not confirmed (no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-3",
+      "Owner not confirmed (no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-3",
+      "Action has no due date."
+    ]
+  ],
   "items": [
     {
       "type": "Issue",
       "description": "The Q3 access review is incomplete, with 3 of 11 systems still outstanding.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "The Q3 access review is not complete; 3 of 11 systems are still outstanding.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
     },
     {
       "type": "Risk",
-      "description": "If the outstanding access reviews are not completed before the audit, the organisation may receive a major non-conformity.",
+      "description": "If the outstanding access reviews are not finished before the audit, the team may receive a major non-conformity.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "If the outstanding access reviews are not complete before the audit, we may receive a major non-conformity.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
     },
     {
       "type": "Dependency",
       "description": "Evidence for the supplier security checks depends on the procurement team uploading the signed questionnaires.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "Evidence for the supplier security checks depends on the procurement team uploading the signed questionnaires.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
     },
     {
       "type": "Assumption",
       "description": "The team assumes the auditor will accept the new risk register format.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "We assume the auditor will accept the new risk register format.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
     },
     {
       "type": "Decision",
       "description": "The internal audit report will be shared with the auditor in advance.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "Decision: the internal audit report will be shared with the auditor in advance.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
     },
     {
       "type": "Action",
       "description": "Fatima Zahra to complete the remaining access reviews.",
       "owner": "Fatima Zahra",
+      "owner_state": "Not confirmed",
+      "owner_note": "no reply",
       "due_date": "2026-11-06",
-      "status": "Open",
+      "date_words": "by 2026-11-06",
       "source_quote": "Action: Fatima Zahra to complete the remaining access reviews by 2026-11-06.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
     },
     {
       "type": "Action",
       "description": "Leo Fernandes to provide training records for new joiners.",
       "owner": "Leo Fernandes",
+      "owner_state": "Not confirmed",
+      "owner_note": "no reply",
       "due_date": "2026-11-10",
-      "status": "Open",
+      "date_words": "by 2026-11-10",
       "source_quote": "Action: Leo Fernandes to provide training records for new joiners by 2026-11-10.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
     },
     {
       "type": "Action",
-      "description": "Oliver Grant to book a dry-run session, with the date still to be agreed.",
+      "description": "Oliver Grant to book a dry-run session; date still to be agreed.",
       "owner": "Oliver Grant",
+      "owner_state": "Not confirmed",
+      "owner_note": "no reply",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "Action: Oliver Grant to book a dry-run session (date to be agreed).",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-3"
     }
   ]
 }

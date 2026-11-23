@@ -1,0 +1,121 @@
+{
+  "sample": "s01_mobile_release.vtt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": null,
+  "input_tokens": 3045,
+  "output_tokens": 877,
+  "seconds": 4.63,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "",
+      "Enter the meeting date to convert dates."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "Crash rate on Android 12 devices is four percent in the beta, which currently blocks the release.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The crash rate on Android 12 devices is at four percent in the beta, so right now that is a release blocker.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Omar to fix the Android crash and have the fix in the build by 2026-10-28.",
+      "owner": "Omar Haddad",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-10-28",
+      "date_words": "by 2026-10-28",
+      "source_quote": "I'll take the Android crash and have a fix in the build by 2026-10-28.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Dependency",
+      "description": "The app release cannot go out until the new login API is deployed to production.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "the new login API is not deployed to production yet. The app release cannot go out until that API is live.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    },
+    {
+      "type": "Risk",
+      "description": "App store review can take up to a week, so a late submission may miss the November 3 marketing date.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The app store review can take up to a week, so if we submit late we may miss the marketing date on November 3.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    },
+    {
+      "type": "Assumption",
+      "description": "The design team will not change the onboarding screens again.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We are assuming the design team won't change the onboarding screens again.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    },
+    {
+      "type": "Decision",
+      "description": "Drop the dark-mode toggle from 3.2 and move it to 3.3.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Decision for today: we drop the dark-mode toggle from 3.2 and move it to 3.3.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    },
+    {
+      "type": "Action",
+      "description": "Omar to make sure Sofia has the final test build by Thursday for regression testing.",
+      "owner": "Omar Haddad",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "by Thursday",
+      "source_quote": "Omar, can you make sure Sofia has the build by Thursday?",
+      "reply_quote": "Sure, no problem.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    }
+  ]
+}

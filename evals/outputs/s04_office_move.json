@@ -1,74 +1,121 @@
 {
   "sample": "s04_office_move.txt",
   "model": "claude-sonnet-5-5",
-  "run_date": "2026-10-20",
-  "input_tokens": 1469,
-  "output_tokens": 678,
-  "seconds": 3.72,
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": null,
+  "input_tokens": 2902,
+  "output_tokens": 840,
+  "seconds": 4.28,
   "warnings": [],
+  "needs_attention": [
+    [
+      "",
+      "Enter the meeting date to convert dates."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
   "items": [
     {
       "type": "Decision",
-      "description": "The group decided to keep the move date of 2026-12-12 instead of delaying to January.",
+      "description": "The group decided to keep the move date of 12 December 2026 instead of delaying to January.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "The group decided to keep the move date of 2026-12-12 rather than delay to January.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
     },
     {
       "type": "Dependency",
-      "description": "Installation of the fibre line in the new building depends on the landlord approving the work.",
+      "description": "Fibre line installation in the new building depends on the landlord approving the work.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "The fibre line in the new building will not be installed until the landlord approves the work.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
     },
     {
       "type": "Action",
-      "description": "Ines will chase the landlord for approval of the fibre installation work.",
-      "owner": "Ines Duarte",
+      "description": "Ines will chase the landlord for approval of the fibre work.",
+      "owner": "Ines",
+      "owner_state": "Confirmed",
+      "owner_note": "",
       "due_date": "2026-10-30",
-      "status": "Open",
+      "date_words": "by 2026-10-30",
       "source_quote": "Ines will chase the landlord for approval by 2026-10-30.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
     },
     {
       "type": "Risk",
       "description": "If the furniture order is not placed this week, the desks may not arrive before the move because of the six-week lead time.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "If the order is not placed this week, the desks may not arrive before the move.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
     },
     {
       "type": "Action",
       "description": "Felix will place the furniture order on Friday.",
-      "owner": "Felix Novak",
+      "owner": "Felix",
+      "owner_state": "Confirmed",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "on Friday",
       "source_quote": "Felix will place the order on Friday.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
     },
     {
       "type": "Issue",
       "description": "The new site has only 40 parking spaces for 90 people, and staff are already complaining.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "The new site has only 40 parking spaces for 90 people, and staff are already complaining about it.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
     },
     {
       "type": "Assumption",
-      "description": "The group assumes the old office can be accessed for two weeks after the move to collect remaining items.",
+      "description": "The old office is assumed to be accessible for two weeks after the move to collect remaining items.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "The group assumes the old office can be accessed for two weeks after the move to collect remaining items.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
     }
   ]
 }

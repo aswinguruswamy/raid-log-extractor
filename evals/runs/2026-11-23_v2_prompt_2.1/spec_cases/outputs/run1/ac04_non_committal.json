@@ -1,0 +1,55 @@
+{
+  "sample": "ac04_non_committal.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2673,
+  "output_tokens": 281,
+  "seconds": 1.8,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (did not commit) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Review the budget (Aiko did not commit to taking this on).",
+      "owner": "Aiko Sato",
+      "owner_state": "Not confirmed",
+      "owner_note": "did not commit",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Aiko, can you review the budget?",
+      "reply_quote": "Not sure, I'll discuss and let you know.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Aiko to confirm whether she can review the budget.",
+      "owner": "Aiko Sato",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Not sure, I'll discuss and let you know.",
+      "reply_quote": "Not sure, I'll discuss and let you know.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "sample": "ac11_vp_approval.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2662,
+  "output_tokens": 146,
+  "seconds": 1.88,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Dependency",
+      "description": "Choosing option X depends on the VP agreeing to it.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We'll go with X if the VP agrees.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    }
+  ]
+}

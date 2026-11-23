@@ -1,0 +1,121 @@
+{
+  "sample": "s07_cloud_migration.vtt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": null,
+  "input_tokens": 2968,
+  "output_tokens": 817,
+  "seconds": 4.31,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "",
+      "Enter the meeting date to convert dates."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "Nightly backups on the old data center have been failing since Monday.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The nightly backups have been failing on the old data center since Monday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Dependency",
+      "description": "Moving the payment service needs the security review signed off, which only happens after the pen test.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Before we move the payment service we need the security review signed off, and that review only happens after the pen test.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    },
+    {
+      "type": "Decision",
+      "description": "The payment service will move in wave two, not wave one.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Okay, final answer: the payment service goes in wave two, not wave one.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    },
+    {
+      "type": "Assumption",
+      "description": "Current database licences can move to the cloud without extra cost.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We are assuming our current database licences can move to the cloud without extra cost.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    },
+    {
+      "type": "Risk",
+      "description": "If egress costs exceed the estimate, the monthly bill could go over budget.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "If egress costs are higher than the estimate, the monthly bill could go over budget.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    },
+    {
+      "type": "Action",
+      "description": "Claire to open a ticket with the backup vendor today, right after the call.",
+      "owner": "Claire Dubois",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "today",
+      "source_quote": "Claire, can you open a ticket with the backup vendor today?",
+      "reply_quote": "Yes, I'll do it right after this call.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Arjun to update the wave plan and share it.",
+      "owner": "Arjun Mehta",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-10-27",
+      "date_words": "by 2026-10-27",
+      "source_quote": "And I'll update the wave plan and share it by 2026-10-27.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    }
+  ]
+}

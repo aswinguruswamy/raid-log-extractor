@@ -1,0 +1,28 @@
+{
+  "sample": "ac16_changed_date.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2693,
+  "output_tokens": 188,
+  "seconds": 1.52,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Aiko to send the report, with the deadline moved from Monday to Wednesday as agreed.",
+      "owner": "Aiko Sato",
+      "owner_state": "Confirmed",
+      "owner_note": "counter-offer accepted",
+      "due_date": "2026-12-02",
+      "date_words": "Wednesday",
+      "source_quote": "Aiko, can you send the report on Monday?",
+      "reply_quote": "Monday\u2026 no, make it Wednesday.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

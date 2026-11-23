@@ -1,0 +1,47 @@
+{
+  "sample": "s10_standup.vtt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": null,
+  "input_tokens": 2817,
+  "output_tokens": 245,
+  "seconds": 2.03,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The shared drive is full, so Paul cannot save new files there.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The shared drive is full, so I can't save new files there right now.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Nina will ask IT to add more space to the shared drive.",
+      "owner": "Nina Berg",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "I'll ask IT to add more space.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

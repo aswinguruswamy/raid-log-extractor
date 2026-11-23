@@ -1,0 +1,81 @@
+{
+  "sample": "ac06_owners_by_list.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2665,
+  "output_tokens": 484,
+  "seconds": 3.18,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (owners by list: Jon, Alisa, Crab \u2013 confirm) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ],
+    [
+      "ACT-2",
+      "Owner not confirmed (owners by list: Jon, Alisa, Crab \u2013 confirm) \u2013 confirm."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ],
+    [
+      "ACT-3",
+      "Owner not confirmed (owners by list: Jon, Alisa, Crab \u2013 confirm) \u2013 confirm."
+    ],
+    [
+      "ACT-3",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Prepare the test plan (owner to be confirmed from the list Jon, Alisa, Crab).",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab \u2013 confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Jon, Alisa, Crab \u2013 the test plan, the pipeline and the release notes.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Work on the pipeline (owner to be confirmed from the list Jon, Alisa, Crab).",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab \u2013 confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Jon, Alisa, Crab \u2013 the test plan, the pipeline and the release notes.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Action",
+      "description": "Write the release notes (owner to be confirmed from the list Jon, Alisa, Crab).",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab \u2013 confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Jon, Alisa, Crab \u2013 the test plan, the pipeline and the release notes.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-3"
+    }
+  ]
+}

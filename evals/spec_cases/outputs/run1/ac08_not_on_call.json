@@ -1,0 +1,37 @@
+{
+  "sample": "ac08_not_on_call.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2653,
+  "output_tokens": 523,
+  "seconds": 3.9,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (not on the call) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Assign an unspecified task or item to Maria, as Helen Price instructed; Sam Osei acknowledged it.",
+      "owner": "Maria",
+      "owner_state": "Not confirmed",
+      "owner_note": "not on the call",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Give it to Maria. Sam Osei: Okay.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

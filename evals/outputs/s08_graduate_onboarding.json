@@ -1,74 +1,117 @@
 {
   "sample": "s08_graduate_onboarding.docx",
   "model": "claude-sonnet-5-5",
-  "run_date": "2026-10-20",
-  "input_tokens": 1428,
-  "output_tokens": 632,
-  "seconds": 3.57,
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": null,
+  "input_tokens": 2861,
+  "output_tokens": 771,
+  "seconds": 3.94,
   "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
   "items": [
     {
       "type": "Issue",
-      "description": "Only 12 of 25 mentors have signed up, and mentor matching starts next week.",
+      "description": "Only 12 of 25 mentors have signed up while mentor matching starts next week.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "only 12 of 25 mentors have signed up so far",
+      "reply_quote": "",
       "status": "Open",
-      "source_quote": "only 12 of 25 mentors have signed up so far.",
-      "quote_verified": true
+      "quote_verified": true,
+      "short_id": "ISS-1"
     },
     {
       "type": "Dependency",
-      "description": "Laptops for the new graduates must arrive from procurement before the start date of 2027-01-11.",
+      "description": "Laptops for new graduates must arrive from procurement before the start date.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "The laptops for the new graduates must arrive from procurement before the start date of 2027-01-11.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
     },
     {
       "type": "Risk",
       "description": "If the city office renovation runs late, the induction week may need another venue.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "if the city office renovation runs late, the induction week may need another venue",
+      "reply_quote": "",
       "status": "Open",
-      "source_quote": "if the city office renovation runs late, the induction week may need another venue.",
-      "quote_verified": true
+      "quote_verified": true,
+      "short_id": "RSK-1"
     },
     {
       "type": "Assumption",
       "description": "All graduates are assumed to pass their background checks before the start date.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "The team assumes all graduates will pass their background checks before the start date.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
     },
     {
       "type": "Decision",
-      "description": "The team decided to run the first week fully in person.",
+      "description": "The first week will be run fully in person.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "The group decided to run the first week fully in person.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
     },
     {
       "type": "Action",
       "description": "Mei will draft the welcome pack.",
-      "owner": "Mei Lin",
+      "owner": "Mei",
+      "owner_state": "Confirmed",
+      "owner_note": "",
       "due_date": "2026-11-13",
-      "status": "Open",
+      "date_words": "by 2026-11-13",
       "source_quote": "Mei will draft the welcome pack by 2026-11-13.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
     },
     {
       "type": "Action",
-      "description": "Elena will send a reminder to the managers who have not signed up as mentors.",
-      "owner": "Elena Rossi",
+      "description": "Elena will send a reminder to managers who have not signed up as mentors.",
+      "owner": "Elena",
+      "owner_state": "Confirmed",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "Elena will send a reminder to the managers who have not signed up as mentors.",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
     }
   ]
 }
