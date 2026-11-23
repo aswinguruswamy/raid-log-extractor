@@ -141,7 +141,12 @@ TOO_LONG = "The notes have more than 15,000 words. Items may be missed; split th
 NO_SPEAKERS = "No speaker names found (\"Name:\" lines or voice tags). Check every owner."
 NOT_ENGLISH = "The notes do not look like English. The tool is tested on English only; check every item."
 
-_SPEAKER = re.compile(r"^\s*([A-Z][A-Za-z'.-]*(?:\s+[A-Z][A-Za-z'.-]*){0,3})\s*:\s*\S", re.MULTILINE)
+# A name before a turn: letters in any script, up to 4 words, after an optional bullet or
+# "[10:02]" time stamp, before an optional "(role)". Digits are not allowed ("Q3 Budget:").
+_SPEAKER = re.compile(
+    r"^\s*(?:[-*•]\s*)?(?:\[[^\]]*\]\s*)?([^\W\d_][\w'.-]*(?:\s+[^\W\d_][\w'.-]*){0,3})\s*(?:\([^)]*\))?\s*:\s*\S",
+    re.MULTILINE,
+)
 _ATTENDEES = re.compile(r"^\s*(?:present|attendees|participants|attending|in attendance)\s*:\s*(.+)$",
                         re.IGNORECASE | re.MULTILINE)
 _HEADINGS = {
@@ -174,7 +179,7 @@ def speakers(text: str) -> list[str]:
                 found.append((match.start(), name))
     for match in _SPEAKER.finditer(text):
         name = match.group(1).strip()
-        if name.lower() not in _HEADINGS:
+        if name[0].isupper() and not any(ch.isdigit() for ch in name) and name.lower() not in _HEADINGS:
             found.append((match.start(), name))
     names: list[str] = []
     for _, name in sorted(found, key=lambda pair: pair[0]):

@@ -26,7 +26,7 @@ DEFAULT_MODEL = os.getenv("RAID_MODEL", "claude-sonnet-5-5")
 MAX_OUTPUT_TOKENS = 8000
 TOOL_NAME = "record_raid_items"
 
-PROMPT_VERSION = "2.0"  # change it with every prompt change (spec R10.1)
+PROMPT_VERSION = "2.1"  # change it with every prompt change (spec R10.1)
 
 SYSTEM_PROMPT = f"""You read the notes or transcript of a project team call and record its RAID items.
 
@@ -48,7 +48,7 @@ Rules:
    - A proposal ("we could use Postgres"), a question or a hypothetical ("what if we drop SSO?") is not a Decision.
    - A decision taken back later in the call ("let's not decide yet") is not a Decision.
    - A choice that waits for approval ("we'll go with X if the VP agrees") is a Dependency on that approval, not a Decision.
-5. owner: a person or role named in the notes, written as in the notes, or "{NOT_STATED}". Never write a state such as "Not confirmed" in owner. The person who speaks or reports an item is NOT its owner. Never guess an owner.
+5. owner: a person or role named in the notes, written as in the notes, or "{NOT_STATED}". Never write a state such as "Not confirmed" in owner. The person who reports an item is NOT its owner, unless that person says "I will …" / "I'll …" (rule 6). Never guess an owner.
    - Risk, Assumption, Issue, Dependency, Decision: "{NOT_STATED}" unless the notes give that item to a person (for example "Grace owns this risk").
 6. owner_state: did the owner accept the Action? One of: Confirmed, Tentative, Not confirmed, Declined, {NOT_STATED}. owner_note: a few words on the owner, or "".
    - "I will …" / "I'll …": the speaker is the owner, Confirmed.
@@ -66,7 +66,7 @@ Rules:
    - A person who never speaks in the notes and is not listed as present ("give it to Maria"): owner = that person, Not confirmed, owner_note "not on the call".
    - Two people with the same first name and no surname, or an unclear "he", "she" or "they": owner = the name as said, or "{NOT_STATED}" for a pronoun, Not confirmed, owner_note "unclear who".
    - No person or role named: owner "{NOT_STATED}", owner_state "{NOT_STATED}".
-7. date_words: copy the exact words from the notes that give the due date ("by Friday", "on 2 November", "2026-10-26", "Tuesday works"), or "" when the notes give no date for the item. When the date changes in the call, copy the last agreed words. Do not work out the date; code does that.
+7. date_words: only for a deadline by which the item must be done. Copy the exact words from the notes that give it ("by Friday", "on 2 November", "2026-10-26", "Tuesday works"), or "" when the notes give no deadline. A date that only describes a risk, an issue, a decision or a past event is not a deadline: write "". When the date changes in the call, copy the last agreed words. Do not work out the date; code does that.
 8. description: one clear sentence in your own words.
 9. source_quote: copy the exact words from the notes that support the item. Copy them character for character, as one continuous span, 5 to 40 words. Do not fix spelling or grammar in the quote. When an action is agreed in two turns (a request and a short "yes"), quote the request that names the task, not the "yes".
 10. reply_quote: copy the exact words of the reply that accepts, weakens or refuses the task ("Yes, will do.", "I can try."), or "" when there is no reply.
