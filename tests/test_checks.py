@@ -126,3 +126,54 @@ def test_longer_reply_is_fine():
 def test_line_texts_match_the_spec():
     assert NOT_NEAR_QUOTE == "Owner/date not near the quote – check."
     assert ONE_WORD_REPLY == "Owner from a one-word reply – check the speaker."
+
+
+def test_one_sentence_with_three_tasks_keeps_three_actions():
+    # Spec R2.2 / AC6 (catalogue B1): one quote gives three different tasks. Not duplicates.
+    quote = "Jon, Alisa, Crab – the test plan, the pipeline and the release notes."
+    notes = "Carmen Diaz: " + quote
+    log = RaidLog(items=[
+        RaidItem(type="Action", description=d, source_quote=quote, owner_state="Not confirmed")
+        for d in ("Write the test plan.", "Build the pipeline.", "Write the release notes.")
+    ])
+    assert DUPLICATE not in [a.text for a in run_checks(log, notes)]
+    assert len(log.items) == 3
+
+
+# --- review of PR 13 ---
+
+def test_same_opening_but_different_tasks_are_both_kept():
+    notes = "Ana Ruiz: We need to update the API docs by Friday.\nAna Ruiz: We need to update the test plan by Friday."
+    log = RaidLog(items=[
+        RaidItem(type="Action", description="Update the API docs.", source_quote="We need to update the API docs by Friday"),
+        RaidItem(type="Action", description="Update the test plan.", source_quote="We need to update the test plan by Friday"),
+    ])
+    run_checks(log, notes)
+    assert len(log.items) == 2
+
+
+def test_common_word_owner_is_not_found_in_i_will():
+    log = RaidLog(items=[item(owner="Will", date_words="")])
+    attention = run_checks(log, NOTES)
+    assert log.items[0].owner == NOT_STATED
+    assert OWNER_NOT_IN_NOTES in lines_for(attention, "ACT-1")
+
+
+def test_role_made_of_common_words_must_appear_whole():
+    notes = NOTES + "\nBen Ortiz: The data is ready and the team is happy."
+    log = RaidLog(items=[item(owner="Data team", date_words="")])
+    run_checks(log, notes)
+    assert log.items[0].owner == NOT_STATED
+
+
+def test_short_lines_do_not_widen_the_context():
+    # "Yes." is in the quote's text but is its own line; the owner two turns away is not near.
+    notes = "Ben Ortiz: Priya is out.\nBen Ortiz: Okay.\nAna Ruiz: Can someone send the report?\nMo Rahman: Thanks."
+    log = RaidLog(items=[RaidItem(type="Action", description="Send the report.", owner="Priya",
+                                  owner_state="Not confirmed", source_quote="Okay.")])
+    attention = run_checks(log, notes)
+    # The quote "Okay." holds only line 2; lines 1-3 are near, so Priya (line 1) is near.
+    assert NOT_NEAR_QUOTE not in lines_for(attention, "ACT-1")
+    log = RaidLog(items=[RaidItem(type="Action", description="Send the report.", owner="Priya",
+                                  owner_state="Not confirmed", source_quote="Thanks.")])
+    assert NOT_NEAR_QUOTE in lines_for(run_checks(log, notes), "ACT-1")
