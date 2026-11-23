@@ -155,7 +155,7 @@ scripts/            release notes; demo builder
 demo/               saved v2 results that the demo mode shows
 docs/               decisions, bug log, project RAID log, release gate, demo GIF
 tests/              offline tests and live tests
-.github/workflows/  CI: offline tests (Python 3.11-3.13), scans, live eval on prompt changes, held-out run, release
+.github/workflows/  CI: offline tests (Python 3.11-3.14), scans, live eval on prompt changes, held-out run, release
 .streamlit/         web page settings (upload limit, colours)
 ```
 

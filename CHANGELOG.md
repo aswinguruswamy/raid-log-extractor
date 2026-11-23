@@ -20,7 +20,7 @@ Hard cases right, proved on a held-out set (spec v1.2).
 ### Changed
 
 - An answer cut off at the output limit is an error with no log (v1: a warning).
-- Python 3.11 or later; anthropic SDK 2.x.
+- Python 3.11 or later (CI tests 3.11–3.14); anthropic SDK 2.x.
 
 ### Removed
 

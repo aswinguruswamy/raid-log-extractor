@@ -1,6 +1,6 @@
 # Spec: RAID v2 – Hard cases right, proved on a held-out set
 
-Version: 1.4 | Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (1.1 = demo decision; 1.2 = year rule, 1.3 = R5.5, R8.3 as built and 1.4 = screenshots instead of a video, approved 2026-11-23) | Date: 2026-11-23
+Version: 1.5 | Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (1.1 = demo decision; 1.2 = year rule, 1.3 = R5.5, R8.3 as built and 1.4 = screenshots instead of a video, 1.5 = Python 3.14 in CI, approved 2026-11-23) | Date: 2026-11-23
 Tool: RAID | MoSCoW: Must (R12: Should) | Source: `specs/RAID/requirements.md` v1.3, `context/RAID-v2-analysis.md` §7 (failure catalogue) and §8 (DL1–DL4), `clarify/RAID-clarify-log.md`, RAID v1.0.0 code (`raid/extract.py`, `raid/schema.py`, `raid/export.py`, `evals/`, read 2026-11-22)
 
 Requirement IDs `RAID-Rn.m` belong to R1–R19 and N1–N7 on the requirements page. Catalogue IDs (A2, B1 …) are rows in the failure catalogue.
@@ -106,7 +106,7 @@ RAID v1 turns call notes into a RAID log with quotes that the code checks. But i
 ### Quality (R17–R19)
 | ID | Type | Requirement | Source |
 |---|---|---|---|
-| RAID-R17.1 | Ubiquitous | CI shall meet the shared standard: Python 3.11–3.13, lint, gitleaks, SHA-pinned actions, Dependabot, pip-audit, licence scan. | R17, I9 |
+| RAID-R17.1 | Ubiquitous | CI shall meet the shared standard: Python 3.11–3.14, lint, gitleaks, SHA-pinned actions, Dependabot, pip-audit, licence scan. | R17, I9 |
 | RAID-R18.1 | Event | When a version tag is pushed, the release workflow shall run the tests, build, and publish release notes. | R18 |
 | RAID-R19.1 | Ubiquitous | The README shall start with "Known limits"; every bug fix shall add a test, and a sample call for AI bugs, first. | R19 |
 | RAID-R20.1 | Ubiquitous | The README shall have a "Screenshots" section after "Known limits" with 2–3 screenshots of the keyless demo (the table with Needs attention, the quote of an item, an owner state), with links that open the demo. No video. The hosted demo shall run with no API key (saved results, v1). | R20, SH-4.4, SH-5.5 |
@@ -233,6 +233,7 @@ Output changed to the page table + Markdown (requirements v1.1). The v0.2 fixes 
 ## 13. Change log
 | Version | Date | Change | Approved by |
 |---|---|---|---|
+| 1.5 | 2026-11-23 | R17.1: CI also tests Python 3.14 (the Streamlit Cloud version) | Aswin Guruswamy |
 | 1.4 | 2026-11-23 | R20.1, AC46: README screenshots in place of the video | Aswin 2026-11-23 (SH-5.5) |
 | 1.3 | 2026-11-23 | R5.5 and R8.3 match the build (Aswin's decisions RAID-5.1, RAID-5.2) | Aswin Guruswamy |
 | 1.2 | 2026-11-23 | R4.3 year rule: a day and month more than 30 days before the meeting date take the next year | Aswin Guruswamy |
