@@ -272,8 +272,7 @@ def render(report, runs, *, v2=None, set_name: str = "tuning", runs_count: int =
         misses, extras, mixups = misses_and_extras(s)
         lines.append(f"**{s.sample}** — expected {len(s.expected)}, found {len(s.found)}, matched {len(s.pairs)}")
         for label, entries in (("Missed", misses), ("Extra", extras), ("Type mix-up", mixups),
-                               ("Guessed owner", s.guessed_owners), ("Owner not in the notes (v1)", s.invented_owners),
-                               ("Date not written in the notes (v1)", s.invented_dates)):
+                               ("Guessed owner", s.guessed_owners), ("Owner not in the notes (v1)", s.invented_owners)):
             for entry in entries:
                 lines.append(f"- {label}: {entry}")
         lines.append("")

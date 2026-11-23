@@ -1,0 +1,93 @@
+{
+  "sample": "h01_warehouse_scanners.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2876,
+  "output_tokens": 688,
+  "seconds": 4.31,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (no commitment; checking with manager) \u2013 confirm."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "Wi-Fi in bay 3 drops every few minutes, so scanning fails there currently.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The Wi-Fi in bay 3 still drops every few minutes, so scanning fails there today.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Run the Wi-Fi survey in bay 3 by Friday.",
+      "owner": "Omar Haddad",
+      "owner_state": "Not confirmed",
+      "owner_note": "no commitment; checking with manager",
+      "due_date": "2026-12-04",
+      "date_words": "by Friday",
+      "source_quote": "Omar, can you run the Wi-Fi survey in bay 3 by Friday?",
+      "reply_quote": "Not sure. I'll discuss it with my manager and let you know.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Omar Haddad to confirm with his manager whether he can run the bay 3 Wi-Fi survey and let Lena know.",
+      "owner": "Omar Haddad",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "I'll discuss it with my manager and let you know.",
+      "reply_quote": "Not sure. I'll discuss it with my manager and let you know.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Action",
+      "description": "Book the training room for the pickers by Thursday.",
+      "owner": "Rita Sousa",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-03",
+      "date_words": "by Thursday",
+      "source_quote": "Rita, can you book the training room for the pickers by Thursday?",
+      "reply_quote": "Yes, I'll book it.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-3"
+    },
+    {
+      "type": "Risk",
+      "description": "If the scanners arrive late, the project will miss the start of peak season.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "if the scanners arrive late, we miss the start of peak season.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    }
+  ]
+}

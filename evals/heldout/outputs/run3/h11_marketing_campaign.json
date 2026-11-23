@@ -1,0 +1,75 @@
+{
+  "sample": "h11_marketing_campaign.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2763,
+  "output_tokens": 458,
+  "seconds": 2.53,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The budget sheet still shows last year's prices, which will make the media plan wrong.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The budget sheet still shows last year's prices.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Mo Rahman will ask Tom to update the budget sheet.",
+      "owner": "Mo Rahman",
+      "owner_state": "Confirmed",
+      "owner_note": "ask Tom",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "I'll ask Tom to update the budget sheet.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Lucy Chen will draft the media plan by Friday.",
+      "owner": "Lucy Chen",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-04",
+      "date_words": "by Friday",
+      "source_quote": "I'll draft the media plan by Friday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Dependency",
+      "description": "The printer needs the final artwork before they can book the press.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The printer needs the final artwork before they can book the press.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    }
+  ]
+}

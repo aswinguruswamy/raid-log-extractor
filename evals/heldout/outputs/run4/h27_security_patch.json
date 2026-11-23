@@ -1,0 +1,42 @@
+{
+  "sample": "h27_security_patch.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-02",
+  "input_tokens": 2772,
+  "output_tokens": 619,
+  "seconds": 4.7,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Ruth will install the October security patch on the web servers on Saturday.",
+      "owner": "Ruth Adeyemi",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-05",
+      "date_words": "on Saturday",
+      "source_quote": "Anyway, I'll install the patch on Saturday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Risk",
+      "description": "If the patch breaks the login service, the site will be down on Monday morning.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "If the patch breaks the login service, the site is down on Monday morning.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    }
+  ]
+}

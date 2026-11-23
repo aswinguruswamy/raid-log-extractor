@@ -1,0 +1,83 @@
+{
+  "sample": "h25_warehouse_move.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-02",
+  "input_tokens": 2748,
+  "output_tokens": 933,
+  "seconds": 6.58,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner tentative (replied only 'Yes.' to an open 'who' question \u2013 confirm) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ],
+    [
+      "ACT-1",
+      "Owner from a one-word reply \u2013 check the speaker."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Book the trucks for the warehouse move.",
+      "owner": "Anna Weber",
+      "owner_state": "Tentative",
+      "owner_note": "replied only 'Yes.' to an open 'who' question \u2013 confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Who can book the trucks for the move?",
+      "reply_quote": "Yes.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Issue",
+      "description": "The forklift licences for two drivers expired last month.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The forklift licences for two drivers expired last month.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Dependency",
+      "description": "The new site needs a fire inspection before stock can be stored there.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The new site needs a fire inspection before we can store stock.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    },
+    {
+      "type": "Action",
+      "description": "Call the fire service (about the fire inspection) by Friday.",
+      "owner": "Diego Santos",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-04",
+      "date_words": "by Friday",
+      "source_quote": "I'll call the fire service by Friday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    }
+  ]
+}

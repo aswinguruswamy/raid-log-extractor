@@ -1,0 +1,42 @@
+{
+  "sample": "h21_hr_policy.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-03",
+  "input_tokens": 2756,
+  "output_tokens": 507,
+  "seconds": 3.6,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The staff survey has only 40% replies and it closes on Friday.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The staff survey closes on Friday and we have only 40% replies.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Linda Shaw will send a reminder about the survey to all staff today.",
+      "owner": "Linda Shaw",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-03",
+      "date_words": "today",
+      "source_quote": "I'll send a reminder to all staff today.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

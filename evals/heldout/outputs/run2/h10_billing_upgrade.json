@@ -1,0 +1,93 @@
+{
+  "sample": "h10_billing_upgrade.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-07",
+  "input_tokens": 2770,
+  "output_tokens": 552,
+  "seconds": 3.38,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (role, not a named person) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The new invoice template failed in test, with two totals wrong.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The new invoice template failed in test. Two totals are wrong.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "QA will retest the invoice template after the fix is installed.",
+      "owner": "QA",
+      "owner_state": "Not confirmed",
+      "owner_note": "role, not a named person",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "QA will retest the invoice template after the fix is installed.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Ingrid will install the vendor's fix on the test server.",
+      "owner": "Ingrid Holm",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-09",
+      "date_words": "by Wednesday",
+      "source_quote": "I'll install the fix on the test server by Wednesday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Assumption",
+      "description": "The old invoices are assumed not to need any change.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We assume the old invoices do not need to change.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    },
+    {
+      "type": "Dependency",
+      "description": "The retest of the invoice template depends on the fix being installed first.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "QA will retest the invoice template after the fix is installed.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    }
+  ]
+}

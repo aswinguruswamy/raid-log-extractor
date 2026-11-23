@@ -1,0 +1,61 @@
+{
+  "sample": "h07_payroll_migration.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-03",
+  "input_tokens": 2806,
+  "output_tokens": 401,
+  "seconds": 2.35,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (withdrawn) \u2013 confirm."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Update the cut-over checklist; Elena first accepted but then withdrew because she is on leave from Friday.",
+      "owner": "Elena Petrova",
+      "owner_state": "Not confirmed",
+      "owner_note": "withdrawn",
+      "due_date": "2026-12-07",
+      "date_words": "by Monday",
+      "source_quote": "Who can update the cut-over checklist?",
+      "reply_quote": "Actually, I can't do the checklist \u2013 I'm on leave from Friday.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Issue",
+      "description": "The parallel run showed 12 pay differences that are not yet explained.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "the parallel run showed 12 pay differences that we can't explain yet.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Dependency",
+      "description": "The bank needs the new file format two weeks before go-live.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "the bank needs our new file format two weeks before go-live.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    }
+  ]
+}

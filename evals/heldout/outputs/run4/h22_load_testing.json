@@ -1,0 +1,56 @@
+{
+  "sample": "h22_load_testing.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-04",
+  "input_tokens": 2773,
+  "output_tokens": 371,
+  "seconds": 2.48,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The payment page shows a blank screen on Safari.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The payment page still shows a blank screen on Safari.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Chloe Dubois will fix the Safari blank screen bug on the payment page by Tuesday.",
+      "owner": "Chloe Dubois",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-08",
+      "date_words": "by Tuesday",
+      "source_quote": "I'll fix the Safari bug by Tuesday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Assumption",
+      "description": "Traffic on sale day is assumed to be at most twice normal traffic.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We assume traffic on sale day is at most twice normal.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "sample": "h03_mobile_release.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-03",
+  "input_tokens": 2842,
+  "output_tokens": 1028,
+  "seconds": 6.18,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner declined (declined \u2013 reassign) \u2013 reassign."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "Crash reports have risen 30% since the last build and support is receiving complaints.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Crash reports went up 30% since the last build, and support is getting complaints.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Fix the crash, thought to be caused by the new payment library, before the store submission.",
+      "owner": "Ama Owusu",
+      "owner_state": "Declined",
+      "owner_note": "declined \u2013 reassign",
+      "due_date": "Not stated",
+      "date_words": "before the store submission",
+      "source_quote": "Ama, can you fix the crash before the store submission?",
+      "reply_quote": "No, sorry, I'm full this week with the security patch.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Ask in the team chat who has time to fix the crash.",
+      "owner": "Jonas Weber",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "I'll ask in the team chat who has time.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Dependency",
+      "description": "The new login screen cannot proceed until the platform team delivers the login API.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "the new login screen needs the login API from the platform team first.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    },
+    {
+      "type": "Decision",
+      "description": "Submit to the Android store first and to iOS a week later.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We decided to submit to the Android store first and iOS a week later.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    }
+  ]
+}

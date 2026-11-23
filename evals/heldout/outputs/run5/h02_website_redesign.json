@@ -1,0 +1,89 @@
+{
+  "sample": "h02_website_redesign.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-02",
+  "input_tokens": 2834,
+  "output_tokens": 597,
+  "seconds": 3.46,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner tentative (said he can try; busy week) \u2013 confirm."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Decision",
+      "description": "The team will go with version B of the new homepage, which Marketing approved.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Marketing approved the new homepage, so we go with version B.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    },
+    {
+      "type": "Issue",
+      "description": "The staging server has been down since this morning, so the forms cannot be tested.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The staging server has been down since this morning, so we can't test the forms.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Tomas to finish the contact form by Monday.",
+      "owner": "Tomas Rivera",
+      "owner_state": "Tentative",
+      "owner_note": "said he can try; busy week",
+      "due_date": "2026-12-07",
+      "date_words": "by Monday",
+      "source_quote": "Tomas, can you finish the contact form by Monday?",
+      "reply_quote": "I can try.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Priyanka to run the accessibility check on version B by 10 December.",
+      "owner": "Priyanka Rao",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-10",
+      "date_words": "by 10 December",
+      "source_quote": "Priyanka, can you run the accessibility check on version B by 10 December?",
+      "reply_quote": "Yes, will do.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Assumption",
+      "description": "Most visitors use a phone, so the design is mobile first.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "we assume most visitors use a phone, so we design for mobile first.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    }
+  ]
+}

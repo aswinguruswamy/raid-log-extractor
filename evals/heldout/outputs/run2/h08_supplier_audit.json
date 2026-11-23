@@ -1,0 +1,70 @@
+{
+  "sample": "h08_supplier_audit.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-08",
+  "input_tokens": 2784,
+  "output_tokens": 462,
+  "seconds": 3.04,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The training records for the night shift are missing, and the audit folder must be ready before the auditors arrive next week.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The training records for the night shift are still missing.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Send the audit agenda to the plant managers.",
+      "owner": "Nadia Karim",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-10",
+      "date_words": "by Thursday",
+      "source_quote": "I'll send the audit agenda to the plant managers by Thursday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Decision",
+      "description": "Hold the opening meeting in the main canteen.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We decided to hold the opening meeting in the main canteen.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    },
+    {
+      "type": "Risk",
+      "description": "If the auditors find the missing records, the company could lose the certificate.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "if the auditors find the missing records, we could lose the certificate.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    }
+  ]
+}

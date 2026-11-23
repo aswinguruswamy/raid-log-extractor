@@ -1,0 +1,79 @@
+{
+  "sample": "h12_clinic_scheduling.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-02",
+  "input_tokens": 2774,
+  "output_tokens": 923,
+  "seconds": 5.9,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (not on the call) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Dependency",
+      "description": "Text message reminders depend on a new contract with the SMS provider being in place first.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Text messages need a new contract with the SMS provider.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    },
+    {
+      "type": "Action",
+      "description": "Maria is to take on the new SMS provider contract, since she knows the provider.",
+      "owner": "Maria",
+      "owner_state": "Not confirmed",
+      "owner_note": "not on the call",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Give the SMS contract to Maria. She knows the provider.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Sam will update the reminder screens.",
+      "owner": "Sam Osei",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-08",
+      "date_words": "by Tuesday",
+      "source_quote": "I'll update the reminder screens by Tuesday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Decision",
+      "description": "The team decided to keep email as a backup reminder channel.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We decided to keep email as a backup channel.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    }
+  ]
+}
