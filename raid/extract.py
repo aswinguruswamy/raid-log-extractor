@@ -15,7 +15,14 @@ from dataclasses import dataclass, field
 
 from pydantic import ValidationError
 
-from .schema import NOT_STATED, ItemType, RaidItem, RaidLog
+from .schema import (
+    NOT_STATED,
+    V2_MODEL_FIELDS,
+    ModelItem,
+    RaidItem,
+    RaidLog,
+    tool_input_schema,
+)
 
 DEFAULT_MODEL = os.getenv("RAID_MODEL", "claude-sonnet-5-5")
 MAX_OUTPUT_TOKENS = 8000
@@ -49,26 +56,8 @@ Call the {TOOL_NAME} tool once with all items."""
 TOOL = {
     "name": TOOL_NAME,
     "description": "Record every RAID item found in the call notes.",
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "items": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "type": {"type": "string", "enum": [t.value for t in ItemType]},
-                        "description": {"type": "string"},
-                        "owner": {"type": "string", "description": f"Named person, or '{NOT_STATED}'."},
-                        "due_date": {"type": "string", "description": f"YYYY-MM-DD, or '{NOT_STATED}'."},
-                        "source_quote": {"type": "string", "description": "Exact words from the notes."},
-                    },
-                    "required": ["type", "description", "owner", "due_date", "source_quote"],
-                },
-            }
-        },
-        "required": ["items"],
-    },
+    # Made from ModelItem (task A3). The v2 fields join when the prompt gives their rules (task A7).
+    "input_schema": tool_input_schema(exclude=V2_MODEL_FIELDS),
 }
 
 
@@ -137,8 +126,10 @@ def extract_items(text: str, *, client=None, model: str = DEFAULT_MODEL, source_
 
     items = [item for raw in raw_items if (item := _to_item(raw, text, warnings)) is not None]
 
+    log = RaidLog(source_file=source_file, items=items)
+    log.assign_short_ids()
     return ExtractionResult(
-        log=RaidLog(source_file=source_file, items=items),
+        log=log,
         model=model,
         input_tokens=input_tokens,
         output_tokens=output_tokens,
@@ -160,7 +151,7 @@ def _to_item(raw: dict, notes: str, warnings: list[str]) -> RaidItem | None:
     if not isinstance(raw, dict):
         warnings.append(f"Skipped an item that was not an object: {raw!r}")
         return None
-    data = {key: raw.get(key) for key in ("type", "description", "owner", "due_date", "source_quote")}
+    data = {key: raw.get(key) for key in ModelItem.model_fields if key in raw}
     try:
         item = RaidItem(**data)
     except ValidationError as error:

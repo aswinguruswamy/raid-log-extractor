@@ -152,3 +152,13 @@ def test_quote_check_ignores_only_invisible_differences():
     assert quote_in_notes('"We decided to use PostgreSQL"', notes)
     assert not quote_in_notes("We decided to use MySQL", notes)
     assert not quote_in_notes("", notes)
+
+
+def test_v2_fields_from_the_model_reach_the_item():
+    # Task A3: owner state, owner note, date words and reply quote come through extraction.
+    raw = {"type": "Action", "description": "Do the deck.", "owner": "Aiko", "owner_state": "Tentative",
+           "owner_note": "", "due_date": "Not stated", "date_words": "", "source_quote": "can you do the deck",
+           "reply_quote": "I can try."}
+    result = extract_items("Ben: Aiko, can you do the deck? Aiko: I can try.", client=FakeClient([raw]))
+    item = result.log.items[0]
+    assert (item.owner_state.value, item.reply_quote, item.short_id) == ("Tentative", "I can try.", "ACT-1")
