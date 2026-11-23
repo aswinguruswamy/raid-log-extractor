@@ -8,6 +8,16 @@ Turn the notes from a team call into a RAID log in less than one minute.
 
 ![Demo: choose a sample call, see the actions with their source quotes, and download the Excel file](docs/demo.gif)
 
+## Known limits
+
+- **The 100% eval score is on the 10 calls that the prompt was tuned on.** There is no held-out test yet, so new notes may score lower. v2 adds a held-out test of 28 new calls.
+- The 10 sample calls and their correct answers were written with AI help (Claude), and the tool also uses Claude. This can make the samples easier than real notes.
+- English only. Other languages are not tested.
+- One call per run. The tool does not merge a new call into an existing log.
+- An answer that is cut off at the output limit gives only a warning today; v2 makes it an error.
+- Relative dates such as "by Friday" are written as "Not stated" (the words stay in the description). v2 converts them with the meeting date.
+- Your notes go to the Anthropic API. Do not upload notes that you may not share.
+
 ## The problem
 
 After a project call, a project manager writes the RAID log by hand. My own timed test took 6 to 8 minutes for a short call of about 150 words. With the tool, the log and my check of every item took about 27 seconds ([`evals/review_times.json`](evals/review_times.json)). Items get lost, and owners and dates get guessed.
