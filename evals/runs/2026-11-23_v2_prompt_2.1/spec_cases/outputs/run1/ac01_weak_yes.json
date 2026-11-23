@@ -1,0 +1,37 @@
+{
+  "sample": "ac01_weak_yes.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2661,
+  "output_tokens": 143,
+  "seconds": 1.79,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner tentative (weak yes) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Aiko to prepare the deck.",
+      "owner": "Aiko",
+      "owner_state": "Tentative",
+      "owner_note": "weak yes",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Aiko, can you do the deck?",
+      "reply_quote": "I can try.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

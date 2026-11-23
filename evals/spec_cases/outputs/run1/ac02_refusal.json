@@ -1,0 +1,37 @@
+{
+  "sample": "ac02_refusal.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2663,
+  "output_tokens": 162,
+  "seconds": 1.83,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner declined (declined \u2013 reassign) \u2013 reassign."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Prepare the deck; Aiko was asked but declined because she is full this week.",
+      "owner": "Aiko Sato",
+      "owner_state": "Declined",
+      "owner_note": "declined \u2013 reassign",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Aiko, the deck?",
+      "reply_quote": "No, I'm full this week.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "sample": "s05_erp_steering.docx",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": null,
+  "input_tokens": 2976,
+  "output_tokens": 1478,
+  "seconds": 8.32,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (assigned in action table, no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-2",
+      "Owner not confirmed (assigned in action table, no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-3",
+      "Owner not confirmed (assigned in action table, no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-3",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The inventory module data load failed in the last test cycle because unit-of-measure codes do not match.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The inventory module data load failed in the last test cycle because the unit-of-measure codes do not match.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Risk",
+      "description": "If finance cannot release staff for training in November, go-live readiness is at risk.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "if the finance team cannot release staff for training in November, go-live readiness is at risk",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    },
+    {
+      "type": "Decision",
+      "description": "The committee approved two extra weeks of hypercare after go-live.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The committee approved an extra two weeks of hypercare after go-live.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    },
+    {
+      "type": "Dependency",
+      "description": "Phase 2 go-live depends on the hardware vendor upgrading the warehouse scanners.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Phase 2 go-live depends on the hardware vendor upgrading the warehouse scanners.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    },
+    {
+      "type": "Assumption",
+      "description": "The plan assumes there is no change freeze over the holiday period.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The plan assumes no change freeze over the holiday period.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    },
+    {
+      "type": "Action",
+      "description": "Fix the unit-of-measure mapping and rerun the data load.",
+      "owner": "Kwame Asante",
+      "owner_state": "Not confirmed",
+      "owner_note": "assigned in action table, no reply",
+      "due_date": "2026-11-04",
+      "date_words": "2026-11-04",
+      "source_quote": "Fix the unit-of-measure mapping and rerun the load | Kwame Asante | 2026-11-04",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Agree a training release plan with finance managers.",
+      "owner": "Lucy Zhang",
+      "owner_state": "Not confirmed",
+      "owner_note": "assigned in action table, no reply",
+      "due_date": "2026-11-09",
+      "date_words": "2026-11-09",
+      "source_quote": "Agree a training release plan with finance managers | Lucy Zhang | 2026-11-09",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Action",
+      "description": "Confirm the scanner upgrade date with the vendor.",
+      "owner": "Nadia Petrova",
+      "owner_state": "Not confirmed",
+      "owner_note": "assigned in action table, no reply",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Confirm the scanner upgrade date with the vendor | Nadia Petrova | Not set",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-3"
+    }
+  ]
+}

@@ -1,6 +1,24 @@
 # Evaluation report
 
-**Samples:** 10 | **Expected items:** 68 | **Model:** claude-sonnet-5-5 | **Run date:** 2026-10-20 | **Report date:** 2026-10-20
+**Samples:** 10 | **Expected items:** 68 | **Model:** claude-sonnet-5-5 | **Run date:** 2026-11-23 | **Report date:** 2026-11-23
+
+## v2 scores (spec R15.1)
+
+**Set:** tuning | **Calls:** 10 | **Runs per call:** 1 | **Prompt version:** 2.1 | **Calls written by:** Claude (AI) with the project owner, v1 (see Known limits)
+
+| Metric | Result |
+|---|---|
+| Recall | 100% |
+| Precision | 100% |
+| Invented owners (release gate: 0) | 0 |
+| Invented dates (release gate: 0) | 0 |
+| Wrong owners | 0 |
+| Wrong dates | 0 |
+| Owner state correct | 14 of 22 |
+| Items found in all 1 runs | - |
+| Owner the key forbids (release gate: 0) | 0 |
+| Extra items with an owner or a date (check by hand) | 0 |
+
 
 ## Scores by item type
 
@@ -20,7 +38,7 @@
 |---|---|---|---|
 | Recall on risks, issues, dependencies, actions | 85% or more | 100% | ✅ |
 | Precision on all item types | 80% or more | 100% | ✅ |
-| Owners or dates that the tool invents | 0 | 0 | ✅ |
+| Owners or dates that the tool invents (v2 definitions) | 0 | 0 | ✅ |
 
 ## Owners and dates (on matched items)
 
@@ -29,20 +47,20 @@
 | Correct owner | 21 of 21 (100%) |
 | Correct due date | 11 of 11 (100%) |
 | Owner given where the notes name nobody | 0 |
-| Owner not in the notes at all (invented) | 0 |
-| Date not in the notes at all (invented) | 0 |
+| Owner not in the notes at all (v1 check) | 0 |
+| Date not written as YYYY-MM-DD in the notes (v1 check; v2 converts date words) | 0 |
 
 ## Cost and time
 
-All 10 samples: $0.0960 in total, 38.6 s in total (average $0.0096 and 3.9 s for each sample).
+All 10 call runs: $0.1504 in total, 51.1 s in total (average $0.0150 and 5.1 s for each call run).
 
 ## Manual baseline (story S2-03, KAN-17)
 
 | Sample | Manual RAID log | Tool run |
 |---|---|---|
 | s02_crm_migration.txt | 8 min | 4.9 s |
-| s05_erp_steering.docx | 6 min | 4.1 s |
-| s07_cloud_migration.vtt | 6 min | 3.7 s |
+| s05_erp_steering.docx | 6 min | 8.3 s |
+| s07_cloud_migration.vtt | 6 min | 4.3 s |
 
 Manual times were measured on 2026-10-20 (s02: 17:32-17:40, s05: 17:46-17:52, s07: 17:57-18:03). These samples are short (about 140-160 words). Notes from a 1-hour call are much longer, so the manual time for a real call is higher. The charter's assumption of 20-40 minutes for a full call is not yet measured.
 

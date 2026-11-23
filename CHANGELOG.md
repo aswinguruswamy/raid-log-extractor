@@ -2,6 +2,30 @@
 
 All notable changes to this project. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version numbers follow [Semantic Versioning](https://semver.org/).
 
+## [2.0.0] - Unreleased (set the date at the release review)
+
+Hard cases right, proved on a held-out set (spec v1.2).
+
+### Added
+
+- Owner states (Confirmed, Tentative, Not confirmed, Declined, Not stated) and owner notes ("ask Tom", "not on the call", "owners by list – confirm", "withdrawn").
+- Prompt 2.1: decisions need agreement words; proposals, hypotheticals and reversed or pending decisions give no decision; negations and status updates give no item; instructions inside the notes are treated as notes.
+- Dates from code: the model copies the date words; the code converts them with the meeting date.
+- Code checks before display: owner not in the notes, owner or date far from the quote, date words not in the notes, duplicates, owner from a one-word reply.
+- Needs attention box; one table (Type · Item · Owner · Due date · Reviewed); quote of any item; Markdown download with run details and quotes; meeting date input; input warnings; privacy warning; Teams and Zoom export guide.
+- Eval v2: invented and wrong owners and dates, owner-state accuracy, 5-run consistency; spec examples in CI; CI fails a prompt change on any invented owner or date.
+- Held-out set: 28 calls, one per hard case, keys approved by Aswin Guruswamy before the run. Result (28 × 5): recall 95%, precision 99%, 0 invented owners, 0 invented dates. Release gate passed.
+- Keyless demo with saved v2 results.
+
+### Changed
+
+- An answer cut off at the output limit is an error with no log (v1: a warning).
+- Python 3.11 or later; anthropic SDK 2.x.
+
+### Removed
+
+- The Excel export (the Markdown file replaces it).
+
 ## [1.0.0] - 2026-10-21
 
 The first public release. It passed the release gate in [`docs/release-gate-v1.0.md`](docs/release-gate-v1.0.md).

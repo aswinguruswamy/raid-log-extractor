@@ -1,0 +1,33 @@
+{
+  "sample": "ac07_hand_off.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2663,
+  "output_tokens": 153,
+  "seconds": 2.12,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Mo Rahman will ask Tom to update the budget.",
+      "owner": "Mo Rahman",
+      "owner_state": "Confirmed",
+      "owner_note": "ask Tom",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "I'll ask Tom to update the budget.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

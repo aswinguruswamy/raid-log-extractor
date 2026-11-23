@@ -1,0 +1,37 @@
+{
+  "sample": "ac03_no_reply.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2683,
+  "output_tokens": 150,
+  "seconds": 1.24,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Ben is asked to do the deck; no reply was given before the topic changed.",
+      "owner": "Ben",
+      "owner_state": "Not confirmed",
+      "owner_note": "no reply",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Ben, can you do the deck?",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

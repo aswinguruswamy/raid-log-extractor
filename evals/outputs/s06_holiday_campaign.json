@@ -1,74 +1,125 @@
 {
   "sample": "s06_holiday_campaign.txt",
   "model": "claude-sonnet-5-5",
-  "run_date": "2026-10-20",
-  "input_tokens": 1378,
-  "output_tokens": 667,
-  "seconds": 4.09,
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": null,
+  "input_tokens": 2811,
+  "output_tokens": 805,
+  "seconds": 4.43,
   "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (not on the call) \u2013 confirm."
+    ],
+    [
+      "ACT-2",
+      "Owner not confirmed (no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
   "items": [
     {
       "type": "Dependency",
-      "description": "Landing page build cannot start until legal approves the landing page copy, which has not happened yet.",
+      "description": "Landing page build cannot start until legal approves the landing page copy.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "legal hasn't approved the landing page copy yet. build can't start without it",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
     },
     {
       "type": "Issue",
-      "description": "Finance cut the paid social budget by 20%, leaving the team short of funds for the ads already booked.",
+      "description": "Finance cut the paid social budget by 20%, leaving too little budget for the ads already booked.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "finance cut the paid social budget by 20% yesterday, we're already short for the ads we booked",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
     },
     {
       "type": "Risk",
       "description": "The influencer partner might pull out because the contract is still unsigned.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "influencer partner might pull out, contract still not signed",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
     },
     {
       "type": "Assumption",
-      "description": "The team assumes the Q3 email list is still GDPR-compliant.",
+      "description": "The Q3 email list is assumed to still be GDPR-compliant.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "assuming the Q3 email list is still GDPR-compliant",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
     },
     {
       "type": "Decision",
-      "description": "The launch date was moved from Nov 20 to Nov 24.",
+      "description": "Launch date moved from Nov 20 to Nov 24.",
       "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "decided: launch date moves from Nov 20 to Nov 24",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
     },
     {
       "type": "Action",
-      "description": "Jo will send the revised timeline to stakeholders.",
+      "description": "Jo to send the revised timeline to stakeholders.",
       "owner": "Jo",
+      "owner_state": "Not confirmed",
+      "owner_note": "not on the call",
       "due_date": "2026-10-23",
-      "status": "Open",
+      "date_words": "by 2026-10-23",
       "source_quote": "AI: Jo to send revised timeline to stakeholders by 2026-10-23",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
     },
     {
       "type": "Action",
-      "description": "Ben will produce new banner sizes for the display ads.",
+      "description": "Ben to produce new banner sizes for the display ads.",
       "owner": "Ben",
+      "owner_state": "Not confirmed",
+      "owner_note": "no reply",
       "due_date": "Not stated",
-      "status": "Open",
+      "date_words": "",
       "source_quote": "AI: Ben - new banner sizes for the display ads",
-      "quote_verified": true
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
     }
   ]
 }
