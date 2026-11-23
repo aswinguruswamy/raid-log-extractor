@@ -2,7 +2,7 @@
 
 All notable changes to this project. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version numbers follow [Semantic Versioning](https://semver.org/).
 
-## [2.0.0] - Unreleased (set the date at the release review)
+## [2.0.0] - 2026-11-23
 
 Hard cases right, proved on a held-out set (spec v1.2).
 
