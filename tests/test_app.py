@@ -131,3 +131,12 @@ def test_demo_shows_needs_attention_lines(monkeypatch):
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     app = run_app()
     assert app.warning and "Action has no due date." in app.warning[0].value
+
+
+def test_demo_query_opens_that_sample(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = AppTest.from_file(APP, default_timeout=30)
+    app.query_params["demo"] = "h03_mobile_release"
+    app.run()
+    assert not app.exception
+    assert app.selectbox[0].value.startswith("Mobile app release")

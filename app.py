@@ -166,7 +166,10 @@ def demo_mode() -> None:
     with st.container(border=True):
         st.subheader("1. Choose a sample call")
         st.caption("Saved results. No API key, no API call, no cost.")
-        label = st.selectbox("Sample call", list(options), label_visibility="collapsed")
+        # ?demo=<file stem> opens that sample (README links and screenshots).
+        wanted = st.query_params.get("demo")
+        start = next((n for n, stem in enumerate(options.values()) if stem == wanted), 0)
+        label = st.selectbox("Sample call", list(options), index=start, label_visibility="collapsed")
         data = load_demo(options[label])
         st.write(f"**What this sample tests:** {data['tests']}")
         notes_path = ROOT / data["notes"] if data.get("notes") else SAMPLES_DIR / data["sample"]

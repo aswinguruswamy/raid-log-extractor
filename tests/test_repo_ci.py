@@ -109,3 +109,11 @@ def test_heldout_run_is_started_by_hand_with_five_runs_and_full_history():
     text = (WORKFLOWS / "heldout-run.yml").read_text(encoding="utf-8")
     assert "--set heldout --runs 5" in text and "fetch-depth: 0" in text
     assert "${{ secrets.ANTHROPIC_API_KEY }}" in text
+
+
+def test_readme_shows_two_demo_screenshots_that_exist():
+    # RAID v2 spec R20.1, AC46 (v1.4): screenshots of 2 demo calls, linked to the hosted demo.
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    shots = re.findall(r"\]\((docs/screenshots/[^)]+\.png)\)", readme)
+    assert len(shots) == 2 and all((ROOT / shot).is_file() for shot in shots)
+    assert readme.count("raid-log-extractor.streamlit.app/?demo=") == 2

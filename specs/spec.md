@@ -1,6 +1,6 @@
 # Spec: RAID v2 – Hard cases right, proved on a held-out set
 
-Version: 1.3 | Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (1.1 = demo decision; 1.2 = year rule and 1.3 = R5.5, R8.3 as built, approved 2026-11-23) | Date: 2026-11-23
+Version: 1.4 | Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (1.1 = demo decision; 1.2 = year rule, 1.3 = R5.5, R8.3 as built and 1.4 = screenshots instead of a video, approved 2026-11-23) | Date: 2026-11-23
 Tool: RAID | MoSCoW: Must (R12: Should) | Source: `specs/RAID/requirements.md` v1.3, `context/RAID-v2-analysis.md` §7 (failure catalogue) and §8 (DL1–DL4), `clarify/RAID-clarify-log.md`, RAID v1.0.0 code (`raid/extract.py`, `raid/schema.py`, `raid/export.py`, `evals/`, read 2026-11-22)
 
 Requirement IDs `RAID-Rn.m` belong to R1–R19 and N1–N7 on the requirements page. Catalogue IDs (A2, B1 …) are rows in the failure catalogue.
@@ -109,7 +109,7 @@ RAID v1 turns call notes into a RAID log with quotes that the code checks. But i
 | RAID-R17.1 | Ubiquitous | CI shall meet the shared standard: Python 3.11–3.13, lint, gitleaks, SHA-pinned actions, Dependabot, pip-audit, licence scan. | R17, I9 |
 | RAID-R18.1 | Event | When a version tag is pushed, the release workflow shall run the tests, build, and publish release notes. | R18 |
 | RAID-R19.1 | Ubiquitous | The README shall start with "Known limits"; every bug fix shall add a test, and a sample call for AI bugs, first. | R19 |
-| RAID-R20.1 | Ubiquitous | The README and the portfolio card shall link a video of 2 minutes or less that shows the table, Needs attention, a quote check and the Markdown download. The hosted demo shall run with no API key (saved results, v1). | R20, SH-4.4 |
+| RAID-R20.1 | Ubiquitous | The README shall show screenshots of 2 demo calls with the table, Needs attention and owner states, with a link that opens each call in the hosted demo. The hosted demo shall run with no API key (saved results, v1). No video (v2 adds little to see over v1). | R20, SH-4.4, Aswin's decision 2026-11-23 |
 
 ## 6. Acceptance criteria
 Meeting date for all examples: Tuesday 2026-12-01, unless stated. `eval` = model behaviour, scored against an answer key; `unit` = code with a fake model reply.
@@ -161,7 +161,7 @@ Meeting date for all examples: Tuesday 2026-12-01, unless stated. `eval` = model
 | AC43 | R17.1–R19.1 | Repository | CI and docs tests | Workflow lint passes; README first section "Known limits"; release workflow on tags | unit (repo tests) |
 | AC44 | N3 | 30-minute sample call (about 4,500 words) | Extract | Under 60 s | timed live test |
 | AC45 | N7 | Owner states on the page | View | Each state shows as a word | unit (UI test) |
-| AC46 | R20.1 | README; demo with no key | Docs test; app start | Video link present; demo mode works with no key | unit |
+| AC46 | R20.1 | README; demo with no key | Docs test; app start | 2 screenshots present and linked; ?demo= opens that call; demo mode works with no key | unit |
 
 ## 7. Non-functional requirements
 | ID | Area | Requirement | Check |
@@ -233,6 +233,7 @@ Output changed to the page table + Markdown (requirements v1.1). The v0.2 fixes 
 ## 13. Change log
 | Version | Date | Change | Approved by |
 |---|---|---|---|
+| 1.4 | 2026-11-23 | R20.1: screenshots of 2 demo calls instead of a video | Aswin Guruswamy |
 | 1.3 | 2026-11-23 | R5.5 and R8.3 match the build (Aswin's decisions RAID-5.1, RAID-5.2) | Aswin Guruswamy |
 | 1.2 | 2026-11-23 | R4.3 year rule: a day and month more than 30 days before the meeting date take the next year | Aswin Guruswamy |
 | 1.1 | 2026-11-22 | Keyless demo and video (requirements v1.3) | Aswin Guruswamy (SH-4.4) |

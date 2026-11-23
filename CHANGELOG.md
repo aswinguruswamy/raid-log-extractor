@@ -15,7 +15,7 @@ Hard cases right, proved on a held-out set (spec v1.2).
 - Needs attention box; one table (Type · Item · Owner · Due date · Reviewed); quote of any item; Markdown download with run details and quotes; meeting date input; input warnings; privacy warning; Teams and Zoom export guide.
 - Eval v2: invented and wrong owners and dates, owner-state accuracy, 5-run consistency; spec examples in CI; CI fails a prompt change on any invented owner or date.
 - Held-out set: 28 calls, one per hard case, keys approved by Aswin Guruswamy before the run. Result (28 × 5): recall 95%, precision 99%, 0 invented owners, 0 invented dates. Release gate passed.
-- Keyless demo with saved v2 results.
+- Keyless demo with saved v2 results; `?demo=<call>` opens one sample; README screenshots of 2 demo calls (no video).
 
 ### Changed
 
