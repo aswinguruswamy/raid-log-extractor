@@ -169,7 +169,7 @@ def demo_mode() -> None:
         label = st.selectbox("Sample call", list(options), label_visibility="collapsed")
         data = load_demo(options[label])
         st.write(f"**What this sample tests:** {data['tests']}")
-        notes_path = SAMPLES_DIR / data["sample"]
+        notes_path = ROOT / data["notes"] if data.get("notes") else SAMPLES_DIR / data["sample"]
         if notes_path.exists():
             with st.expander("Show the call notes"):
                 st.text(read_notes(notes_path))
