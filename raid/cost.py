@@ -7,8 +7,6 @@ Check that page when prices change.
 
 from __future__ import annotations
 
-from typing import Optional
-
 PRICES_PER_MTOK = {
     "claude-fable-5-1": (10.00, 50.00),
     "claude-opus-5-5": (4.00, 20.00),
@@ -19,7 +17,7 @@ PRICES_PER_MTOK = {
 COST_TARGET_USD = 0.10  # charter target for a 1-hour transcript
 
 
-def run_cost(model: str, input_tokens: int, output_tokens: int) -> Optional[float]:
+def run_cost(model: str, input_tokens: int, output_tokens: int) -> float | None:
     """Cost of one run in US dollars, or None when the model price is unknown."""
     prices = PRICES_PER_MTOK.get(model)
     if prices is None:

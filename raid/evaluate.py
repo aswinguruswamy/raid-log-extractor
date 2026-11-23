@@ -16,7 +16,6 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
 
 from .schema import NOT_STATED, ItemType
 
@@ -24,7 +23,7 @@ MATCH_THRESHOLD = 0.6
 _WORD = re.compile(r"[a-z0-9]+")
 
 
-def _words(text: str) -> List[str]:
+def _words(text: str) -> list[str]:
     return _WORD.findall(text.lower().replace("’", "'"))
 
 
@@ -47,28 +46,28 @@ def same_person(expected: str, found: str) -> bool:
     return bool(exp and fnd) and (exp[0] == fnd[0] or set(exp) <= set(fnd) or set(fnd) <= set(exp))
 
 
-def accepted_types(expected: dict) -> List[str]:
+def accepted_types(expected: dict) -> list[str]:
     return [expected["type"]] + list(expected.get("also_accept_types", []))
 
 
 @dataclass
 class SampleScore:
     sample: str
-    expected: List[dict]
-    found: List[dict]
-    pairs: List[Tuple[int, int, float]] = field(default_factory=list)  # (expected index, found index, overlap)
-    invented_owners: List[str] = field(default_factory=list)
-    invented_dates: List[str] = field(default_factory=list)
-    guessed_owners: List[str] = field(default_factory=list)
+    expected: list[dict]
+    found: list[dict]
+    pairs: list[tuple[int, int, float]] = field(default_factory=list)  # (expected index, found index, overlap)
+    invented_owners: list[str] = field(default_factory=list)
+    invented_dates: list[str] = field(default_factory=list)
+    guessed_owners: list[str] = field(default_factory=list)
 
-    def matched_expected(self) -> Dict[int, int]:
+    def matched_expected(self) -> dict[int, int]:
         return {e: f for e, f, _ in self.pairs}
 
-    def matched_found(self) -> Dict[int, int]:
+    def matched_found(self) -> dict[int, int]:
         return {f: e for e, f, _ in self.pairs}
 
 
-def score_sample(sample: str, notes: str, expected: List[dict], found: List[dict]) -> SampleScore:
+def score_sample(sample: str, notes: str, expected: list[dict], found: list[dict]) -> SampleScore:
     """Match one sample's tool items to its expected items and check owners and dates."""
     candidates = []
     for e, exp in enumerate(expected):
@@ -104,18 +103,18 @@ class TypeScore:
     precision_hits: int = 0
 
     @property
-    def recall(self) -> Optional[float]:
+    def recall(self) -> float | None:
         return self.recall_hits / self.expected if self.expected else None
 
     @property
-    def precision(self) -> Optional[float]:
+    def precision(self) -> float | None:
         return self.precision_hits / self.found if self.found else None
 
 
 @dataclass
 class Report:
-    samples: List[SampleScore]
-    by_type: Dict[str, TypeScore]
+    samples: list[SampleScore]
+    by_type: dict[str, TypeScore]
     total: TypeScore
     owner_checked: int = 0
     owner_correct: int = 0
@@ -123,19 +122,19 @@ class Report:
     date_correct: int = 0
 
     @property
-    def invented_owners(self) -> List[str]:
+    def invented_owners(self) -> list[str]:
         return [o for s in self.samples for o in s.invented_owners]
 
     @property
-    def invented_dates(self) -> List[str]:
+    def invented_dates(self) -> list[str]:
         return [d for s in self.samples for d in s.invented_dates]
 
     @property
-    def guessed_owners(self) -> List[str]:
+    def guessed_owners(self) -> list[str]:
         return [g for s in self.samples for g in s.guessed_owners]
 
 
-def build_report(samples: List[SampleScore]) -> Report:
+def build_report(samples: list[SampleScore]) -> Report:
     by_type = {t.value: TypeScore() for t in ItemType}
     total = TypeScore()
     report = Report(samples=samples, by_type=by_type, total=total)
@@ -167,7 +166,7 @@ def build_report(samples: List[SampleScore]) -> Report:
     return report
 
 
-def misses_and_extras(sample: SampleScore) -> Tuple[List[str], List[str], List[str]]:
+def misses_and_extras(sample: SampleScore) -> tuple[list[str], list[str], list[str]]:
     """Expected items the tool missed, tool items with no match, and type mix-ups."""
     matched_e, matched_f = sample.matched_expected(), sample.matched_found()
     misses = [f"{exp['type']}: {exp['summary']}" for e, exp in enumerate(sample.expected) if e not in matched_e]

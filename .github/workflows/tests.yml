@@ -1,20 +1,63 @@
 name: tests
 
+# Shared CI standard SH1 (RAID v2 spec R17.1). Each action is pinned to a commit SHA.
 on:
   push:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
+  # Branch protection needs the names "offline-tests (3.11)", "(3.12)", "(3.13)".
   offline-tests:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.11", "3.12", "3.13"]   # shared CI standard (SH1); 3.9 is gone from ubuntu-latest
+        python-version: ["3.11", "3.12", "3.13"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install -r requirements.txt
-      - run: python -m pytest -q   # live tests are excluded by pytest.ini; no API key is used
+      - name: Lint
+        run: ruff check .
+      - name: Tests
+        run: python -m pytest -q   # live tests are excluded by pytest.ini; no API key is used
+
+  scans:
+    name: Secret, dependency and licence scans
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read # gitleaks-action reads the PR commit list
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0   # the secret scan needs the full history
+      - name: Secret scan (gitleaks)
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_ENABLE_COMMENTS: "false"
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Dependency scan (pip-audit)
+        run: |
+          pip install "pip-audit>=2.7"
+          pip-audit -r requirements.txt
+      - name: Licence scan of the runtime dependencies (pip-licenses)
+        run: |
+          python -m venv /tmp/runtime
+          /tmp/runtime/bin/pip install --quiet -r requirements.txt
+          pip install pip-licenses==5.5.5
+          pip-licenses --python /tmp/runtime/bin/python --fail-on="${STRONG_COPYLEFT}"
+        env:
+          # Exact licence names (no substring match), so LGPL is allowed.
+          STRONG_COPYLEFT: "GPL-2.0;GPL-2.0-only;GPL-2.0-or-later;GPL-3.0;GPL-3.0-only;GPL-3.0-or-later;AGPL-3.0;AGPL-3.0-only;AGPL-3.0-or-later;GNU General Public License (GPL);GNU General Public License v2 (GPLv2);GNU General Public License v2 or later (GPLv2+);GNU General Public License v3 (GPLv3);GNU General Public License v3 or later (GPLv3+);GNU Affero General Public License v3;GNU Affero General Public License v3 or later (AGPLv3+)"
