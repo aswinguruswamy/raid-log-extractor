@@ -234,13 +234,16 @@ def own_notes_mode() -> None:
 def extract(text: str, key: str, name: str, upload_id: str) -> dict | None:
     import anthropic
 
-    from raid.extract import ExtractionError, extract_items
+    from raid.extract import ExtractionError, NotesTooLongError, extract_items
 
     with st.spinner("Claude reads the notes..."):
         try:
             result = extract_items(text, client=anthropic.Anthropic(api_key=key), source_file=name)
         except anthropic.AuthenticationError:
             st.error("The API key is not valid.")
+            return None
+        except NotesTooLongError as error:  # spec R6.1: an error and no log
+            st.error(str(error))
             return None
         except (anthropic.APIError, ExtractionError) as error:
             st.error(f"The extraction failed: {error}")
