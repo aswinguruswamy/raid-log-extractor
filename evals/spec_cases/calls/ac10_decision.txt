@@ -1,0 +1,2 @@
+Ana Ruiz: Agreed – we go with Postgres.
+Dev Patel: Yes.

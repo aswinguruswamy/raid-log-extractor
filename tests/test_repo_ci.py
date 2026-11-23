@@ -94,3 +94,9 @@ def test_live_eval_runs_on_prompt_check_and_sdk_changes_with_the_repository_secr
     text = (WORKFLOWS / "live-eval.yml").read_text(encoding="utf-8")
     assert "${{ secrets.ANTHROPIC_API_KEY }}" in text
     assert "evals/run_eval.py" in text
+
+
+def test_live_eval_fails_on_invented_owners_or_dates():
+    # RAID v2 spec R16.1, AC42 (task A8): the CI eval blocks the PR.
+    text = (WORKFLOWS / "live-eval.yml").read_text(encoding="utf-8")
+    assert "run_eval.py --gate" in text

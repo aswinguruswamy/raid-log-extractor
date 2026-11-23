@@ -1,0 +1,18 @@
+{
+  "call": "ac10_decision.txt",
+  "case": "AC10",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Decision",
+      "summary": "Use Postgres",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Agreed – we go with Postgres."
+    }
+  ]
+}

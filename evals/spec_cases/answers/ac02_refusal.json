@@ -1,0 +1,18 @@
+{
+  "call": "ac02_refusal.txt",
+  "case": "AC02",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Action",
+      "summary": "Do the deck",
+      "owner": "Aiko Sato",
+      "owner_state": "Declined",
+      "owner_note": "declined – reassign",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Aiko, the deck?"
+    }
+  ]
+}

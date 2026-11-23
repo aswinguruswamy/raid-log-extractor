@@ -1,0 +1,28 @@
+{
+  "call": "ac04_non_committal.txt",
+  "case": "AC04",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Action",
+      "summary": "Review the budget",
+      "owner": "Aiko Sato",
+      "owner_state": "Not confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Aiko, can you review the budget?"
+    },
+    {
+      "type": "Action",
+      "summary": "Aiko to confirm the budget review",
+      "owner": "Aiko Sato",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "Not sure, I'll discuss and let you know."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "call": "ac16_changed_date.txt",
+  "case": "AC16",
+  "meeting_date": "2026-12-01",
+  "writer": "Spec v1.1 acceptance examples (AC1–AC11, AC16, AC28), written by Claude (AI), approved with the spec by Aswin Guruswamy",
+  "items": [
+    {
+      "type": "Action",
+      "summary": "Send the report",
+      "owner": "Aiko Sato",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-02",
+      "date_words": "make it Wednesday",
+      "evidence": "Aiko, can you send the report on Monday?"
+    }
+  ]
+}
