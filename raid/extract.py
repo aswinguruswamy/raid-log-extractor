@@ -15,7 +15,14 @@ from dataclasses import dataclass, field
 
 from pydantic import ValidationError
 
-from .schema import NOT_STATED, ModelItem, RaidItem, RaidLog, tool_input_schema
+from .schema import (
+    NOT_STATED,
+    V2_MODEL_FIELDS,
+    ModelItem,
+    RaidItem,
+    RaidLog,
+    tool_input_schema,
+)
 
 DEFAULT_MODEL = os.getenv("RAID_MODEL", "claude-sonnet-5-5")
 MAX_OUTPUT_TOKENS = 8000
@@ -49,7 +56,8 @@ Call the {TOOL_NAME} tool once with all items."""
 TOOL = {
     "name": TOOL_NAME,
     "description": "Record every RAID item found in the call notes.",
-    "input_schema": tool_input_schema(),  # made from ModelItem (task A3)
+    # Made from ModelItem (task A3). The v2 fields join when the prompt gives their rules (task A7).
+    "input_schema": tool_input_schema(exclude=V2_MODEL_FIELDS),
 }
 
 

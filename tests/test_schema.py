@@ -66,7 +66,7 @@ def test_log_groups_items_by_type_in_fixed_order():
 
 # --- RAID v2 (task A3, spec §4): owner state, notes, date words, reply quote, short ID ---
 
-from raid.schema import ModelItem, OwnerState, tool_input_schema  # noqa: E402
+from raid.schema import V2_MODEL_FIELDS, ModelItem, OwnerState, tool_input_schema  # noqa: E402
 
 
 def test_five_owner_states():
@@ -127,3 +127,18 @@ def test_tool_schema_comes_from_the_model_item():
     # Code fields are not asked from the model.
     for code_field in ("status", "quote_verified", "short_id"):
         assert code_field not in item["properties"]
+
+
+def test_named_owner_always_has_a_state():
+    assert make(owner="Aiko", owner_state="Not stated").owner_state is OwnerState.NOT_CONFIRMED
+
+
+def test_saved_log_gets_short_ids_on_load():
+    log = RaidLog.model_validate({"items": [make(type="Risk").model_dump(), make(type="Risk").model_dump()]})
+    assert [i.short_id for i in log.items] == ["RSK-1", "RSK-2"]
+
+
+def test_v2_fields_can_be_left_out_of_the_tool_until_the_prompt_has_their_rules():
+    item = tool_input_schema(exclude=V2_MODEL_FIELDS)["properties"]["items"]["items"]
+    assert set(item["properties"]) == {"type", "description", "owner", "due_date", "source_quote"}
+    assert item["required"] == ["type", "description", "owner", "due_date", "source_quote"]

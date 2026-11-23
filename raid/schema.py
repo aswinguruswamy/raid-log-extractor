@@ -109,6 +109,8 @@ class ModelItem(BaseModel):
             OwnerState.CONFIRMED, OwnerState.TENTATIVE, OwnerState.DECLINED
         ):
             self.owner_state = OwnerState.NOT_STATED  # nobody named, so nobody agreed
+        if self.owner != NOT_STATED and self.owner_state is OwnerState.NOT_STATED:
+            self.owner_state = OwnerState.NOT_CONFIRMED  # a named owner always has a state
         return self
 
 
@@ -127,6 +129,12 @@ class RaidLog(BaseModel):
 
     source_file: str = ""
     items: list[RaidItem] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def _short_ids(self):
+        if any(not item.short_id for item in self.items):  # saved v1 logs have none
+            self.assign_short_ids()
+        return self
 
     def by_type(self) -> dict[ItemType, list[RaidItem]]:
         """Group the items by type, in the fixed order of ItemType (empty types included)."""
@@ -159,11 +167,18 @@ def _inline(node, defs: dict):
     return node
 
 
-def tool_input_schema() -> dict:
+V2_MODEL_FIELDS = ("owner_state", "owner_note", "date_words", "reply_quote")
+
+
+def tool_input_schema(exclude: tuple[str, ...] = ()) -> dict:
     """The tool's input schema, made from ModelItem; every field is required."""
     raw = ModelItem.model_json_schema()
     item = _inline(raw, raw.get("$defs", {}))
-    item["required"] = list(ModelItem.model_fields)
+    item.pop("description", None)
+    item["properties"] = {k: v for k, v in item["properties"].items() if k not in exclude}
+    item["required"] = [k for k in ModelItem.model_fields if k not in exclude]
     for prop in item["properties"].values():
         prop.pop("minLength", None)  # length is checked by pydantic, with a clear warning
+        if "enum" in prop:
+            prop.pop("description", None)  # the class docstring is not a field description
     return {"type": "object", "properties": {"items": {"type": "array", "items": item}}, "required": ["items"]}
