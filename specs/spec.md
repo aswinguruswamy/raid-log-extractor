@@ -1,6 +1,6 @@
 # Spec: RAID v2 – Hard cases right, proved on a held-out set
 
-Version: 1.1 | Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (1.1 = demo decision) | Date: 2026-11-22
+Version: 1.2 | Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (1.1 = demo decision; 1.2 = year rule, approved 2026-11-23) | Date: 2026-11-23
 Tool: RAID | MoSCoW: Must (R12: Should) | Source: `specs/RAID/requirements.md` v1.3, `context/RAID-v2-analysis.md` §7 (failure catalogue) and §8 (DL1–DL4), `clarify/RAID-clarify-log.md`, RAID v1.0.0 code (`raid/extract.py`, `raid/schema.py`, `raid/export.py`, `evals/`, read 2026-11-22)
 
 Requirement IDs `RAID-Rn.m` belong to R1–R19 and N1–N7 on the requirements page. Catalogue IDs (A2, B1 …) are rows in the failure catalogue.
@@ -57,7 +57,7 @@ RAID v1 turns call notes into a RAID log with quotes that the code checks. But i
 | RAID-R3.3 | Ubiquitous | The RAID shall record no item for a negation ("we are not worried about load", D4) or a status update with no next step (D12). | R3, cat |
 | RAID-R4.1 | Event | When the user enters a meeting date, the RAID code shall convert the model's date words to YYYY-MM-DD and show the date words beside the date. | R4, cat C1 |
 | RAID-R4.2 | Ubiquitous | The RAID shall convert a weekday to the next such day after the meeting date ("by Friday" on Tue 1 Dec 2026 → 2026-12-04; "by Tuesday" → 2026-12-08). | R4, proposal |
-| RAID-R4.3 | Ubiquitous | The RAID shall take the year from the meeting date when the notes give a day and month only (C2); write "Not stated" for a number-only date such as "02/11" (C3); and use the last agreed date when the date changes in the call (C4). | R4, cat |
+| RAID-R4.3 | Ubiquitous | The RAID shall take the year from the meeting date when the notes give a day and month only (C2), or the next year when that date is more than 30 days before the meeting date ("by 5 January" in a December meeting); write "Not stated" for a number-only date such as "02/11" (C3); and use the last agreed date when the date changes in the call (C4). | R4, cat |
 | RAID-R4.4 | Ubiquitous | The RAID shall write "Not stated" and keep the date words for words it cannot convert ("next sprint", "end of month", "soon"). | R4, cat C1 |
 | RAID-R4.5 | State | While no meeting date is entered, the RAID shall write "Not stated" for weekday and relative words (v1 behaviour), keep the date words, and warn "Enter the meeting date to convert dates." Full dates with a year still convert. | R4, v1 |
 
@@ -233,6 +233,7 @@ Output changed to the page table + Markdown (requirements v1.1). The v0.2 fixes 
 ## 13. Change log
 | Version | Date | Change | Approved by |
 |---|---|---|---|
+| 1.2 | 2026-11-23 | R4.3 year rule: a day and month more than 30 days before the meeting date take the next year | Aswin Guruswamy |
 | 1.1 | 2026-11-22 | Keyless demo and video (requirements v1.3) | Aswin Guruswamy (SH-4.4) |
 | 1.0 | 2026-11-22 | Approved as is, including the §12 proposals | Aswin Guruswamy |
 | 0.1 | 2026-11-22 | First draft from requirements v1.0, the failure catalogue and the v1 code | – |
