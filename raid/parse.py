@@ -141,11 +141,19 @@ TOO_LONG = "The notes have more than 15,000 words. Items may be missed; split th
 NO_SPEAKERS = "No speaker names found (\"Name:\" lines or voice tags). Check every owner."
 NOT_ENGLISH = "The notes do not look like English. The tool is tested on English only; check every item."
 
-_SPEAKER = re.compile(r"^\s*([A-Z][\w'.-]*(?:\s+[A-Z][\w'.-]*){0,3})\s*:\s*\S", re.MULTILINE)
+_SPEAKER = re.compile(r"^\s*([A-Z][A-Za-z'.-]*(?:\s+[A-Z][A-Za-z'.-]*){0,3})\s*:\s*\S", re.MULTILINE)
+_ATTENDEES = re.compile(r"^\s*(?:present|attendees|participants|attending|in attendance)\s*:\s*(.+)$",
+                        re.IGNORECASE | re.MULTILINE)
 _HEADINGS = {
     "present", "attendees", "apologies", "absent", "action", "actions", "decision", "decisions", "note",
     "notes", "date", "agenda", "minutes", "subject", "re", "time", "location", "chair", "risk", "risks",
     "issue", "issues", "next steps", "summary", "owner", "due", "status", "webvtt", "note to self",
+    "participants", "attending", "in attendance", "agreed", "update", "updates", "blocker", "blockers",
+    "next", "todo", "to do", "follow up", "follow-up", "question", "questions", "answer", "comment",
+    "comments", "background", "context", "goal", "goals", "result", "results", "outcome", "outcomes",
+    "deadline", "priority", "topic", "item", "items", "discussion", "conclusion", "recap", "reminder",
+    "warning", "fyi", "overall status", "assumption", "assumptions", "dependency", "dependencies",
+    "open questions", "action items", "key decisions", "purpose", "scope", "objective", "objectives",
 }
 _COMMON = {
     "the", "and", "to", "is", "of", "in", "we", "it", "you", "that", "for", "on", "will", "be", "this",
@@ -155,11 +163,22 @@ _TOKEN = re.compile(r"[a-z']+")
 
 
 def speakers(text: str) -> list[str]:
-    """Names before a turn ("Aiko Sato: …"), in order of their first turn. Headings are skipped."""
-    names: list[str] = []
+    """The people on the call: names before a turn ("Aiko Sato: …") and names in a
+    "Present:" or "Attendees:" line, in order of first appearance. Headings are skipped."""
+    found: list[tuple[int, str]] = []
+    for match in _ATTENDEES.finditer(text):
+        people = re.sub(r"\([^)]*\)", "", match.group(1))
+        for name in re.split(r",|;|\band\b", people):
+            name = name.strip(" .")
+            if name:
+                found.append((match.start(), name))
     for match in _SPEAKER.finditer(text):
         name = match.group(1).strip()
-        if name.lower() not in _HEADINGS and name not in names:
+        if name.lower() not in _HEADINGS:
+            found.append((match.start(), name))
+    names: list[str] = []
+    for _, name in sorted(found, key=lambda pair: pair[0]):
+        if name not in names:
             names.append(name)
     return names
 

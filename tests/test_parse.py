@@ -1,5 +1,7 @@
 """Tests for KAN-7: read .txt, .docx, and .vtt files."""
 
+from pathlib import Path
+
 import pytest
 
 from raid.parse import EmptyNotesError, UnsupportedFileError, read_notes
@@ -130,9 +132,19 @@ def test_speakers_in_order_of_first_turn():
     assert speakers(CALL) == ["Ben Ortiz", "Aiko Sato"]
 
 
-def test_headings_are_not_speakers():
-    text = "Present: Gemma, Felix\nAction: Felix to order desks\nGemma Clarke: We decided to keep the date."
-    assert speakers(text) == ["Gemma Clarke"]
+def test_headings_are_not_speakers_and_attendees_are_on_the_call():
+    text = ("Present: Gemma Clarke (chair), Felix Novak and Ines Duarte\nAction: Felix to order desks\n"
+            "Agreed: keep the date\nQ3 Budget: on track\nBlockers: none\nGemma Clarke: We decided to keep the date.")
+    assert speakers(text) == ["Gemma Clarke", "Felix Novak", "Ines Duarte"]
+
+
+@pytest.mark.parametrize("sample", ["s01_mobile_release.vtt", "s02_crm_migration.txt", "s04_office_move.txt",
+                                    "s05_erp_steering.docx", "s08_graduate_onboarding.docx", "s09_audit_prep.txt"])
+def test_sample_calls_have_speakers_and_no_warnings(sample):
+    # Review of PR 14: minutes with an attendee list are not "no speaker names".
+    text = read_notes(Path(__file__).parent.parent / "samples" / sample)
+    assert speakers(text)
+    assert input_warnings(text) == []
 
 
 def test_ac25_more_than_15000_words_warns():
