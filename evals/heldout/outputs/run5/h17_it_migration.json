@@ -1,0 +1,79 @@
+{
+  "sample": "h17_it_migration.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-02",
+  "input_tokens": 2741,
+  "output_tokens": 745,
+  "seconds": 5.55,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Action has no due date."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Risk",
+      "description": "The old mail server licence ends soon, so the migration must finish before it expires.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The old mail server licence ends soon, so we must move before then.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    },
+    {
+      "type": "Action",
+      "description": "Mia Schulz will send the cut-over plan by 02/11.",
+      "owner": "Mia Schulz",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "by 02/11",
+      "source_quote": "I'll send the cut-over plan by 02/11.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Prepare a script for the help desk to answer user questions.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The help desk needs a script for user questions.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Decision",
+      "description": "The team decided to move the finance team last.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We decided to move the finance team last.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "sample": "h14_factory_maintenance.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-04",
+  "input_tokens": 2776,
+  "output_tokens": 1317,
+  "seconds": 9.09,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (unclear who) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Risk",
+      "description": "If the new bearings are late, the planned stop of Line 2 will be missed and the line will run with worn parts.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "If the bearings are late, we miss the planned stop and run with worn parts.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    },
+    {
+      "type": "Assumption",
+      "description": "The team expects the new bearings to arrive on 12 December.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The new bearings arrive on 12 December.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    },
+    {
+      "type": "Action",
+      "description": "Someone (\"he\", unclear whether Peter or Kofi) is to check the bearings.",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "unclear who",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The new bearings arrive on 12 December.\nMarco Rossi: He'll check the bearings.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    }
+  ]
+}

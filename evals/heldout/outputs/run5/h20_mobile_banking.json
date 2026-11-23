@@ -1,0 +1,61 @@
+{
+  "sample": "h20_mobile_banking.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-02",
+  "input_tokens": 2762,
+  "output_tokens": 347,
+  "seconds": 2.74,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Sara Holt will book the security review for next week.",
+      "owner": "Sara Holt",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "next week",
+      "source_quote": "I'll book the security review for next week.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Risk",
+      "description": "App store review can take up to a week, so a late build could delay the launch.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The app store review takes up to a week, so a late build could slip the launch.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    },
+    {
+      "type": "Dependency",
+      "description": "The decision to ship the card freeze feature depends on the security review being completed.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Let's not decide yet; we look again after the review.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    }
+  ]
+}

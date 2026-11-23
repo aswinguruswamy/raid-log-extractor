@@ -1,0 +1,51 @@
+{
+  "sample": "h14_factory_maintenance.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-04",
+  "input_tokens": 2776,
+  "output_tokens": 897,
+  "seconds": 6.66,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (unclear who) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Check the bearings (the person who will do it is only given as 'he', so it is unclear whether this is Peter or Kofi).",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "unclear who",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Marco Rossi: He'll check the bearings.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Risk",
+      "description": "If the new bearings arrive late, the team misses the planned stop and has to run Line 2 with worn parts.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "If the bearings are late, we miss the planned stop and run with worn parts.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    }
+  ]
+}

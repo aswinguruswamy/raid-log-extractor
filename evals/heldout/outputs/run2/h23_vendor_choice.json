@@ -1,0 +1,56 @@
+{
+  "sample": "h23_vendor_choice.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-03",
+  "input_tokens": 2755,
+  "output_tokens": 604,
+  "seconds": 4.06,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Dependency",
+      "description": "Choosing PayCo as the payroll vendor depends on the CFO agreeing.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We'll go with PayCo if the CFO agrees.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    },
+    {
+      "type": "Action",
+      "description": "Hannah will send the vendor comparison sheet to the CFO by Friday.",
+      "owner": "Hannah Moore",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-04",
+      "date_words": "by Friday",
+      "source_quote": "I'll send the comparison sheet to the CFO by Friday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Dependency",
+      "description": "PayCo cannot start until it receives the employee file in its required format.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "PayCo needs our employee file in their format before they can start.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-2"
+    }
+  ]
+}

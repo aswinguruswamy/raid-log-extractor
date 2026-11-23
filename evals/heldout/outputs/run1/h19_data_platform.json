@@ -1,0 +1,61 @@
+{
+  "sample": "h19_data_platform.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2759,
+  "output_tokens": 356,
+  "seconds": 2.66,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-2",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The current database is at 90% disk usage and alerts fire every night.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The current database is at 90% disk, and alerts fire every night.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Nora will add 200 GB of disk to the current database.",
+      "owner": "Nora Berg",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-03",
+      "date_words": "by Thursday",
+      "source_quote": "I'll add 200 GB of disk by Thursday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Run a spike next week comparing Postgres and Mongo for the new service.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "next week",
+      "source_quote": "Let's look at both in the spike next week.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    }
+  ]
+}

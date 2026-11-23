@@ -1,0 +1,79 @@
+{
+  "sample": "h06_hr_system.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-02",
+  "input_tokens": 2807,
+  "output_tokens": 461,
+  "seconds": 2.77,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (no reply) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Ben to prepare the training deck for the managers; he did not reply to the request.",
+      "owner": "Ben",
+      "owner_state": "Not confirmed",
+      "owner_note": "no reply",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Ben, can you prepare the training deck for the managers?",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Issue",
+      "description": "The vendor has not sent the test accounts, so testing is blocked.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "the vendor still hasn't sent the test accounts, so testing is blocked.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Grace to chase the vendor about the test accounts.",
+      "owner": "Grace Okafor",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-03",
+      "date_words": "by Thursday",
+      "source_quote": "I'll chase the vendor by Thursday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Decision",
+      "description": "Go live in two waves, with head office first.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Yes, agreed: we go live in two waves, head office first.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    }
+  ]
+}

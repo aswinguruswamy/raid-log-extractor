@@ -1,0 +1,123 @@
+{
+  "sample": "h09_ecommerce_launch.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-09",
+  "input_tokens": 2777,
+  "output_tokens": 734,
+  "seconds": 4.25,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Owner not confirmed (owners by list: Jon, Alisa, Crab \u2013 confirm) \u2013 confirm."
+    ],
+    [
+      "ACT-1",
+      "Action has no due date."
+    ],
+    [
+      "ACT-2",
+      "Owner not confirmed (owners by list: Jon, Alisa, Crab \u2013 confirm) \u2013 confirm."
+    ],
+    [
+      "ACT-2",
+      "Action has no due date."
+    ],
+    [
+      "ACT-3",
+      "Owner not confirmed (owners by list: Jon, Alisa, Crab \u2013 confirm) \u2013 confirm."
+    ],
+    [
+      "ACT-3",
+      "Action has no due date."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Prepare the test plan (one of three open jobs before launch).",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab \u2013 confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Jon, Alisa, Crab \u2013 the test plan, the payment pipeline and the release notes.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Complete the payment pipeline (one of three open jobs before launch).",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab \u2013 confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Jon, Alisa, Crab \u2013 the test plan, the payment pipeline and the release notes.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Action",
+      "description": "Write the release notes (one of three open jobs before launch).",
+      "owner": "Not stated",
+      "owner_state": "Not confirmed",
+      "owner_note": "owners by list: Jon, Alisa, Crab \u2013 confirm",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Jon, Alisa, Crab \u2013 the test plan, the payment pipeline and the release notes.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-3"
+    },
+    {
+      "type": "Dependency",
+      "description": "The payment provider needs our tax ID before it enables live mode.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "the payment provider still needs our tax ID before they switch on live mode.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    },
+    {
+      "type": "Issue",
+      "description": "The checkout page is currently slow on older phones.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "the checkout page is slow on older phones today.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Decision",
+      "description": "Launch only after the load test passes.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We agreed to launch only after the load test passes.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEC-1"
+    }
+  ]
+}

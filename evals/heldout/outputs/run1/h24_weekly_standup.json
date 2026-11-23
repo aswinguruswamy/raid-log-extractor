@@ -1,0 +1,13 @@
+{
+  "sample": "h24_weekly_standup.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2760,
+  "output_tokens": 51,
+  "seconds": 1.48,
+  "warnings": [],
+  "needs_attention": [],
+  "items": []
+}

@@ -1,0 +1,56 @@
+{
+  "sample": "h27_security_patch.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-02",
+  "input_tokens": 2772,
+  "output_tokens": 660,
+  "seconds": 4.98,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The October security patch has not yet been installed on the web servers.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The October security patch is not on the web servers yet.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Ruth will install the October security patch on the web servers on Saturday.",
+      "owner": "Ruth Adeyemi",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-05",
+      "date_words": "on Saturday",
+      "source_quote": "I'll install the patch on Saturday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Risk",
+      "description": "If the patch breaks the login service, the site will be down on Monday morning.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "If the patch breaks the login service, the site is down on Monday morning.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "RSK-1"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "sample": "h26_crm_cleanup.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-07",
+  "input_tokens": 2767,
+  "output_tokens": 835,
+  "seconds": 4.92,
+  "warnings": [],
+  "needs_attention": [
+    [
+      "ACT-1",
+      "Action has no due date."
+    ],
+    [
+      "ACT-1",
+      "Owner from a one-word reply \u2013 check the speaker."
+    ]
+  ],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "Duplicate contacts in the CRM are making the sales reports wrong.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The duplicate contacts make the sales reports wrong.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Leo to write the merge rules for the duplicate contacts.",
+      "owner": "Leo Fernandes",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Leo will write the merge rules.",
+      "reply_quote": "Okay.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Action",
+      "description": "Fatima to test the merge rules on a copy of the data by Thursday.",
+      "owner": "Fatima Zahra",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-10",
+      "date_words": "by Thursday",
+      "source_quote": "I'll test them on a copy by Thursday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Dependency",
+      "description": "Deleting old leads needs approval from sales leadership first.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Sales leadership still has to approve deleting old leads.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "DEP-1"
+    }
+  ]
+}

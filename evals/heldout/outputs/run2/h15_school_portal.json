@@ -1,0 +1,56 @@
+{
+  "sample": "h15_school_portal.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-07",
+  "input_tokens": 2748,
+  "output_tokens": 332,
+  "seconds": 2.13,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Issue",
+      "description": "The login page currently fails for parents using old browsers.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The login page still fails for parents with old browsers.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Ethan will write the browser notice by Friday.",
+      "owner": "Ethan Ward",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-11",
+      "date_words": "by Friday",
+      "source_quote": "I'll write the browser notice by Friday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Assumption",
+      "description": "The team assumes most parents use a phone app.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "We assume most parents use a phone app anyway.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    }
+  ]
+}

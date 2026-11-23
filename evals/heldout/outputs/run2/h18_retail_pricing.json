@@ -1,0 +1,42 @@
+{
+  "sample": "h18_retail_pricing.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-07",
+  "input_tokens": 2762,
+  "output_tokens": 269,
+  "seconds": 1.73,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Omar to load the new prices into the tills by Wednesday, as agreed after a counter-offer.",
+      "owner": "Omar Farouk",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-09",
+      "date_words": "Wednesday",
+      "source_quote": "Omar, can you load the new prices into the tills on Monday?",
+      "reply_quote": "Okay, Wednesday.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Issue",
+      "description": "Some stores still have old shelf labels.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "Some stores still have old shelf labels.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    }
+  ]
+}

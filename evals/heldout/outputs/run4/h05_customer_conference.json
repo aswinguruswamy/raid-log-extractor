@@ -1,0 +1,70 @@
+{
+  "sample": "h05_customer_conference.txt",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "2.1",
+  "run_date": "2026-11-23",
+  "meeting_date": "2026-12-01",
+  "input_tokens": 2799,
+  "output_tokens": 502,
+  "seconds": 3.11,
+  "warnings": [],
+  "needs_attention": [],
+  "items": [
+    {
+      "type": "Action",
+      "description": "Dev to send the speaker list to the printer by the agreed Tuesday deadline.",
+      "owner": "Dev Patel",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-08",
+      "date_words": "Tuesday works",
+      "source_quote": "Dev, can you send the speaker list to the printer by Friday?",
+      "reply_quote": "Not by Friday. Tuesday works.",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-1"
+    },
+    {
+      "type": "Issue",
+      "description": "The hotel block has only 50 rooms while 80 guests have already registered.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "The hotel block holds only 50 rooms, and 80 guests have already registered.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ISS-1"
+    },
+    {
+      "type": "Action",
+      "description": "Marta to call the hotel about getting more rooms by Thursday.",
+      "owner": "Marta Ruiz",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-03",
+      "date_words": "by Thursday",
+      "source_quote": "I'll call the hotel about more rooms by Thursday.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ACT-2"
+    },
+    {
+      "type": "Assumption",
+      "description": "For catering, the team assumes the number of guests stays at 80.",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "source_quote": "For catering, we assume the number stays at 80.",
+      "reply_quote": "",
+      "status": "Open",
+      "quote_verified": true,
+      "short_id": "ASM-1"
+    }
+  ]
+}
