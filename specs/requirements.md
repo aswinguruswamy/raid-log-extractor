@@ -1,6 +1,6 @@
 # RAID v2 – Requirements
 
-Version 1.3 · 2026-11-22 · Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (v1.1–v1.3 = his output and demo decisions, same day)
+Version 1.4 · 2026-11-23 · Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (v1.1–v1.3 = his output and demo decisions, same day; v1.4 = screenshots in place of a video, 2026-11-23)
 
 ---
 
@@ -94,7 +94,7 @@ Priority is my proposal. **You decide.** M = Must, S = Should.
 | R17 | Shared CI: tests on Python 3.11–3.13, lint, secret scan, pinned actions, Dependabot, dependency and licence scans. | M |
 | R18 | Release workflow: tag → tests → build → release notes. | M |
 | R19 | "Known limits" at the top of the README. Every bug gets a test (and a test call) before the fix. | M |
-| R20 | Record a short video (2 minutes or less) of the v2 table, Needs attention and the Markdown download; link it in the README and the portfolio. The public demo stays keyless (saved results). | M |
+| R20 | Show 2–3 screenshots of the keyless v2 demo in the README (the table with Needs attention, the quote of an item, and an owner state), with links that open the demo. No video. The public demo stays keyless (saved results). | M |
 
 ## 7. How well it must work (non-functional requirements)
 
@@ -135,6 +135,7 @@ Priority is my proposal. **You decide.** M = Must, S = Should.
 |---|---|---|
 | 0.1 | 2026-11-22 | First draft, from the RAID analysis (failure catalogue, rules, DL1–DL4, I1–I9), the v1 README and the shared decisions |
 | 1.0 | 2026-11-22 | Approved as is by Aswin. No content change. |
+| 1.4 | 2026-11-23 | Aswin 2026-11-23 (SH-5.5): README screenshots in place of the video (R20). |
 | 1.3 | 2026-11-22 | Aswin: AI key only for the build; demo stays keyless; a recorded video (R20). |
 | 1.2 | 2026-11-22 | Aswin: drop the Confidence column; owner state goes in the Owner cell, quote ✓ in the Item cell. |
 | 1.1 | 2026-11-22 | Aswin: Excel is outdated. Output = table on the page (Type, Item, Owner, Due date, Confidence, Reviewed) + Markdown download. R8, R9 now Must. |
