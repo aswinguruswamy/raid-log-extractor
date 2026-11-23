@@ -35,7 +35,7 @@ Each item has an owner, a due date, a status, and a **source quote** from the no
 
 ## Quick start
 
-You need Python 3.9 or later and an [Anthropic API key](https://console.anthropic.com).
+You need Python 3.11 or later and an [Anthropic API key](https://console.anthropic.com).
 
 ```bash
 git clone https://github.com/aswinguruswamy/raid-log-extractor.git
@@ -93,7 +93,7 @@ evals/              correct answers, eval script, run outputs, report, findings
 demo/               saved results that the demo mode shows
 docs/               decisions, bug log, project RAID log, release gate, demo GIF
 tests/              offline tests and live tests
-.github/workflows/  CI: offline tests on Python 3.9 and 3.12 on each push
+.github/workflows/  CI: offline tests on Python 3.11, 3.12 and 3.13 on each push
 .streamlit/         web page settings (upload limit, colours)
 ```
 
