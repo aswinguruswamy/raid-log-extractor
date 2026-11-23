@@ -100,3 +100,12 @@ def test_live_eval_fails_on_invented_owners_or_dates():
     # RAID v2 spec R16.1, AC42 (task A8): the CI eval blocks the PR.
     text = (WORKFLOWS / "live-eval.yml").read_text(encoding="utf-8")
     assert "run_eval.py --gate" in text
+
+
+def test_heldout_run_is_started_by_hand_with_five_runs_and_full_history():
+    # RAID v2 task A10 (spec R13-R15, N1, AC39).
+    wf = _load("heldout-run.yml")
+    assert set(wf["on"]) == {"workflow_dispatch"}
+    text = (WORKFLOWS / "heldout-run.yml").read_text(encoding="utf-8")
+    assert "--set heldout --runs 5" in text and "fetch-depth: 0" in text
+    assert "${{ secrets.ANTHROPIC_API_KEY }}" in text
