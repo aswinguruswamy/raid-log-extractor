@@ -50,7 +50,8 @@ def test_own_notes_mode_asks_for_a_key(monkeypatch):
 
 
 def test_upload_is_read_with_its_suffix():
-    import importlib.util, sys
+    import importlib.util
+    import sys
     from unittest import mock
 
     with mock.patch.dict(sys.modules, {"streamlit": mock.MagicMock()}):
@@ -86,10 +87,11 @@ def test_dollar_signs_show_as_plain_text(monkeypatch):
 
 def test_page_and_excel_use_the_same_column_names():
     """BUG-18: the page table and the Excel sheets must name the fields the same way."""
-    from raid.export import COLUMNS
-
-    import importlib.util, sys
+    import importlib.util
+    import sys
     from unittest import mock
+
+    from raid.export import COLUMNS
 
     with mock.patch.dict(sys.modules, {"streamlit": mock.MagicMock()}):
         spec = importlib.util.spec_from_file_location("app_cols", APP)

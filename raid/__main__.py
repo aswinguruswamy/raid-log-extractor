@@ -12,8 +12,8 @@ import sys
 from pathlib import Path
 
 from .cost import format_run
-from .extract import DEFAULT_MODEL, ExtractionError, extract_items
 from .export import SHEET_NAMES, to_excel
+from .extract import DEFAULT_MODEL, ExtractionError, extract_items
 from .parse import EmptyNotesError, UnsupportedFileError, read_notes
 
 

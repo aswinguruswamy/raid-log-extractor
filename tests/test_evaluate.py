@@ -1,6 +1,12 @@
 """Tests for KAN-18: the eval scoring."""
 
-from raid.evaluate import build_report, misses_and_extras, overlap, same_person, score_sample
+from raid.evaluate import (
+    build_report,
+    misses_and_extras,
+    overlap,
+    same_person,
+    score_sample,
+)
 from raid.schema import NOT_STATED
 
 NOTES = (

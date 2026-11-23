@@ -104,7 +104,7 @@ def extract_items(text: str, *, client=None, model: str = DEFAULT_MODEL, source_
     started = time.perf_counter()
     input_tokens = output_tokens = 0
     tool_input = None
-    for attempt in range(2):
+    for _attempt in range(2):
         response = client.messages.create(
             model=model,
             max_tokens=MAX_OUTPUT_TOKENS,
