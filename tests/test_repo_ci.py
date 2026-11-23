@@ -82,3 +82,15 @@ def test_contributing_rules_exist():
     text = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
     for words in ("specs/", "test first", "bug", "CI"):
         assert words in text, words
+
+
+def test_live_eval_runs_on_prompt_check_and_sdk_changes_with_the_repository_secret():
+    # RAID v2 spec R16.1 and decision RD2 (task A2): the eval on the tuning calls runs in CI.
+    wf = _load("live-eval.yml")
+    paths = wf["on"]["pull_request"]["paths"]
+    for changed in ("raid/extract.py", "raid/checks.py", "raid/dates.py", "requirements.txt"):
+        assert changed in paths
+    assert "workflow_dispatch" in wf["on"]
+    text = (WORKFLOWS / "live-eval.yml").read_text(encoding="utf-8")
+    assert "${{ secrets.ANTHROPIC_API_KEY }}" in text
+    assert "evals/run_eval.py" in text
