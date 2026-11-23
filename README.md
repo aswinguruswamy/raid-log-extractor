@@ -6,9 +6,13 @@ Turn the notes from a team call into a RAID log in less than one minute.
 
 **[Try the live demo](https://raid-log-extractor.streamlit.app/)**: no sign-in and no API key.
 
-![Demo of v1: choose a sample call, see the items with their source quotes, and download the file](docs/demo.gif)
+**A reply that does not commit** ("Not sure, I'll discuss it with my manager"): Omar is *not confirmed*, Needs attention says so, and "by Friday" becomes 2026-12-04 from the meeting date. [Open this sample](https://raid-log-extractor.streamlit.app/?demo=h01_warehouse_scanners)
 
-The v2 video (2 minutes) is linked here at the v2.0.0 release.
+![Demo: the warehouse call with an owner who is not confirmed, Needs attention, and dates from weekdays](docs/screenshots/demo_h01_warehouse_scanners.png)
+
+**A refusal** ("No, sorry, I'm full this week"): Ama is *declined*, and Needs attention says "reassign". [Open this sample](https://raid-log-extractor.streamlit.app/?demo=h03_mobile_release)
+
+![Demo: the mobile release call with a declined owner and Needs attention](docs/screenshots/demo_h03_mobile_release.png)
 
 ## Known limits
 
