@@ -1,10 +1,13 @@
-"""RAID Log Extractor web page (stories S3-01 KAN-21 and S3-02 KAN-22).
+"""RAID Log Extractor web page (stories S3-01 KAN-21 and S3-02 KAN-22; RAID v2 task A9).
 
 Run it with:  streamlit run app.py
 
 Two modes:
-  * Demo: saved results for 3 sample calls. No API key and no API call.
+  * Demo: saved results for sample calls. No API key and no API call.
   * Your own notes: upload a .txt, .docx, or .vtt file and use your own Anthropic API key.
+
+The page shows Needs attention, one table (Type · Item · Owner · Due date · Reviewed), the
+quote of each item, and a Markdown download (RAID v2 spec R7-R12). v2 writes no Excel file.
 """
 
 from __future__ import annotations
@@ -12,6 +15,7 @@ from __future__ import annotations
 import json
 import os
 import tempfile
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
@@ -19,27 +23,21 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from raid.cost import format_run
-from raid.export import SHEET_NAMES, to_excel_bytes
-from raid.parse import EmptyNotesError, UnsupportedFileError, read_notes
-from raid.schema import ItemType, RaidItem, RaidLog
+from raid.export import to_markdown
+from raid.parse import EmptyNotesError, UnsupportedFileError, input_warnings, read_notes
+from raid.pipeline import Analysis
+from raid.view import COLUMNS, table_rows
 
 ROOT = Path(__file__).parent
 DEMO_DIR = ROOT / "demo"
 SAMPLES_DIR = ROOT / "samples"
 REPO_URL = "https://github.com/aswinguruswamy/raid-log-extractor"
+EXPORT_GUIDE_URL = f"{REPO_URL}/blob/main/docs/export-guide.md"
 MAX_UPLOAD_MB = 2  # keep in step with server.maxUploadSize in .streamlit/config.toml
 
 DEMO = "Demo (no API key)"
 OWN = "Your own notes"
-
-TYPE_MEANING = {
-    ItemType.RISK: "Something that may happen and hurt the project",
-    ItemType.ASSUMPTION: "Something the team treats as true without proof",
-    ItemType.ISSUE: "A problem that is happening now",
-    ItemType.DEPENDENCY: "Work that needs another team, vendor, or task first",
-    ItemType.ACTION: "A task that a person agreed to do",
-    ItemType.DECISION: "A choice the team made in the call",
-}
+PRIVACY_WARNING = "Your notes go to the Anthropic API. Do not upload notes you may not share."  # spec R11.1
 
 load_dotenv()
 
@@ -47,10 +45,9 @@ load_dotenv()
 # --- data -------------------------------------------------------------------
 
 def load_demo(stem: str) -> dict:
-    """A saved run: the RAID log plus model, tokens, and time."""
+    """A saved run plus its label: the checked log, Needs attention and run details."""
     data = json.loads((DEMO_DIR / f"{stem}.json").read_text(encoding="utf-8"))
-    items = [RaidItem(**item) for item in data["items"]]
-    data["log"] = RaidLog(source_file=data["sample"], items=items)
+    data["analysis"] = Analysis.from_saved(data)
     return data
 
 
@@ -61,24 +58,6 @@ def demo_options() -> dict[str, str]:
         data = json.loads(path.read_text(encoding="utf-8"))
         options[f"{data['label']} · {data['format']}"] = path.stem
     return options
-
-
-def items_table(items: list[RaidItem]) -> pd.DataFrame:
-    """The page table. Status is left out (every new item is Open); the Excel file has it."""
-    table = pd.DataFrame(
-        [
-            {
-                "Description": item.description,
-                "Owner": item.owner,
-                "Due date": item.due_date,
-                "Source quote": item.source_quote,
-                "Quote found": {True: "Yes", False: "Not found", None: "-"}[item.quote_verified],
-            }
-            for item in items
-        ]
-    )
-    table.index = pd.RangeIndex(1, len(table) + 1, name="#")
-    return table
 
 
 def plain(text: str) -> str:
@@ -95,59 +74,90 @@ def notes_from_upload(name: str, content: bytes) -> str:
         return read_notes(path)
 
 
+def run_details(analysis: Analysis) -> str:
+    """Model, prompt version, run date, source file and meeting date (spec R10.1)."""
+    meeting = analysis.meeting_date.isoformat() if analysis.meeting_date else "not entered"
+    run_day = analysis.run_date.isoformat() if analysis.run_date else "-"
+    return (f"Model: {analysis.model} · Prompt version: {analysis.prompt_version} · Run date: {run_day} · "
+            f"File: {analysis.source_file} · Meeting date: {meeting}")
+
+
 # --- page parts ---------------------------------------------------------------
 
 def sidebar() -> None:
     with st.sidebar:
         st.header("How it works")
         st.markdown(
-            "1. Claude reads the notes and finds the RAID items.\n"
-            "2. The code checks each source quote word for word against the notes.\n"
-            "3. You check the items and download the Excel file."
+            "1. Claude reads the notes and finds the RAID items, the owners and the date words.\n"
+            "2. The code turns date words into dates and checks owners, dates and quotes.\n"
+            "3. You check **Needs attention**, tick **Reviewed**, and download the Markdown file."
         )
         st.header("Rules")
         st.markdown(
+            "- An owner is only **Confirmed** after a clear yes or an \"I will\".\n"
+            "- \"I can try\" is **tentative**; no answer is **not confirmed**.\n"
             "- No owner or date in the notes: **Not stated**. The tool never guesses.\n"
-            "- A relative date (\"by Friday\") stays in the description.\n"
-            "- Every item has a source quote."
+            "- A proposal is not a decision."
         )
-        st.header("Eval")
-        st.markdown(
-            "10 test calls, 68 expected items: **100% recall and precision** (run 2). "
-            "The prompt was tuned on these calls, so new notes may score lower."
-        )
+        st.markdown(f"[How to export a Teams or Zoom transcript]({EXPORT_GUIDE_URL})")
         st.markdown(f"[Code, eval, and decisions on GitHub]({REPO_URL})")
 
 
-def show_results(log: RaidLog, *, run_line: str, warnings: list[str], file_stem: str, key: str) -> None:
-    groups = log.by_type()
+def show_results(analysis: Analysis, *, cost_line: str, file_stem: str, key: str) -> None:
+    log = analysis.log
     with st.container(border=True):
         st.subheader(f"2. RAID log · {len(log.items)} items")
-        tabs = st.tabs([f"{SHEET_NAMES[t]} ({len(i)})" for t, i in groups.items()])
-        for tab, (item_type, items) in zip(tabs, groups.items()):
-            with tab:
-                st.caption(TYPE_MEANING[item_type] + ".")
-                if items:
-                    st.table(items_table(items))
-                else:
-                    st.write(f"The notes have no {SHEET_NAMES[item_type].lower()}.")
+        st.caption(plain(run_details(analysis)))
 
-        if warnings:
-            with st.expander(f"{len(warnings)} warning(s) to check"):
-                for warning in warnings:
-                    st.warning(plain(warning))
+        st.markdown("**Needs attention**")
+        if analysis.attention:
+            st.warning("\n".join(
+                f"- {a.short_id + ': ' if a.short_id else ''}{plain(a.text)}" for a in analysis.attention))
+        else:
+            st.success("Nothing to check.")
+
+        if not log.items:
+            st.write("No items found.")
+            return
+
+        reviewed_key = f"reviewed_{key}"
+        reviewed: set[str] = st.session_state.setdefault(reviewed_key, set())
+        rows = pd.DataFrame(table_rows(analysis, reviewed)).set_index("ID")
+        edited = st.data_editor(
+            rows, column_order=COLUMNS, disabled=COLUMNS[:-1], hide_index=True, width="stretch",
+            key=f"table_{key}",
+            column_config={
+                "Type": st.column_config.TextColumn("Type", width="small"),
+                "Item": st.column_config.TextColumn("Item", width="large"),
+                "Owner": st.column_config.TextColumn("Owner", width="medium"),
+                "Due date": st.column_config.TextColumn("Due date", width="medium"),
+                "Reviewed": st.column_config.CheckboxColumn("Reviewed", default=False, width="small"),
+            },
+        )
+        reviewed.clear()
+        reviewed.update(edited.index[edited["Reviewed"]].tolist())  # ticks last for this page session (R8.5)
+        st.caption("✓ = the code found the quote word for word in the notes. Owner in brackets = not confirmed yet.")
+
+        by_id = {item.short_id: item for item in log.items}
+        choice = st.selectbox("Show the quote for an item", list(by_id), index=None,
+                              placeholder="Choose an item, for example ACT-1", key=f"quote_{key}")
+        if choice:
+            item = by_id[choice]
+            found = "✓ found word for word in the notes" if item.quote_verified else "quote not found in the notes"
+            st.info(f"**{choice}** ({found}): \"{plain(item.source_quote)}\"" +
+                    (f"\n\nReply: \"{plain(item.reply_quote)}\"" if item.reply_quote else ""))
 
         left, right = st.columns([3, 1], vertical_alignment="center")
-        left.caption(plain(run_line))
+        left.caption(plain(cost_line))
         right.download_button(
-            "Download Excel",
-            data=to_excel_bytes(log),
-            file_name=f"{file_stem}_raid_log.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "Download Markdown",
+            data=to_markdown(analysis, reviewed),
+            file_name=f"{file_stem}_raid_log.md",
+            mime="text/markdown",
             type="primary",
             width="stretch",
             key=f"download_{key}",
-            help="One sheet per item type, plus a Status column (Open, In progress, Closed) for you to update.",
+            help="Run details, Needs attention, the table with your Reviewed ticks, and the quotes.",
         )
 
 
@@ -155,7 +165,7 @@ def demo_mode() -> None:
     options = demo_options()
     with st.container(border=True):
         st.subheader("1. Choose a sample call")
-        st.caption("Saved results from the eval run. No API key, no API call, no cost.")
+        st.caption("Saved results. No API key, no API call, no cost.")
         label = st.selectbox("Sample call", list(options), label_visibility="collapsed")
         data = load_demo(options[label])
         st.write(f"**What this sample tests:** {data['tests']}")
@@ -164,24 +174,23 @@ def demo_mode() -> None:
             with st.expander("Show the call notes"):
                 st.text(read_notes(notes_path))
 
-    run_line = format_run(data["model"], data["input_tokens"], data["output_tokens"], data["seconds"])
-    show_results(
-        data["log"], run_line=run_line, warnings=data.get("warnings", []),
-        file_stem=Path(data["sample"]).stem, key="demo",
-    )
+    analysis = data["analysis"]
+    cost_line = format_run(analysis.model, analysis.input_tokens, analysis.output_tokens, analysis.seconds)
+    # One key per sample, so Reviewed ticks never carry over to another sample.
+    show_results(analysis, cost_line=cost_line, file_stem=Path(data["sample"]).stem, key=f"demo_{options[label]}")
 
 
 def own_notes_mode() -> None:
     env_key = os.getenv("ANTHROPIC_API_KEY")
     with st.container(border=True):
         st.subheader("1. Upload your notes")
-        with st.expander("Why a key? · Privacy"):
+        st.warning(PRIVACY_WARNING)
+        st.markdown(f"[How to export a Teams or Zoom transcript]({EXPORT_GUIDE_URL})")
+        with st.expander("Why a key?"):
             st.markdown(
-                "**Why a key?** This mode sends your notes to Claude through the Anthropic API, and the API "
-                "needs a key for each request. Anthropic bills your account: about \\$0.01 for a short call and "
-                "about \\$0.05 for a 1-hour transcript. This site has no key of its own.\n\n"
-                "**Privacy:** the page sends your notes to the Anthropic API and does not store them or the key. "
-                "Do not upload confidential client data."
+                "This mode sends your notes to Claude through the Anthropic API, and the API needs a key for "
+                "each request. Anthropic bills your account: about \\$0.01 for a short call and about \\$0.05 "
+                "for a 1-hour transcript. This site has no key of its own and stores neither the notes nor the key."
             )
         if env_key:
             key = env_key
@@ -191,6 +200,10 @@ def own_notes_mode() -> None:
                 "Anthropic API key", type="password", placeholder="sk-ant-...",
                 help="Get a key at console.anthropic.com.",
             )
+        meeting_date = st.date_input(
+            "Meeting date", value=None, format="YYYY-MM-DD",
+            help="Needed to turn \"by Friday\" or \"2 November\" into a date.",
+        )
         upload = st.file_uploader(
             "Call notes or transcript", type=["txt", "docx", "vtt"],
             help="Plain text notes, Word minutes, or a Teams or Zoom transcript.",
@@ -208,30 +221,30 @@ def own_notes_mode() -> None:
 
         if text is not None:
             st.caption(f"{upload.name}: {len(text.split()):,} words")
+            for warning in input_warnings(text):  # spec R6.2: before the log
+                st.warning(warning)
         run = st.button("Extract the RAID log", type="primary", disabled=not (key and text))
         if text is not None and not key:
             st.caption("Enter an API key to continue.")
 
-    # Keep the result for this file, so the download click (a page rerun) does not clear it
-    # or run the API call again.
-    upload_id = f"{upload.name}:{upload.size}" if upload is not None else None
+    # Keep the result for this file and meeting date, so a tick or a download (a page rerun)
+    # does not clear it or run the API call again.
+    upload_id = f"{upload.name}:{upload.size}:{meeting_date}" if upload is not None else None
     saved = st.session_state.get("own_result")
     if saved and saved["upload_id"] != upload_id:
         st.session_state.pop("own_result")
+        st.session_state.pop("reviewed_own", None)
         saved = None
 
     if run:
-        saved = extract(text, key, upload.name, upload_id)
+        saved = extract(text, key, upload.name, upload_id, meeting_date)
     if saved:
-        result = saved["result"]
-        run_line = format_run(result.model, result.input_tokens, result.output_tokens, result.seconds)
-        show_results(
-            result.log, run_line=run_line, warnings=result.warnings,
-            file_stem=Path(upload.name).stem, key="own",
-        )
+        analysis = saved["result"]
+        cost_line = format_run(analysis.model, analysis.input_tokens, analysis.output_tokens, analysis.seconds)
+        show_results(analysis, cost_line=cost_line, file_stem=Path(upload.name).stem, key="own")
 
 
-def extract(text: str, key: str, name: str, upload_id: str) -> dict | None:
+def extract(text: str, key: str, name: str, upload_id: str, meeting_date: date | None) -> dict | None:
     import anthropic
 
     from raid.extract import ExtractionError, NotesTooLongError
@@ -239,8 +252,7 @@ def extract(text: str, key: str, name: str, upload_id: str) -> dict | None:
 
     with st.spinner("Claude reads the notes..."):
         try:
-            # Same code steps as the evals (task A7); the meeting date input comes with the page task A9.
-            result = analyse(text, None, client=anthropic.Anthropic(api_key=key), source_file=name)
+            result = analyse(text, meeting_date, client=anthropic.Anthropic(api_key=key), source_file=name)
         except anthropic.AuthenticationError:
             st.error("The API key is not valid.")
             return None
@@ -252,6 +264,7 @@ def extract(text: str, key: str, name: str, upload_id: str) -> dict | None:
             return None
     saved = {"upload_id": upload_id, "result": result}
     st.session_state["own_result"] = saved
+    st.session_state["reviewed_own"] = set()
     return saved
 
 
@@ -263,7 +276,8 @@ def main() -> None:
     st.title("RAID Log Extractor")
     st.write(
         "Turn call notes or a transcript into a RAID log: risks, assumptions, issues, dependencies, "
-        "actions, and decisions. Each item has a source quote, and a missing owner or date shows as **Not stated**."
+        "actions, and decisions. Each item has a quote that the code checks, an owner state, and a "
+        "**Needs attention** list of what to check before you share the log."
     )
     mode = st.radio("Mode", [DEMO, OWN], horizontal=True, label_visibility="collapsed")
     if mode == DEMO:

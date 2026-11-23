@@ -6,7 +6,7 @@ Turn the notes from a team call into a RAID log in less than one minute.
 
 **[Try the live demo](https://raid-log-extractor.streamlit.app/)**: no sign-in and no API key.
 
-![Demo: choose a sample call, see the actions with their source quotes, and download the Excel file](docs/demo.gif)
+![Demo: choose a sample call, see the actions with their source quotes, and download the file (v1 demo; the v2 video comes with the v2.0.0 release)](docs/demo.gif)
 
 ## Known limits
 
@@ -66,10 +66,10 @@ The demo mode needs no API key. The "Your own notes" mode uses the key in `.env`
 **Command line:**
 
 ```bash
-python3 -m raid extract samples/s02_crm_migration.txt
+python3 -m raid extract samples/s02_crm_migration.txt --meeting-date 2026-10-21
 ```
 
-The Excel file goes into the `output/` folder.
+The Markdown file goes into the `output/` folder. v2 writes no Excel file.
 
 **Tests:**
 

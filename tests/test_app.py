@@ -1,13 +1,8 @@
 """Tests for the web page (KAN-21, KAN-22). No API call is made."""
 
-from io import BytesIO
 from pathlib import Path
 
-from openpyxl import load_workbook
 from streamlit.testing.v1 import AppTest
-
-from raid.export import to_excel_bytes
-from raid.schema import RaidItem, RaidLog
 
 APP = str(Path(__file__).parent.parent / "app.py")
 
@@ -25,8 +20,8 @@ def test_demo_mode_shows_results_without_a_key(monkeypatch):
     assert app.radio[0].value.startswith("Demo")
     assert len(app.selectbox[0].options) == 3
     assert app.subheader[1].value.startswith("2. RAID log")
-    assert len(app.tabs) == 6
     assert any("Cost:" in c.value for c in app.caption)
+    assert any("Prompt version:" in c.value for c in app.caption)  # R10.1
 
 
 def test_every_demo_sample_renders(monkeypatch):
@@ -35,8 +30,7 @@ def test_every_demo_sample_renders(monkeypatch):
     for option in app.selectbox[0].options:
         app.selectbox[0].select(option).run()
         assert not app.exception, option
-        total = sum(int(t.label.rsplit("(", 1)[1].rstrip(")")) for t in app.tabs)
-        assert app.subheader[1].value == f"2. RAID log · {total} items"
+        assert app.subheader[1].value.startswith("2. RAID log · ")
 
 
 def test_own_notes_mode_asks_for_a_key(monkeypatch):
@@ -46,7 +40,7 @@ def test_own_notes_mode_asks_for_a_key(monkeypatch):
     assert not app.exception
     assert app.text_input[0].label == "Anthropic API key"
     assert app.button[0].disabled  # no key and no file yet
-    assert len(app.tabs) == 0      # no results before a run
+    assert len(app.subheader) == 1  # no results before a run
 
 
 def test_upload_is_read_with_its_suffix():
@@ -60,15 +54,6 @@ def test_upload_is_read_with_its_suffix():
         spec.loader.exec_module(module)
     vtt = b"WEBVTT\n\n00:00:01.000 --> 00:00:04.000\n<v Ana>We decided to ship on Friday.</v>\n"
     assert module.notes_from_upload("call.vtt", vtt) == "Ana: We decided to ship on Friday."
-
-
-def test_excel_bytes_open_as_a_workbook():
-    log = RaidLog(source_file="x.txt", items=[
-        RaidItem(type="Risk", description="The vendor may be late.", source_quote="vendor may be late"),
-    ])
-    workbook = load_workbook(BytesIO(to_excel_bytes(log)))
-    assert workbook.sheetnames[0] == "Summary"
-    assert workbook["Risks"]["B2"].value == "The vendor may be late."
 
 
 def test_dollar_signs_show_as_plain_text(monkeypatch):
@@ -85,19 +70,64 @@ def test_dollar_signs_show_as_plain_text(monkeypatch):
     assert "\\$" in run_line
 
 
-def test_page_and_excel_use_the_same_column_names():
-    """BUG-18: the page table and the Excel sheets must name the fields the same way."""
-    import importlib.util
-    import sys
-    from unittest import mock
+def _demo_table(app):
+    return app.dataframe[0].value
 
-    from raid.export import COLUMNS
 
-    with mock.patch.dict(sys.modules, {"streamlit": mock.MagicMock()}):
-        spec = importlib.util.spec_from_file_location("app_cols", APP)
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-    item = RaidItem(type="Risk", description="The vendor may be late.", source_quote="vendor may be late")
-    page_columns = list(module.items_table([item]).columns)
-    excel_columns = [name for name, _ in COLUMNS if name not in ("#", "Status")]  # the page leaves these out
-    assert page_columns == excel_columns
+def test_ac30_one_table_with_five_columns(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = run_app()
+    table = _demo_table(app)
+    assert [c for c in table.columns if c != "ID"] == ["Type", "Item", "Owner", "Due date", "Reviewed"]
+    assert not table["Reviewed"].any()  # R8.5: unticked at start
+    assert all(item.endswith("✓") or item.endswith("(quote not found)") for item in table["Item"])
+
+
+def test_ac32_choosing_an_item_shows_its_quote(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = run_app()
+    quote_box = next(s for s in app.selectbox if s.label == "Show the quote for an item")
+    quote_box.select("ACT-1").run()
+    assert any(i.value.startswith("**ACT-1**") for i in app.info)
+
+
+def test_needs_attention_and_markdown_download_no_excel(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = run_app()
+    assert any(m.value == "**Needs attention**" for m in app.markdown)
+    labels = [b.label for b in app.get("download_button")]
+    assert labels == ["Download Markdown"]  # R8.6: no Excel
+
+
+def test_ac36_privacy_warning_before_the_upload_box(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = run_app()
+    app.radio[0].set_value("Your own notes").run()
+    assert app.warning[0].value == "Your notes go to the Anthropic API. Do not upload notes you may not share."
+    assert app.date_input[0].label == "Meeting date"
+
+
+def test_ac37_export_guide_is_linked_and_exists(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = run_app()
+    app.radio[0].set_value("Your own notes").run()
+    links = [m.value for m in app.markdown if "export-guide.md" in m.value]
+    assert links and "blob/main/docs/export-guide.md" in links[0]
+    guide = (Path(APP).parent / "docs" / "export-guide.md").read_text(encoding="utf-8")
+    assert "## Microsoft Teams" in guide and "## Zoom" in guide
+
+
+def test_reviewed_ticks_do_not_carry_over_to_another_sample(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = run_app()
+    keys = set()
+    for option in app.selectbox[0].options:
+        app.selectbox[0].select(option).run()
+        keys.add(app.dataframe[0].key)
+    assert len(keys) == len(app.selectbox[0].options)
+
+
+def test_demo_shows_needs_attention_lines(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    app = run_app()
+    assert app.warning and "Action has no due date." in app.warning[0].value
