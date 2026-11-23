@@ -12,7 +12,10 @@
       "owner_note": "",
       "due_date": "Not stated",
       "date_words": "",
-      "evidence": "The vendor may be late with the API."
+      "evidence": "The vendor may be late with the API.",
+      "forbidden_owners": [
+        "Bob"
+      ]
     }
   ]
 }

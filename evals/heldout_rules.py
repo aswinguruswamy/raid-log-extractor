@@ -22,19 +22,28 @@ def missing_cases(heldout_dir: Path) -> list[str]:
     return [case for case in P1_CASES if case not in have]
 
 
-def _times(repo: Path, *args: str) -> list[int]:
-    out = subprocess.run(["git", "-C", str(repo), "log", "--format=%ct", *args],
-                         check=True, capture_output=True, text=True).stdout
-    return [int(line) for line in out.split()]
+def _git(repo: Path, *args: str) -> str:
+    return subprocess.run(["git", "-C", str(repo), *args], check=True, capture_output=True, text=True).stdout
+
+
+def _times(repo: Path, *paths: str) -> list[int]:
+    return [int(t) for t in _git(repo, "log", "--format=%ct", "--", *paths).split()]
 
 
 def check_key_order(repo: Path, heldout: str = "evals/heldout") -> list[str]:
-    """Answer keys changed after the first held-out run output was committed (AC39).
-    An empty list means every key is older than every run."""
-    outputs = _times(repo, "--", f"{heldout}/outputs")
-    if not outputs:
-        return []
-    first_run = min(outputs)
-    answers = subprocess.run(["git", "-C", str(repo), "ls-files", f"{heldout}/answers"],
-                             check=True, capture_output=True, text=True).stdout.split()
-    return [path for path in answers if max(_times(repo, "--", path)) > first_run]
+    """Problems with "keys first" (AC39): a key committed after the first run output of its
+    own call, a key with changes that are not committed, or a history too short to check.
+    An empty list means every key is older than every run of its call."""
+    if _git(repo, "rev-parse", "--is-shallow-repository").strip() == "true":
+        return ["The Git history is shallow; fetch the full history to check the key order."]
+    problems = [f"{line[3:]} (not committed)"
+                for line in _git(repo, "status", "--porcelain", "--", f"{heldout}/answers").splitlines()]
+    for path in _git(repo, "ls-files", f"{heldout}/answers").split():
+        key_times = _times(repo, path)
+        if not key_times:
+            continue  # staged, never committed: reported above
+        name = Path(path).name
+        output_times = _times(repo, f"{heldout}/outputs/*/{name}")
+        if output_times and max(key_times) > min(output_times):
+            problems.append(path)
+    return problems

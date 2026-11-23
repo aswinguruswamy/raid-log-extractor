@@ -63,6 +63,22 @@ def test_ac39_a_key_changed_after_a_run_is_reported(repo):
     assert check_key_order(repo) == ["evals/heldout/answers/h01.json"]
 
 
+def test_ac39_a_new_call_after_a_failed_gate_is_fine(repo):
+    # Spec R13.3: after a failed gate, new calls with new keys are added; their keys are newer
+    # than the first run of other calls, but older than their own first run.
+    _commit(repo, "evals/heldout/answers/h01.json", "2026-12-01T10:00:00")
+    _commit(repo, "evals/heldout/outputs/run1/h01.json", "2026-12-02T10:00:00")
+    _commit(repo, "evals/heldout/answers/h29.json", "2026-12-03T10:00:00")
+    _commit(repo, "evals/heldout/outputs/run1/h29.json", "2026-12-04T10:00:00")
+    assert check_key_order(repo) == []
+
+
+def test_ac39_uncommitted_key_change_is_reported(repo):
+    _commit(repo, "evals/heldout/answers/h01.json", "2026-12-01T10:00:00")
+    (repo / "evals/heldout/answers/h01.json").write_text("changed", encoding="utf-8")
+    assert check_key_order(repo) == ["evals/heldout/answers/h01.json (not committed)"]
+
+
 def test_ac41_gate_exits_1_on_an_invented_date(tmp_path, monkeypatch):
     import evals.run_eval as run_eval
 
@@ -83,5 +99,22 @@ def test_ac41_gate_exits_1_on_an_invented_date(tmp_path, monkeypatch):
                                                    tmp_path / "report.md", "call"))
     monkeypatch.setattr(run_eval, "HELDOUT", tmp_path)
     monkeypatch.setattr(run_eval, "check_key_order", lambda root: [])
+    monkeypatch.setattr(run_eval, "HELDOUT_RUNS", 1)
     assert run_eval.run(cached=True, model="m", set_name="heldout", runs=1, gate=True) == 1
     assert "| Invented dates (release gate: 0) | 1 |" in (tmp_path / "report.md").read_text(encoding="utf-8")
+
+
+def test_gate_needs_runs():
+    import evals.run_eval as run_eval
+
+    assert run_eval.run(cached=True, model="m", set_name="tuning", runs=0, gate=True) == 2
+
+
+def test_heldout_gate_needs_five_runs(tmp_path, monkeypatch):
+    import evals.run_eval as run_eval
+
+    (tmp_path / "answers").mkdir()
+    (tmp_path / "answers" / "c.json").write_text("{}", encoding="utf-8")
+    monkeypatch.setitem(run_eval.SETS, "heldout", (tmp_path / "answers", tmp_path / "calls", tmp_path / "outputs",
+                                                   tmp_path / "report.md", "call"))
+    assert run_eval.run(cached=True, model="m", set_name="heldout", runs=1, gate=True) == 2

@@ -50,6 +50,7 @@ SETS = {
     "spec": (EVALS / "spec_cases" / "answers", EVALS / "spec_cases" / "calls", EVALS / "spec_cases" / "outputs",
              EVALS / "spec_cases" / "report.md", "call"),
 }
+HELDOUT_RUNS = 5  # spec N1: 28 calls x 5 runs
 TUNING_WRITER = "Claude (AI) with the project owner, v1 (see Known limits)"
 
 TARGETS = {"recall": 0.85, "precision": 0.80}
@@ -71,6 +72,14 @@ def run(cached: bool, model: str, set_name: str = "tuning", runs: int = 1, gate:
         pass
 
     answers_dir, calls_dir, outputs, report_file, call_key = SETS[set_name]
+    if set_name == "heldout" and cached:
+        runs = max(runs, len(list(outputs.glob("run*"))))  # score every saved run
+    if runs < 1:
+        print("--runs must be 1 or more.", file=sys.stderr)
+        return 2
+    if gate and set_name == "heldout" and runs < HELDOUT_RUNS:
+        print(f"The release gate needs {HELDOUT_RUNS} runs of each held-out call; found {runs}.", file=sys.stderr)
+        return 2
     answer_files = sorted(answers_dir.glob("*.json"))
     if not answer_files:
         print(f"No answer keys in {answers_dir}.", file=sys.stderr)
@@ -134,7 +143,7 @@ def run(cached: bool, model: str, set_name: str = "tuning", runs: int = 1, gate:
             failures += [f"No held-out call yet for case {case}" for case in missing_cases(HELDOUT)]
             failures += [f"Answer key changed after the first held-out run: {path}" for path in check_key_order(ROOT)]
         if failures:
-            print("GATE FAILED (0 invented owners and 0 invented dates required):", file=sys.stderr)
+            print("GATE FAILED (0 invented owners, 0 invented dates, keys first):", file=sys.stderr)
             for failure in failures:
                 print(f"  - {failure}", file=sys.stderr)
             return 1
@@ -190,10 +199,14 @@ def render(report, runs, *, v2=None, set_name: str = "tuning", runs_count: int =
         f"| Wrong dates | {len(v2.wrong_dates)} |",
         f"| Owner state correct | {v2.state_correct} of {v2.state_checked} |",
         f"| Items found in all {runs_count} runs | {pct(spread)} |",
+        f"| Owner the key forbids (release gate: 0) | {len(v2.forbidden_owners)} |",
+        f"| Extra items with an owner or a date (check by hand) | {len(v2.extras_with_owner_or_date)} |",
         "",
     ]
     for label, entries in (("Invented owner", v2.invented_owners), ("Invented date", v2.invented_dates),
-                           ("Wrong owner", v2.wrong_owners), ("Wrong date", v2.wrong_dates)):
+                           ("Wrong owner", v2.wrong_owners), ("Wrong date", v2.wrong_dates),
+                           ("Forbidden owner", v2.forbidden_owners),
+                           ("Extra item with owner or date", v2.extras_with_owner_or_date)):
         lines += [f"- {label}: {entry}" for entry in entries]
     lines += [
         "",
