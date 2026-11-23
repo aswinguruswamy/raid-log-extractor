@@ -131,3 +131,47 @@ def _tidy(text: str) -> str:
         if line or (tidy and tidy[-1]):  # keep single blank lines, drop runs of them
             tidy.append(line)
     return "\n".join(tidy).strip()
+
+
+# --- Input warnings and the speaker list (RAID v2 spec R6.2, task A6) ---------------
+
+MAX_WORDS = 15_000
+MIN_COMMON_SHARE = 0.02
+TOO_LONG = "The notes have more than 15,000 words. Items may be missed; split the notes and run each part."
+NO_SPEAKERS = "No speaker names found (\"Name:\" lines or voice tags). Check every owner."
+NOT_ENGLISH = "The notes do not look like English. The tool is tested on English only; check every item."
+
+_SPEAKER = re.compile(r"^\s*([A-Z][\w'.-]*(?:\s+[A-Z][\w'.-]*){0,3})\s*:\s*\S", re.MULTILINE)
+_HEADINGS = {
+    "present", "attendees", "apologies", "absent", "action", "actions", "decision", "decisions", "note",
+    "notes", "date", "agenda", "minutes", "subject", "re", "time", "location", "chair", "risk", "risks",
+    "issue", "issues", "next steps", "summary", "owner", "due", "status", "webvtt", "note to self",
+}
+_COMMON = {
+    "the", "and", "to", "is", "of", "in", "we", "it", "you", "that", "for", "on", "will", "be", "this",
+    "with", "can", "are", "have", "not", "by", "it's", "i'll", "we'll", "was", "do", "so", "at", "our",
+}
+_TOKEN = re.compile(r"[a-z']+")
+
+
+def speakers(text: str) -> list[str]:
+    """Names before a turn ("Aiko Sato: …"), in order of their first turn. Headings are skipped."""
+    names: list[str] = []
+    for match in _SPEAKER.finditer(text):
+        name = match.group(1).strip()
+        if name.lower() not in _HEADINGS and name not in names:
+            names.append(name)
+    return names
+
+
+def input_warnings(text: str) -> list[str]:
+    """Warnings to show before the log: too long, no speaker names, not English."""
+    warnings = []
+    if len(text.split()) > MAX_WORDS:
+        warnings.append(TOO_LONG)
+    if not speakers(text):
+        warnings.append(NO_SPEAKERS)
+    tokens = _TOKEN.findall(text.lower().replace("’", "'"))
+    if tokens and sum(token in _COMMON for token in tokens) / len(tokens) < MIN_COMMON_SHARE:
+        warnings.append(NOT_ENGLISH)
+    return warnings

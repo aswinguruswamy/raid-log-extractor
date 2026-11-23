@@ -4,7 +4,14 @@ from types import SimpleNamespace
 
 import pytest
 
-from raid.extract import TOOL, TOOL_NAME, ExtractionError, extract_items, quote_in_notes
+from raid.extract import (
+    TOOL,
+    TOOL_NAME,
+    ExtractionError,
+    NotesTooLongError,
+    extract_items,
+    quote_in_notes,
+)
 from raid.schema import NOT_STATED, ItemType, Status
 
 NOTES = """Priya Shah: The vendor may not deliver the API by Friday.
@@ -105,9 +112,11 @@ def test_no_tool_call_after_retry_is_an_error():
     assert client.calls == 2
 
 
-def test_cut_off_answer_gives_a_warning():
-    result = extract_items(NOTES, client=FakeClient([item()], stop_reason="max_tokens"))
-    assert any("cut off" in w for w in result.warnings)
+@pytest.mark.parametrize("call_tool", [True, False])
+def test_ac24_cut_off_answer_is_an_error_with_no_log(call_tool):
+    # RAID v2 spec R6.1 (catalogue E7): v1 gave a warning and a partial log; v2 gives no log.
+    with pytest.raises(NotesTooLongError, match="The notes are too long for one run. Split them and try again."):
+        extract_items(NOTES, client=FakeClient([item()], stop_reason="max_tokens", call_tool=call_tool))
 
 
 # --- KAN-10: "Not stated", never a guess -----------------------------------

@@ -79,6 +79,13 @@ class ExtractionError(RuntimeError):
     """Claude did not return the RAID items in the expected form."""
 
 
+class NotesTooLongError(ExtractionError):
+    """The answer stopped at the output limit, so items may be missing (spec R6.1)."""
+
+
+TOO_LONG_MESSAGE = "The notes are too long for one run. Split them and try again."
+
+
 def extract_items(text: str, *, client=None, model: str = DEFAULT_MODEL, source_file: str = "") -> ExtractionResult:
     """Send the notes to Claude and return a validated RAID log."""
     if client is None:
@@ -105,6 +112,8 @@ def extract_items(text: str, *, client=None, model: str = DEFAULT_MODEL, source_
         usage = getattr(response, "usage", None)
         input_tokens += getattr(usage, "input_tokens", 0) or 0
         output_tokens += getattr(usage, "output_tokens", 0) or 0
+        if getattr(response, "stop_reason", None) == "max_tokens":
+            raise NotesTooLongError(TOO_LONG_MESSAGE)  # fail loudly: no partial log (P3)
         tool_input = _tool_input(response)
         if tool_input is not None:
             break
@@ -121,8 +130,6 @@ def extract_items(text: str, *, client=None, model: str = DEFAULT_MODEL, source_
         raise ExtractionError("Claude's answer has no 'items' list.")
 
     warnings: list[str] = []
-    if getattr(response, "stop_reason", None) == "max_tokens":
-        warnings.append("The answer was cut off at the output limit; some items may be missing.")
 
     items = [item for raw in raw_items if (item := _to_item(raw, text, warnings)) is not None]
 
