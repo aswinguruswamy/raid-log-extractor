@@ -1,0 +1,7 @@
+Call – CRM clean-up – planning
+
+Fatima Zahra: The duplicate contacts make the sales reports wrong.
+Leo Fernandes: About 12,000 records are affected.
+Fatima Zahra: Leo will write the merge rules. I'll test them on a copy by Thursday.
+Leo Fernandes: Okay.
+Fatima Zahra: Sales leadership still has to approve deleting old leads.

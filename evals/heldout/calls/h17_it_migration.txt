@@ -1,0 +1,6 @@
+Call – Email migration – cut-over
+
+Tariq Aziz: The old mail server licence ends soon, so we must move before then.
+Mia Schulz: I'll send the cut-over plan by 02/11.
+Tariq Aziz: Fine. The help desk needs a script for user questions.
+Mia Schulz: We decided to move the finance team last.

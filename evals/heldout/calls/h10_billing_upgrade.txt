@@ -1,0 +1,7 @@
+Call – Billing system upgrade – status
+
+Ravi Menon: The new invoice template failed in test. Two totals are wrong.
+Ingrid Holm: The vendor sent a fix this morning.
+Ravi Menon: QA will retest the invoice template after the fix is installed.
+Ingrid Holm: I'll install the fix on the test server by Wednesday.
+Ravi Menon: We assume the old invoices do not need to change.

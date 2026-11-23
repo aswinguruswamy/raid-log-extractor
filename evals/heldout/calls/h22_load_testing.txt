@@ -1,0 +1,7 @@
+Call – Ticketing site – performance review
+
+Owen Price: Last week's load test ran at three times normal traffic.
+Chloe Dubois: Response times stayed under one second, so we are not worried about load.
+Owen Price: Good. The payment page still shows a blank screen on Safari.
+Chloe Dubois: I'll fix the Safari bug by Tuesday.
+Owen Price: We assume traffic on sale day is at most twice normal.

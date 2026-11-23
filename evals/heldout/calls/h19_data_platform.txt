@@ -1,0 +1,7 @@
+Call – Data platform – architecture
+
+Nora Berg: For the new service, we could use Postgres.
+Kenji Mori: Or Mongo. Both would work for our data.
+Nora Berg: Let's look at both in the spike next week.
+Kenji Mori: The current database is at 90% disk, and alerts fire every night.
+Nora Berg: I'll add 200 GB of disk by Thursday.
