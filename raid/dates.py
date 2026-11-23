@@ -5,7 +5,9 @@ makes the date, so the date is deterministic and testable (constitution P1).
 
 Rules:
   - A full date with a year converts always ("2027-01-15", "15 January 2027").
-  - A day and month take the year of the meeting date ("2 November" -> 2026-11-02).
+  - A day and month take the year of the meeting date ("2 November" -> 2026-11-02), or the
+    next year when that date is more than 30 days before the meeting ("by 5 January" in a
+    December meeting -> January of the next year; spec v1.2).
   - A weekday is the next such day after the meeting date; the same weekday is next
     week ("by Tuesday" on Tuesday 1 Dec 2026 -> 2026-12-08). "today" and "tomorrow"
     count from the meeting date.
@@ -52,6 +54,18 @@ def _make(year: int, month: int, day: int) -> str:
         return NOT_STATED
 
 
+NEXT_YEAR_AFTER_DAYS = 30
+
+
+def _with_year(meeting_date: date, month: int, day: int) -> str:
+    """The meeting's year; the next year when that date is more than 30 days before the
+    meeting ("by 5 January" in a December meeting). Spec v1.2, R4.3."""
+    same_year = _make(meeting_date.year, month, day)
+    if same_year != NOT_STATED and (meeting_date - date.fromisoformat(same_year)).days > NEXT_YEAR_AFTER_DAYS:
+        return _make(meeting_date.year + 1, month, day)
+    return same_year
+
+
 def to_date(date_words: str, meeting_date: date | None) -> str:
     """Convert date words to YYYY-MM-DD, or 'Not stated' when the words do not give one date."""
     words = (date_words or "").strip()
@@ -69,7 +83,7 @@ def to_date(date_words: str, meeting_date: date | None) -> str:
                 return _make(int(year), _month(m[month_group]), int(m[day_group]))
             if meeting_date is None:
                 return NOT_STATED
-            return _make(meeting_date.year, _month(m[month_group]), int(m[day_group]))
+            return _with_year(meeting_date, _month(m[month_group]), int(m[day_group]))
 
     if meeting_date is None:
         return NOT_STATED

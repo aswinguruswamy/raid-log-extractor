@@ -22,8 +22,8 @@ TUE = date(2026, 12, 1)  # the spec's meeting date: Tuesday 1 December 2026
     ("December 10", "2026-12-10"),
     ("by the 3rd of December", "2026-12-03"),
     ("4 Dec", "2026-12-04"),
-    ("on 5 May", "2026-05-05"),
-    ("by Sept 3", "2026-09-03"),
+    ("on 5 May", "2027-05-05"),      # more than 30 days before the meeting -> next year (v1.2)
+    ("by Sept 3", "2027-09-03"),
     ("on 2027-01-15", "2027-01-15"),
     ("by 15 January 2027", "2027-01-15"),
     ("January 15, 2027", "2027-01-15"),
@@ -86,3 +86,19 @@ def test_apply_dates_without_meeting_date_warns_once():
     assert apply_dates(log, None) == [NEEDS_MEETING_DATE]
     assert NEEDS_MEETING_DATE == "Enter the meeting date to convert dates."
     assert all(i.due_date == NOT_STATED and i.date_words for i in log.items)
+
+
+# --- Year rule (spec v1.2, R4.3; approved by Aswin Guruswamy 2026-11-23) ---
+
+@pytest.mark.parametrize("words, meeting, expected", [
+    ("by 5 January", date(2026, 12, 15), "2027-01-05"),   # more than 30 days before -> next year
+    ("on 2 November", date(2026, 12, 1), "2026-11-02"),   # 29 days before -> same year (AC14)
+    ("on 31 October", date(2026, 11, 30), "2026-10-31"),  # 30 days before -> same year
+    ("on 31 October", date(2026, 12, 1), "2027-10-31"),   # 31 days before -> next year
+])
+def test_day_and_month_more_than_30_days_before_the_meeting_is_next_year(words, meeting, expected):
+    assert to_date(words, meeting) == expected
+
+
+def test_full_date_with_a_year_is_kept_as_given():
+    assert to_date("by 5 January 2026", date(2026, 12, 15)) == "2026-01-05"
