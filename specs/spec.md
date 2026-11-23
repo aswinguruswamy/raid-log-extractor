@@ -233,7 +233,7 @@ Output changed to the page table + Markdown (requirements v1.1). The v0.2 fixes 
 ## 13. Change log
 | Version | Date | Change | Approved by |
 |---|---|---|---|
-| 1.5 | 2026-11-23 | R17.1: CI also tests Python 3.14 (the Streamlit Cloud version) | Aswin Guruswamy |
+| 1.5 | 2026-11-23 | R17.1: CI also tests Python 3.14, the newest Python (the Streamlit demo runs on 3.12, also tested) | Aswin Guruswamy |
 | 1.4 | 2026-11-23 | R20.1, AC46: README screenshots in place of the video | Aswin 2026-11-23 (SH-5.5) |
 | 1.3 | 2026-11-23 | R5.5 and R8.3 match the build (Aswin's decisions RAID-5.1, RAID-5.2) | Aswin Guruswamy |
 | 1.2 | 2026-11-23 | R4.3 year rule: a day and month more than 30 days before the meeting date take the next year | Aswin Guruswamy |
