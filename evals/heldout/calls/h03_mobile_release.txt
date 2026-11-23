@@ -1,0 +1,9 @@
+Call – Mobile app 3.2 – release planning
+
+Jonas Weber: Crash reports went up 30% since the last build, and support is getting complaints.
+Ama Owusu: I saw that. We think it's the new payment library.
+Jonas Weber: Ama, can you fix the crash before the store submission?
+Ama Owusu: No, sorry, I'm full this week with the security patch.
+Jonas Weber: Understood. I'll ask in the team chat who has time.
+Ama Owusu: Also, the new login screen needs the login API from the platform team first.
+Jonas Weber: Right. We decided to submit to the Android store first and iOS a week later.

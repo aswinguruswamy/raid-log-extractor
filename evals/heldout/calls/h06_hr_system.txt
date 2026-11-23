@@ -1,0 +1,8 @@
+Call – HR system rollout – weekly
+
+Grace Okafor: Ben, can you prepare the training deck for the managers?
+Ines Moreau: Before that – the vendor still hasn't sent the test accounts, so testing is blocked.
+Grace Okafor: Right. I'll chase the vendor by Thursday.
+Ines Moreau: And for go-live, two waves with head office first?
+Grace Okafor: Yes, agreed: we go live in two waves, head office first.
+Ben Clarke: Sounds good. Nothing else from me.

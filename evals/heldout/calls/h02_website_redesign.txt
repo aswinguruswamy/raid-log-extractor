@@ -1,0 +1,9 @@
+Call – Website redesign – design review
+
+Hana Kovac: Let's start. Marketing approved the new homepage, so we go with version B.
+Tomas Rivera: Good. The staging server has been down since this morning, so we can't test the forms.
+Hana Kovac: Tomas, can you finish the contact form by Monday?
+Tomas Rivera: I can try. It's a busy week.
+Hana Kovac: Priyanka, can you run the accessibility check on version B by 10 December?
+Priyanka Rao: Yes, will do.
+Hana Kovac: And we assume most visitors use a phone, so we design for mobile first.
