@@ -2,7 +2,7 @@
 #   Python 3.9  -> anthropic 0.125, streamlit 1.50, pandas 2.3, pydantic 2.13, pytest 8.4
 #   Python 3.12 -> anthropic 1.17,  streamlit 1.66, pandas 3.0, pydantic 2.14, pytest 9.1
 # The upper limits stop a new, untested major release from breaking the live demo.
-anthropic>=0.125,<2
+anthropic>=2.12.0,<3
 pydantic>=2.13,<3
 python-docx>=1.2,<2
 openpyxl>=3.1.5,<4
