@@ -127,10 +127,11 @@ def test_empty_owner_becomes_not_stated(owner):
     assert result.log.items[0].owner == NOT_STATED
 
 
-def test_relative_date_becomes_not_stated_with_a_warning():
-    result = extract_items(NOTES, client=FakeClient([item(due_date="Friday")]))
+@pytest.mark.parametrize("due", ["Friday", "2026-10-26"])
+def test_a_date_from_the_model_is_ignored(due):
+    # RAID v2 decision RD1 (task A7): the model gives date words; code makes the date.
+    result = extract_items(NOTES, client=FakeClient([item(due_date=due)]))
     assert result.log.items[0].due_date == NOT_STATED
-    assert any("not YYYY-MM-DD" in w for w in result.warnings)
 
 
 def test_prompt_forbids_guessing():

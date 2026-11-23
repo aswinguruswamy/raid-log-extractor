@@ -234,11 +234,13 @@ def own_notes_mode() -> None:
 def extract(text: str, key: str, name: str, upload_id: str) -> dict | None:
     import anthropic
 
-    from raid.extract import ExtractionError, NotesTooLongError, extract_items
+    from raid.extract import ExtractionError, NotesTooLongError
+    from raid.pipeline import analyse
 
     with st.spinner("Claude reads the notes..."):
         try:
-            result = extract_items(text, client=anthropic.Anthropic(api_key=key), source_file=name)
+            # Same code steps as the evals (task A7); the meeting date input comes with the page task A9.
+            result = analyse(text, None, client=anthropic.Anthropic(api_key=key), source_file=name)
         except anthropic.AuthenticationError:
             st.error("The API key is not valid.")
             return None

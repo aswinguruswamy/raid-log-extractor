@@ -19,8 +19,9 @@ sys.path.insert(0, str(ROOT))
 
 from raid.cost import run_cost  # noqa: E402
 from raid.evaluate import build_report, misses_and_extras, score_sample  # noqa: E402
-from raid.extract import DEFAULT_MODEL, extract_items  # noqa: E402
+from raid.extract import DEFAULT_MODEL  # noqa: E402
 from raid.parse import read_notes  # noqa: E402
+from raid.pipeline import analyse  # noqa: E402
 from raid.schema import ItemType  # noqa: E402
 
 EVALS = ROOT / "evals"
@@ -55,15 +56,20 @@ def run(cached: bool, model: str) -> int:
             output = json.loads(output_file.read_text(encoding="utf-8"))
         else:
             print(f"Running {answer['sample']}...")
-            result = extract_items(notes, model=model, source_file=answer["sample"])
+            meeting = answer.get("meeting_date")
+            result = analyse(notes, date.fromisoformat(meeting) if meeting else None, model=model,
+                             source_file=answer["sample"])  # same code steps as the page (task A7)
             output = {
                 "sample": answer["sample"],
                 "model": result.model,
+                "prompt_version": result.prompt_version,
                 "run_date": date.today().isoformat(),
+                "meeting_date": meeting,
                 "input_tokens": result.input_tokens,
                 "output_tokens": result.output_tokens,
                 "seconds": round(result.seconds, 2),
                 "warnings": result.warnings,
+                "needs_attention": [[a.short_id, a.text] for a in result.attention],
                 "items": [item.model_dump(mode="json") for item in result.log.items],
             }
             output_file.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")

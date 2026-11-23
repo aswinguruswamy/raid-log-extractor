@@ -174,3 +174,9 @@ def test_ac27_spanish_notes_warn():
 def test_warning_texts_say_what_to_do():
     for text in (TOO_LONG, NO_SPEAKERS, NOT_ENGLISH):
         assert text.endswith(".") and len(text) < 160
+
+
+def test_speaker_formats_from_other_tools():
+    # Review of PR 15: accents, a role in brackets, a time stamp, a bullet.
+    text = "Zoë: I'll do it.\nJosé Ruiz: Fine.\nSarah (PM): Next.\n[10:02] Aiko: Yes.\n- Ben Ortiz: Ok."
+    assert speakers(text) == ["Zoë", "José Ruiz", "Sarah", "Aiko", "Ben Ortiz"]
