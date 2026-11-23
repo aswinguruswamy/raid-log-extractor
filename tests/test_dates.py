@@ -22,6 +22,8 @@ TUE = date(2026, 12, 1)  # the spec's meeting date: Tuesday 1 December 2026
     ("December 10", "2026-12-10"),
     ("by the 3rd of December", "2026-12-03"),
     ("4 Dec", "2026-12-04"),
+    ("on 5 May", "2026-05-05"),
+    ("by Sept 3", "2026-09-03"),
     ("on 2027-01-15", "2027-01-15"),
     ("by 15 January 2027", "2027-01-15"),
     ("January 15, 2027", "2027-01-15"),
@@ -41,6 +43,9 @@ def test_converts_date_words(words, expected):
     "after the release",
     "30 February",
     "",
+    # review of PR 12: words that only start like a month, and weekdays that are not one day
+    "sprint 3 may slip", "after sprint 2 decision", "before the 2 marketing calls", "in 3 decades",
+    "by Friday next week", "Friday week", "the Friday after next", "every Friday",
 ])
 def test_words_that_cannot_be_converted_are_not_stated(words):
     assert to_date(words, TUE) == NOT_STATED

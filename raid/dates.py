@@ -10,6 +10,7 @@ Rules:
     week ("by Tuesday" on Tuesday 1 Dec 2026 -> 2026-12-08). "today" and "tomorrow"
     count from the meeting date.
   - Everything else is "Not stated": numbers only ("02/11"), "next Friday",
+    "Friday next week", "every Friday",
     "next sprint", "end of month", "soon", "EOD", events ("after the release").
   - With no meeting date, only full dates with a year convert.
 """
@@ -28,13 +29,15 @@ _MONTHS = ["january", "february", "march", "april", "may", "june", "july",
            "august", "september", "october", "november", "december"]
 
 _WEEKDAY = r"(mon|tue|tues|wed|thu|thur|thurs|fri|sat|sun)(day|sday|nesday|rsday|urday)?"
-_MONTH = r"(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*"
+_MONTH = (r"(jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|(?-i:May)|jun(?:e)?|jul(?:y)?|aug(?:ust)?"
+          r"|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\.?")
 _DAY = r"(\d{1,2})(?:st|nd|rd|th)?"
 
 _ISO = re.compile(r"\b(\d{4})-(\d{2})-(\d{2})\b")
 _DAY_MONTH = re.compile(rf"\b{_DAY}\s+(?:of\s+)?{_MONTH}\b(?:,?\s+(\d{{4}}))?", re.I)
 _MONTH_DAY = re.compile(rf"\b{_MONTH}\s+{_DAY}\b(?:,?\s+(\d{{4}}))?", re.I)
 _WEEKDAY_RE = re.compile(rf"\b(next|this|last)?\s*{_WEEKDAY}\b", re.I)
+_NOT_ONE_WEEKDAY = re.compile(r"\b(week|weeks|after|every|each|fortnight|other)\b", re.I)
 _NUMERIC = re.compile(r"\b\d{1,2}[/.]\d{1,2}(?:[/.]\d{2,4})?\b")
 
 
@@ -76,8 +79,8 @@ def to_date(date_words: str, meeting_date: date | None) -> str:
     if re.search(r"\btomorrow\b", lower):
         return (meeting_date + timedelta(days=1)).isoformat()
     if m := _WEEKDAY_RE.search(words):
-        if m[1]:
-            return NOT_STATED  # "next Friday" can mean this week or next week
+        if m[1] or _NOT_ONE_WEEKDAY.search(words):
+            return NOT_STATED  # "next Friday", "Friday next week", "every Friday": not one clear day
         target = next(i for i, d in enumerate(_WEEKDAYS) if d.startswith(m[2].lower()[:3]))
         ahead = (target - meeting_date.weekday()) % 7 or 7
         return (meeting_date + timedelta(days=ahead)).isoformat()
