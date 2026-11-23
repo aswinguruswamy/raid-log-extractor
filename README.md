@@ -14,7 +14,8 @@ The v2 video (2 minutes) is linked here at the v2.0.0 release.
 
 - **The held-out score is on 28 calls written by Claude (AI).** Aswin Guruswamy approved every answer key before the first run, and no held-out call was used to tune the prompt. But the tool also uses Claude, so these calls may be easier than real notes. 28 calls (one per hard case) show a direction, not a statistical proof.
 - **The 100% tuning score is on the 10 calls that the prompt was tuned on.** Use the held-out score for new notes.
-- **Recall on new calls is about 95%.** Most misses are tasks that nobody owns and that are said as a plan, not a request ("the audit folder must be ready", "that goes into the next sprint").
+- **Recall on new calls is about 95%.** The misses are of three kinds: tasks that nobody owns and that are said as a plan ("the audit folder must be ready", "that goes into the next sprint"), a "decide later" step after a decision was put off, and a few issues or dependencies said in passing.
+- **Some due dates are missed, never invented.** On the held-out set the tool gave 138 of the 149 due dates in the answer keys (93%). The other 11 show "Not stated"; no date was wrong or invented.
 - **English only.** Notes that do not look like English get a warning.
 - **One call per run.** The tool does not merge a new call into an existing log.
 - **Long notes:** more than 15,000 words gets a warning. An answer cut off at the output limit is an error with no log ("split the notes"); the tool does not split them for you.
