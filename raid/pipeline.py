@@ -105,7 +105,10 @@ def needs_attention(log: RaidLog, general: list[str], check_lines: list[Attentio
         texts = []
         if item.owner_state in STATE_LINES:
             line = STATE_LINES[item.owner_state]
-            texts.append(line.replace(" – ", f" ({item.owner_note}) – ") if item.owner_note else line)
+            note = item.owner_note
+            if note and not note.lower().startswith(item.owner_state.value.lower()):  # no "declined (declined …)"
+                line = line.replace(" – ", f" ({note}) – ")
+            texts.append(line)
         if item.type is ItemType.ACTION and item.due_date == NOT_STATED:
             texts.append(NO_DUE_DATE)
         by_item[item.short_id] = texts
