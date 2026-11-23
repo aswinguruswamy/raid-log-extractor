@@ -26,9 +26,9 @@ def test_every_action_is_pinned_to_a_commit_sha():
                 assert re.search(r"@[0-9a-f]{40} # v\d", line), (workflow.name, line)
 
 
-def test_tests_run_on_python_3_11_to_3_13_with_lint():
+def test_tests_run_on_python_3_11_to_3_14_with_lint():
     job = _load("tests.yml")["jobs"]["offline-tests"]
-    assert job["strategy"]["matrix"]["python-version"] == ["3.11", "3.12", "3.13"]
+    assert job["strategy"]["matrix"]["python-version"] == ["3.11", "3.12", "3.13", "3.14"]
     commands = "\n".join(step.get("run", "") for step in job["steps"])
     assert "ruff check ." in commands
     assert "pytest" in commands
