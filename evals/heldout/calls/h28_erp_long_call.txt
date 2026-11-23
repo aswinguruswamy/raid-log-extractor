@@ -1,0 +1,566 @@
+Call – ERP cut-over – programme review (60 minutes)
+
+Elena Rossi: That sounds right. The HR trend has been flat for a while.
+Samuel Okoye: We closed the old tickets on the HR queue, about thirty of them.
+Kofi Mensah: For the record, the access list for reporting is now on the shared site.
+Samuel Okoye: Good to hear. The data side is quiet at the moment.
+Elena Rossi: Yes, I saw the email about the reporting monthly report, thanks for sharing it.
+Kofi Mensah: Just to recap for Samuel, the procurement access list was signed off in October.
+Javier Ortega: I checked the procurement logs during the weekend and they were clean.
+Javier Ortega: We closed the old tickets on the billing queue, about thirty of them.
+Samuel Okoye: The network numbers from last week look normal to me.
+Elena Rossi: I checked the training logs during the weekend and they were clean.
+Javier Ortega: Yes, I saw the email about the HR inventory sheet, thanks for sharing it.
+Elena Rossi: I went through the service desk budget sheet this morning and saw nothing unusual.
+Samuel Okoye: The user guide layout is a bit different now, but the content is the same.
+Samuel Okoye: We closed the old tickets on the HR queue, about thirty of them.
+Samuel Okoye: That sounds right. The procurement trend has been flat for a while.
+Elena Rossi: We closed the old tickets on the reporting queue, about thirty of them.
+Mei Lin: No change on procurement since the last call.
+Kofi Mensah: Good to hear. The procurement side is quiet at the moment.
+Samuel Okoye: The training slides is up to date; I added the October values last week.
+Samuel Okoye: No change on service desk since the last call.
+Mei Lin: The reporting users gave good feedback on the inventory sheet in the last survey.
+Elena Rossi: Yes, I saw the email about the service desk release notes draft, thanks for sharing it.
+Mei Lin: The HR users gave good feedback on the release notes draft in the last survey.
+Javier Ortega: The billing numbers from last week look normal to me.
+Mei Lin: Thanks, that matches what I saw in the reporting user guide.
+Javier Ortega: The data team finished the access list review last week.
+Mei Lin: I checked the data logs during the weekend and they were clean.
+Elena Rossi: Good to hear. The reporting side is quiet at the moment.
+Elena Rossi: The training users gave good feedback on the change log in the last survey.
+Kofi Mensah: That sounds right. The procurement trend has been flat for a while.
+Kofi Mensah: The finance meeting last Thursday was short; they only went through the change log.
+Javier Ortega: Just to recap for Javier, the data training slides was signed off in October.
+Mei Lin: I checked the finance logs during the weekend and they were clean.
+Javier Ortega: If the data centre move slips, the payroll run in January is at risk.
+Kofi Mensah: That is fine. I read the budget sheet as well, and it looked complete.
+Elena Rossi: The dashboard layout is a bit different now, but the content is the same.
+Mei Lin: Our billing reports ran on time every day last week.
+Samuel Okoye: The new colleague in data started on Monday last week and is settling in well.
+Kofi Mensah: The reporting numbers from last week look normal to me.
+Kofi Mensah: I went through the payroll capacity chart this morning and saw nothing unusual.
+Kofi Mensah: Just to recap for Mei, the storage user guide was signed off in October.
+Samuel Okoye: I also looked at the change log, and the totals add up.
+Samuel Okoye: The storage numbers from last week look normal to me.
+Elena Rossi: I have no news on finance this week, it has been a calm week.
+Samuel Okoye: Okay, thanks. That helps me understand the HR picture.
+Kofi Mensah: The budget sheet layout is a bit different now, but the content is the same.
+Samuel Okoye: We closed the old tickets on the storage queue, about thirty of them.
+Mei Lin: For the record, the dashboard for service desk is now on the shared site.
+Kofi Mensah: I checked the reporting logs during the weekend and they were clean.
+Mei Lin: The data figures went up a little, which is normal for this time of year.
+Samuel Okoye: Yes, I saw the email about the storage dashboard, thanks for sharing it.
+Mei Lin: The reporting meeting last Thursday was short; they only went through the release notes draft.
+Javier Ortega: The change log layout is a bit different now, but the content is the same.
+Samuel Okoye: I have no news on data this week, it has been a calm week.
+Kofi Mensah: The payroll numbers from last week look normal to me.
+Javier Ortega: The security team finished the test summary review last week.
+Javier Ortega: The service desk figures went up a little, which is normal for this time of year.
+Kofi Mensah: Thanks, that matches what I saw in the security access list.
+Kofi Mensah: That sounds right. The network trend has been flat for a while.
+Samuel Okoye: The billing users gave good feedback on the access list in the last survey.
+Mei Lin: The new colleague in service desk started on Monday last week and is settling in well.
+Kofi Mensah: Our service desk reports ran on time every day last week.
+Mei Lin: For the record, the monthly report for finance is now on the shared site.
+Kofi Mensah: I also looked at the inventory sheet, and the totals add up.
+Samuel Okoye: The network figures went up a little, which is normal for this time of year.
+Samuel Okoye: That sounds right. The payroll trend has been flat for a while.
+Javier Ortega: We closed the old tickets on the training queue, about thirty of them.
+Kofi Mensah: The change log layout is a bit different now, but the content is the same.
+Javier Ortega: We closed the old tickets on the finance queue, about thirty of them.
+Kofi Mensah: The network numbers from last week look normal to me.
+Kofi Mensah: The billing figures went up a little, which is normal for this time of year.
+Samuel Okoye: That is fine. I read the release notes draft as well, and it looked complete.
+Elena Rossi: We closed the old tickets on the payroll queue, about thirty of them.
+Samuel Okoye: Just to recap for Elena, the service desk test summary was signed off in October.
+Elena Rossi: The monthly report is up to date; I added the October values last week.
+Javier Ortega: That sounds right. The payroll trend has been flat for a while.
+Elena Rossi: I went through the network test summary this morning and saw nothing unusual.
+Javier Ortega: The procurement figures went up a little, which is normal for this time of year.
+Kofi Mensah: The procurement figures went up a little, which is normal for this time of year.
+Kofi Mensah: I'll update the cut-over runbook by Thursday.
+Kofi Mensah: Good to hear. The network side is quiet at the moment.
+Mei Lin: The payroll figures went up a little, which is normal for this time of year.
+Elena Rossi: I finished the HR user guide yesterday and shared it with the team.
+Samuel Okoye: The security numbers from last week look normal to me.
+Elena Rossi: The change log layout is a bit different now, but the content is the same.
+Mei Lin: The test summary layout is a bit different now, but the content is the same.
+Samuel Okoye: The storage team finished the training slides review last week.
+Javier Ortega: I went through the procurement release notes draft this morning and saw nothing unusual.
+Elena Rossi: The billing numbers from last week look normal to me.
+Javier Ortega: I checked the procurement logs during the weekend and they were clean.
+Samuel Okoye: The release notes draft layout is a bit different now, but the content is the same.
+Elena Rossi: The network numbers from last week look normal to me.
+Kofi Mensah: The capacity chart layout is a bit different now, but the content is the same.
+Samuel Okoye: The finance team finished the user guide review last week.
+Mei Lin: The billing meeting last Thursday was short; they only went through the access list.
+Mei Lin: I went through the finance capacity chart this morning and saw nothing unusual.
+Elena Rossi: The billing team finished the access list review last week.
+Mei Lin: The training team finished the release notes draft review last week.
+Kofi Mensah: Our procurement reports ran on time every day last week.
+Elena Rossi: That sounds right. The storage trend has been flat for a while.
+Samuel Okoye: The reporting meeting last Thursday was short; they only went through the test summary.
+Samuel Okoye: The reporting numbers from last week look normal to me.
+Mei Lin: The dashboard is up to date; I added the October values last week.
+Mei Lin: The finance team finished the monthly report review last week.
+Javier Ortega: No change on HR since the last call.
+Kofi Mensah: The data numbers from last week look normal to me.
+Mei Lin: The data numbers from last week look normal to me.
+Samuel Okoye: Yes, I saw the email about the HR monthly report, thanks for sharing it.
+Javier Ortega: Just to recap for Mei, the data release notes draft was signed off in October.
+Elena Rossi: I went through the security risk register entry from last month this morning and saw nothing unusual.
+Samuel Okoye: The finance numbers from last week look normal to me.
+Javier Ortega: I went through the storage test summary this morning and saw nothing unusual.
+Elena Rossi: The payroll meeting last Thursday was short; they only went through the monthly report.
+Samuel Okoye: The access list layout is a bit different now, but the content is the same.
+Kofi Mensah: Good to hear. The network side is quiet at the moment.
+Elena Rossi: I also looked at the change log, and the totals add up.
+Javier Ortega: Good to hear. The finance side is quiet at the moment.
+Kofi Mensah: The new colleague in service desk started on Monday last week and is settling in well.
+Mei Lin: We closed the old tickets on the reporting queue, about thirty of them.
+Kofi Mensah: That is fine. I read the test summary as well, and it looked complete.
+Samuel Okoye: I went through the data test summary this morning and saw nothing unusual.
+Mei Lin: Good to hear. The reporting side is quiet at the moment.
+Kofi Mensah: The reporting team finished the change log review last week.
+Samuel Okoye: The network figures went up a little, which is normal for this time of year.
+Samuel Okoye: I have no news on payroll this week, it has been a calm week.
+Kofi Mensah: I checked the data logs during the weekend and they were clean.
+Mei Lin: That is fine. I read the training slides as well, and it looked complete.
+Elena Rossi: Okay, thanks. That helps me understand the data picture.
+Elena Rossi: I have no news on storage this week, it has been a calm week.
+Javier Ortega: Just to recap for Elena, the security capacity chart was signed off in October.
+Elena Rossi: I went through the storage change log this morning and saw nothing unusual.
+Mei Lin: The test environment has been down since Monday morning, so nobody can test.
+Samuel Okoye: Our reporting reports ran on time every day last week.
+Elena Rossi: That is fine. I read the capacity chart as well, and it looked complete.
+Kofi Mensah: The billing team finished the capacity chart review last week.
+Javier Ortega: We closed the old tickets on the data queue, about thirty of them.
+Kofi Mensah: The security users gave good feedback on the training slides in the last survey.
+Kofi Mensah: For the record, the access list for data is now on the shared site.
+Mei Lin: I have no news on training this week, it has been a calm week.
+Javier Ortega: Yes, I saw the email about the data user guide, thanks for sharing it.
+Samuel Okoye: I checked the HR logs during the weekend and they were clean.
+Mei Lin: I spoke with the data lead yesterday; they are happy with the change log.
+Samuel Okoye: The service desk users gave good feedback on the inventory sheet in the last survey.
+Samuel Okoye: That is fine. I read the capacity chart as well, and it looked complete.
+Samuel Okoye: We closed the old tickets on the network queue, about thirty of them.
+Elena Rossi: The test summary layout is a bit different now, but the content is the same.
+Javier Ortega: The risk register entry from last month layout is a bit different now, but the content is the same.
+Samuel Okoye: No change on billing since the last call.
+Mei Lin: The reporting meeting last Thursday was short; they only went through the release notes draft.
+Kofi Mensah: I went through the network training slides this morning and saw nothing unusual.
+Elena Rossi: Good to hear. The reporting side is quiet at the moment.
+Javier Ortega: I spoke with the storage lead yesterday; they are happy with the dashboard.
+Kofi Mensah: I checked the payroll logs during the weekend and they were clean.
+Kofi Mensah: I spoke with the procurement lead yesterday; they are happy with the access list.
+Samuel Okoye: The security users gave good feedback on the test summary in the last survey.
+Samuel Okoye: I also looked at the change log, and the totals add up.
+Javier Ortega: For the record, the capacity chart for procurement is now on the shared site.
+Kofi Mensah: Thanks, that matches what I saw in the billing budget sheet.
+Mei Lin: I also looked at the change log, and the totals add up.
+Kofi Mensah: The finance users gave good feedback on the access list in the last survey.
+Javier Ortega: That is fine. I read the test summary as well, and it looked complete.
+Javier Ortega: I finished the security test summary yesterday and shared it with the team.
+Samuel Okoye: Just to recap for Elena, the reporting capacity chart was signed off in October.
+Kofi Mensah: The training figures went up a little, which is normal for this time of year.
+Samuel Okoye: I also looked at the budget sheet, and the totals add up.
+Javier Ortega: We closed the old tickets on the reporting queue, about thirty of them.
+Samuel Okoye: The security figures went up a little, which is normal for this time of year.
+Kofi Mensah: Good to hear. The training side is quiet at the moment.
+Samuel Okoye: Good to hear. The payroll side is quiet at the moment.
+Elena Rossi: Our network reports ran on time every day last week.
+Elena Rossi: Yes, I saw the email about the HR release notes draft, thanks for sharing it.
+Javier Ortega: The training users gave good feedback on the access list in the last survey.
+Mei Lin: That sounds right. The data trend has been flat for a while.
+Elena Rossi: The storage team finished the change log review last week.
+Elena Rossi: Just to recap for Javier, the procurement inventory sheet was signed off in October.
+Javier Ortega: Good to hear. The payroll side is quiet at the moment.
+Elena Rossi: I have no news on data this week, it has been a calm week.
+Mei Lin: Good to hear. The HR side is quiet at the moment.
+Javier Ortega: Okay, thanks. That helps me understand the reporting picture.
+Samuel Okoye: I finished the procurement inventory sheet yesterday and shared it with the team.
+Elena Rossi: Our finance reports ran on time every day last week.
+Samuel Okoye: I checked the storage logs during the weekend and they were clean.
+Samuel Okoye: The payroll team finished the access list review last week.
+Elena Rossi: The reporting numbers from last week look normal to me.
+Javier Ortega: Okay, thanks. That helps me understand the security picture.
+Elena Rossi: That is fine. I read the inventory sheet as well, and it looked complete.
+Elena Rossi: The release notes draft layout is a bit different now, but the content is the same.
+Samuel Okoye: We agreed to keep the old reporting tool until March.
+Mei Lin: The reporting users gave good feedback on the test summary in the last survey.
+Elena Rossi: Our billing reports ran on time every day last week.
+Samuel Okoye: That sounds right. The payroll trend has been flat for a while.
+Javier Ortega: That sounds right. The procurement trend has been flat for a while.
+Kofi Mensah: I spoke with the billing lead yesterday; they are happy with the inventory sheet.
+Elena Rossi: No change on billing since the last call.
+Elena Rossi: That is fine. I read the test summary as well, and it looked complete.
+Mei Lin: Good to hear. The security side is quiet at the moment.
+Kofi Mensah: The HR figures went up a little, which is normal for this time of year.
+Samuel Okoye: Thanks, that matches what I saw in the training release notes draft.
+Kofi Mensah: The new colleague in training started on Monday last week and is settling in well.
+Mei Lin: The training slides is up to date; I added the October values last week.
+Samuel Okoye: The access list layout is a bit different now, but the content is the same.
+Javier Ortega: That is fine. I read the change log as well, and it looked complete.
+Samuel Okoye: The release notes draft is up to date; I added the October values last week.
+Samuel Okoye: I went through the training change log this morning and saw nothing unusual.
+Mei Lin: Good to hear. The billing side is quiet at the moment.
+Elena Rossi: Our reporting reports ran on time every day last week.
+Javier Ortega: I went through the security test summary this morning and saw nothing unusual.
+Javier Ortega: The test summary layout is a bit different now, but the content is the same.
+Kofi Mensah: The data team finished the user guide review last week.
+Samuel Okoye: Yes, I saw the email about the data risk register entry from last month, thanks for sharing it.
+Elena Rossi: The security figures went up a little, which is normal for this time of year.
+Javier Ortega: Just to recap for Samuel, the training change log was signed off in October.
+Samuel Okoye: The security figures went up a little, which is normal for this time of year.
+Javier Ortega: I checked the reporting logs during the weekend and they were clean.
+Samuel Okoye: Okay, thanks. That helps me understand the storage picture.
+Samuel Okoye: I have no news on training this week, it has been a calm week.
+Javier Ortega: No change on billing since the last call.
+Javier Ortega: That sounds right. The security trend has been flat for a while.
+Samuel Okoye: The access list layout is a bit different now, but the content is the same.
+Samuel Okoye: We closed the old tickets on the service desk queue, about thirty of them.
+Elena Rossi: Good to hear. The payroll side is quiet at the moment.
+Elena Rossi: Yes, I saw the email about the reporting monthly report, thanks for sharing it.
+Kofi Mensah: That sounds right. The finance trend has been flat for a while.
+Kofi Mensah: Thanks, that matches what I saw in the network dashboard.
+Kofi Mensah: No change on HR since the last call.
+Elena Rossi: For the record, the access list for service desk is now on the shared site.
+Mei Lin: The new colleague in storage started on Monday last week and is settling in well.
+Mei Lin: Our HR reports ran on time every day last week.
+Samuel Okoye: The billing team finished the test summary review last week.
+Elena Rossi: Just to recap for Samuel, the training budget sheet was signed off in October.
+Javier Ortega: That sounds right. The reporting trend has been flat for a while.
+Javier Ortega: The billing numbers from last week look normal to me.
+Javier Ortega: The HR team finished the budget sheet review last week.
+Javier Ortega: I have no news on HR this week, it has been a calm week.
+Samuel Okoye: I also looked at the release notes draft, and the totals add up.
+Kofi Mensah: Thanks, that matches what I saw in the payroll monthly report.
+Samuel Okoye: We closed the old tickets on the data queue, about thirty of them.
+Mei Lin: No change on network since the last call.
+Javier Ortega: Elena, can you send the vendor contract to legal by Friday?
+Elena Rossi: Yes, will do.
+Javier Ortega: I also looked at the change log, and the totals add up.
+Javier Ortega: Yes, I saw the email about the security user guide, thanks for sharing it.
+Kofi Mensah: I have no news on data this week, it has been a calm week.
+Mei Lin: We closed the old tickets on the reporting queue, about thirty of them.
+Mei Lin: I have no news on data this week, it has been a calm week.
+Javier Ortega: I have no news on network this week, it has been a calm week.
+Kofi Mensah: Okay, thanks. That helps me understand the training picture.
+Kofi Mensah: I went through the procurement test summary this morning and saw nothing unusual.
+Mei Lin: Yes, I saw the email about the training risk register entry from last month, thanks for sharing it.
+Javier Ortega: Just to recap for Mei, the billing release notes draft was signed off in October.
+Kofi Mensah: We closed the old tickets on the service desk queue, about thirty of them.
+Samuel Okoye: I finished the security change log yesterday and shared it with the team.
+Kofi Mensah: I have no news on procurement this week, it has been a calm week.
+Javier Ortega: I have no news on finance this week, it has been a calm week.
+Mei Lin: The reporting meeting last Thursday was short; they only went through the budget sheet.
+Javier Ortega: That is fine. I read the test summary as well, and it looked complete.
+Elena Rossi: I checked the procurement logs during the weekend and they were clean.
+Kofi Mensah: For the record, the access list for network is now on the shared site.
+Mei Lin: No change on service desk since the last call.
+Kofi Mensah: I finished the training training slides yesterday and shared it with the team.
+Javier Ortega: The new colleague in data started on Monday last week and is settling in well.
+Javier Ortega: I checked the billing logs during the weekend and they were clean.
+Mei Lin: The new colleague in finance started on Monday last week and is settling in well.
+Mei Lin: The capacity chart layout is a bit different now, but the content is the same.
+Javier Ortega: We closed the old tickets on the procurement queue, about thirty of them.
+Samuel Okoye: No change on service desk since the last call.
+Javier Ortega: For the record, the monthly report for network is now on the shared site.
+Samuel Okoye: The data numbers from last week look normal to me.
+Mei Lin: The billing users gave good feedback on the dashboard in the last survey.
+Elena Rossi: The procurement figures went up a little, which is normal for this time of year.
+Javier Ortega: The procurement meeting last Thursday was short; they only went through the training slides.
+Elena Rossi: Thanks, that matches what I saw in the network dashboard.
+Mei Lin: The dashboard layout is a bit different now, but the content is the same.
+Javier Ortega: The new colleague in storage started on Monday last week and is settling in well.
+Javier Ortega: The new colleague in training started on Monday last week and is settling in well.
+Samuel Okoye: Thanks, that matches what I saw in the HR capacity chart.
+Mei Lin: The data team finished the budget sheet review last week.
+Mei Lin: The network users gave good feedback on the change log in the last survey.
+Javier Ortega: I finished the HR user guide yesterday and shared it with the team.
+Elena Rossi: For the record, the risk register entry from last month for payroll is now on the shared site.
+Mei Lin: Just to recap for Samuel, the service desk access list was signed off in October.
+Samuel Okoye: The training team finished the inventory sheet review last week.
+Samuel Okoye: Our storage reports ran on time every day last week.
+Javier Ortega: I went through the security training slides this morning and saw nothing unusual.
+Kofi Mensah: The training slides layout is a bit different now, but the content is the same.
+Samuel Okoye: That sounds right. The training trend has been flat for a while.
+Mei Lin: No change on training since the last call.
+Mei Lin: The reporting meeting last Thursday was short; they only went through the test summary.
+Elena Rossi: Our billing reports ran on time every day last week.
+Samuel Okoye: The security team finished the risk register entry from last month review last week.
+Mei Lin: That sounds right. The service desk trend has been flat for a while.
+Samuel Okoye: Okay, thanks. That helps me understand the reporting picture.
+Mei Lin: I finished the HR test summary yesterday and shared it with the team.
+Samuel Okoye: The network numbers from last week look normal to me.
+Kofi Mensah: The storage users gave good feedback on the release notes draft in the last survey.
+Kofi Mensah: We need the network team to open the firewall ports before the cut-over.
+Javier Ortega: Okay, thanks. That helps me understand the HR picture.
+Samuel Okoye: The network users gave good feedback on the access list in the last survey.
+Mei Lin: That is fine. I read the test summary as well, and it looked complete.
+Samuel Okoye: I have no news on data this week, it has been a calm week.
+Kofi Mensah: That is fine. I read the risk register entry from last month as well, and it looked complete.
+Kofi Mensah: Okay, thanks. That helps me understand the HR picture.
+Javier Ortega: The storage meeting last Thursday was short; they only went through the test summary.
+Javier Ortega: I also looked at the user guide, and the totals add up.
+Elena Rossi: We closed the old tickets on the reporting queue, about thirty of them.
+Kofi Mensah: No change on reporting since the last call.
+Elena Rossi: Our data reports ran on time every day last week.
+Javier Ortega: The data figures went up a little, which is normal for this time of year.
+Elena Rossi: Good to hear. The reporting side is quiet at the moment.
+Elena Rossi: I spoke with the network lead yesterday; they are happy with the test summary.
+Samuel Okoye: The user guide is up to date; I added the October values last week.
+Samuel Okoye: The payroll numbers from last week look normal to me.
+Kofi Mensah: I went through the security training slides this morning and saw nothing unusual.
+Elena Rossi: Okay, thanks. That helps me understand the payroll picture.
+Javier Ortega: I have no news on billing this week, it has been a calm week.
+Elena Rossi: That sounds right. The reporting trend has been flat for a while.
+Elena Rossi: Just to recap for Mei, the data monthly report was signed off in October.
+Kofi Mensah: Our reporting reports ran on time every day last week.
+Kofi Mensah: I finished the finance risk register entry from last month yesterday and shared it with the team.
+Samuel Okoye: Good to hear. The data side is quiet at the moment.
+Kofi Mensah: I went through the reporting capacity chart this morning and saw nothing unusual.
+Mei Lin: Okay, thanks. That helps me understand the storage picture.
+Kofi Mensah: Just to recap for Elena, the payroll user guide was signed off in October.
+Javier Ortega: The access list layout is a bit different now, but the content is the same.
+Elena Rossi: I have no news on HR this week, it has been a calm week.
+Mei Lin: The release notes draft is up to date; I added the October values last week.
+Javier Ortega: No change on storage since the last call.
+Mei Lin: The data team finished the budget sheet review last week.
+Javier Ortega: I went through the finance monthly report this morning and saw nothing unusual.
+Javier Ortega: No change on payroll since the last call.
+Samuel Okoye: For the record, the dashboard for reporting is now on the shared site.
+Elena Rossi: Our storage reports ran on time every day last week.
+Elena Rossi: The security numbers from last week look normal to me.
+Elena Rossi: Our training reports ran on time every day last week.
+Javier Ortega: I have no news on reporting this week, it has been a calm week.
+Javier Ortega: The HR meeting last Thursday was short; they only went through the test summary.
+Samuel Okoye: That is fine. I read the budget sheet as well, and it looked complete.
+Samuel Okoye: The risk register entry from last month layout is a bit different now, but the content is the same.
+Kofi Mensah: I also looked at the user guide, and the totals add up.
+Javier Ortega: The finance users gave good feedback on the test summary in the last survey.
+Javier Ortega: Okay, thanks. That helps me understand the training picture.
+Mei Lin: That is fine. I read the change log as well, and it looked complete.
+Samuel Okoye: The service desk meeting last Thursday was short; they only went through the risk register entry from last month.
+Kofi Mensah: The test summary layout is a bit different now, but the content is the same.
+Javier Ortega: That sounds right. The finance trend has been flat for a while.
+Javier Ortega: The security meeting last Thursday was short; they only went through the release notes draft.
+Mei Lin: We assume the vendor keeps the same support hours over the holidays.
+Javier Ortega: I also looked at the test summary, and the totals add up.
+Samuel Okoye: Thanks, that matches what I saw in the billing dashboard.
+Mei Lin: Our security reports ran on time every day last week.
+Javier Ortega: The billing team finished the inventory sheet review last week.
+Mei Lin: I also looked at the risk register entry from last month, and the totals add up.
+Samuel Okoye: That sounds right. The reporting trend has been flat for a while.
+Kofi Mensah: Our payroll reports ran on time every day last week.
+Mei Lin: Our payroll reports ran on time every day last week.
+Javier Ortega: I also looked at the access list, and the totals add up.
+Mei Lin: I finished the reporting access list yesterday and shared it with the team.
+Samuel Okoye: The payroll meeting last Thursday was short; they only went through the monthly report.
+Javier Ortega: Yes, I saw the email about the HR user guide, thanks for sharing it.
+Elena Rossi: The inventory sheet layout is a bit different now, but the content is the same.
+Samuel Okoye: The release notes draft is up to date; I added the October values last week.
+Kofi Mensah: No change on service desk since the last call.
+Javier Ortega: The finance meeting last Thursday was short; they only went through the change log.
+Elena Rossi: No change on reporting since the last call.
+Samuel Okoye: For the record, the training slides for security is now on the shared site.
+Samuel Okoye: The reporting numbers from last week look normal to me.
+Samuel Okoye: That is fine. I read the test summary as well, and it looked complete.
+Elena Rossi: The HR numbers from last week look normal to me.
+Elena Rossi: Thanks, that matches what I saw in the payroll inventory sheet.
+Samuel Okoye: Thanks, that matches what I saw in the finance monthly report.
+Elena Rossi: That sounds right. The finance trend has been flat for a while.
+Mei Lin: I went through the reporting user guide this morning and saw nothing unusual.
+Samuel Okoye: I spoke with the reporting lead yesterday; they are happy with the change log.
+Samuel Okoye: The billing figures went up a little, which is normal for this time of year.
+Elena Rossi: I checked the network logs during the weekend and they were clean.
+Samuel Okoye: I have no news on data this week, it has been a calm week.
+Mei Lin: The release notes draft is up to date; I added the October values last week.
+Kofi Mensah: No change on network since the last call.
+Mei Lin: Yes, I saw the email about the service desk risk register entry from last month, thanks for sharing it.
+Elena Rossi: Okay, thanks. That helps me understand the reporting picture.
+Kofi Mensah: The billing figures went up a little, which is normal for this time of year.
+Elena Rossi: I also looked at the inventory sheet, and the totals add up.
+Elena Rossi: Good to hear. The reporting side is quiet at the moment.
+Javier Ortega: I went through the storage dashboard this morning and saw nothing unusual.
+Samuel Okoye: The new colleague in payroll started on Monday last week and is settling in well.
+Mei Lin: The reporting figures went up a little, which is normal for this time of year.
+Samuel Okoye: Good to hear. The billing side is quiet at the moment.
+Elena Rossi: I went through the procurement release notes draft this morning and saw nothing unusual.
+Elena Rossi: Just to recap for Elena, the training monthly report was signed off in October.
+Elena Rossi: The finance numbers from last week look normal to me.
+Samuel Okoye: The HR meeting last Thursday was short; they only went through the training slides.
+Javier Ortega: The new colleague in billing started on Monday last week and is settling in well.
+Kofi Mensah: The security figures went up a little, which is normal for this time of year.
+Mei Lin: I finished the payroll access list yesterday and shared it with the team.
+Mei Lin: The data figures went up a little, which is normal for this time of year.
+Elena Rossi: That sounds right. The finance trend has been flat for a while.
+Mei Lin: The training team finished the dashboard review last week.
+Elena Rossi: No change on security since the last call.
+Kofi Mensah: I also looked at the test summary, and the totals add up.
+Javier Ortega: The change log layout is a bit different now, but the content is the same.
+Mei Lin: The network figures went up a little, which is normal for this time of year.
+Samuel Okoye: The budget sheet is up to date; I added the October values last week.
+Samuel Okoye: Thanks, that matches what I saw in the storage inventory sheet.
+Javier Ortega: We closed the old tickets on the procurement queue, about thirty of them.
+Javier Ortega: Our data reports ran on time every day last week.
+Javier Ortega: The new colleague in finance started on Monday last week and is settling in well.
+Samuel Okoye: I finished the finance training slides yesterday and shared it with the team.
+Samuel Okoye: I'll book the cut-over war room for 18 December.
+Kofi Mensah: The new colleague in reporting started on Monday last week and is settling in well.
+Mei Lin: For the record, the monthly report for network is now on the shared site.
+Mei Lin: The service desk users gave good feedback on the change log in the last survey.
+Javier Ortega: The dashboard is up to date; I added the October values last week.
+Samuel Okoye: We closed the old tickets on the service desk queue, about thirty of them.
+Elena Rossi: The capacity chart layout is a bit different now, but the content is the same.
+Mei Lin: I went through the reporting capacity chart this morning and saw nothing unusual.
+Elena Rossi: The reporting figures went up a little, which is normal for this time of year.
+Kofi Mensah: The user guide layout is a bit different now, but the content is the same.
+Mei Lin: The security users gave good feedback on the inventory sheet in the last survey.
+Javier Ortega: I went through the billing risk register entry from last month this morning and saw nothing unusual.
+Elena Rossi: The security team finished the budget sheet review last week.
+Elena Rossi: Thanks, that matches what I saw in the service desk capacity chart.
+Samuel Okoye: The storage meeting last Thursday was short; they only went through the change log.
+Mei Lin: For the record, the test summary for service desk is now on the shared site.
+Kofi Mensah: Just to recap for Samuel, the finance training slides was signed off in October.
+Kofi Mensah: The finance numbers from last week look normal to me.
+Elena Rossi: I checked the HR logs during the weekend and they were clean.
+Kofi Mensah: I went through the finance test summary this morning and saw nothing unusual.
+Javier Ortega: I finished the reporting training slides yesterday and shared it with the team.
+Elena Rossi: The risk register entry from last month is up to date; I added the October values last week.
+Samuel Okoye: I have no news on billing this week, it has been a calm week.
+Kofi Mensah: Good to hear. The procurement side is quiet at the moment.
+Javier Ortega: For the record, the release notes draft for service desk is now on the shared site.
+Mei Lin: The new colleague in finance started on Monday last week and is settling in well.
+Kofi Mensah: Our finance reports ran on time every day last week.
+Mei Lin: I went through the finance access list this morning and saw nothing unusual.
+Samuel Okoye: I went through the storage release notes draft this morning and saw nothing unusual.
+Elena Rossi: We closed the old tickets on the procurement queue, about thirty of them.
+Javier Ortega: The billing numbers from last week look normal to me.
+Samuel Okoye: Thanks, that matches what I saw in the HR inventory sheet.
+Mei Lin: The network numbers from last week look normal to me.
+Elena Rossi: I finished the data release notes draft yesterday and shared it with the team.
+Javier Ortega: Yes, I saw the email about the procurement inventory sheet, thanks for sharing it.
+Kofi Mensah: The access list layout is a bit different now, but the content is the same.
+Elena Rossi: I finished the storage budget sheet yesterday and shared it with the team.
+Javier Ortega: We closed the old tickets on the service desk queue, about thirty of them.
+Samuel Okoye: I have no news on security this week, it has been a calm week.
+Elena Rossi: I checked the storage logs during the weekend and they were clean.
+Samuel Okoye: The security users gave good feedback on the release notes draft in the last survey.
+Kofi Mensah: Yes, I saw the email about the payroll monthly report, thanks for sharing it.
+Kofi Mensah: I spoke with the payroll lead yesterday; they are happy with the monthly report.
+Javier Ortega: Thanks, that matches what I saw in the storage monthly report.
+Elena Rossi: That is fine. I read the inventory sheet as well, and it looked complete.
+Elena Rossi: Yes, I saw the email about the service desk risk register entry from last month, thanks for sharing it.
+Kofi Mensah: I have no news on training this week, it has been a calm week.
+Kofi Mensah: For the record, the risk register entry from last month for training is now on the shared site.
+Javier Ortega: I finished the network budget sheet yesterday and shared it with the team.
+Samuel Okoye: Yes, I saw the email about the HR capacity chart, thanks for sharing it.
+Samuel Okoye: I also looked at the capacity chart, and the totals add up.
+Javier Ortega: We closed the old tickets on the payroll queue, about thirty of them.
+Kofi Mensah: I checked the service desk logs during the weekend and they were clean.
+Samuel Okoye: Yes, I saw the email about the procurement inventory sheet, thanks for sharing it.
+Samuel Okoye: The network team finished the access list review last week.
+Elena Rossi: I went through the billing access list this morning and saw nothing unusual.
+Kofi Mensah: Okay, thanks. That helps me understand the payroll picture.
+Mei Lin: I also looked at the inventory sheet, and the totals add up.
+Elena Rossi: Thanks, that matches what I saw in the training risk register entry from last month.
+Mei Lin: Good to hear. The network side is quiet at the moment.
+Elena Rossi: The inventory sheet layout is a bit different now, but the content is the same.
+Elena Rossi: I went through the service desk change log this morning and saw nothing unusual.
+Samuel Okoye: Okay, thanks. That helps me understand the HR picture.
+Samuel Okoye: No change on payroll since the last call.
+Samuel Okoye: Our billing reports ran on time every day last week.
+Samuel Okoye: I spoke with the security lead yesterday; they are happy with the access list.
+Javier Ortega: I have no news on procurement this week, it has been a calm week.
+Elena Rossi: If the key users are on leave in late December, testing may not finish.
+Kofi Mensah: The HR numbers from last week look normal to me.
+Elena Rossi: That sounds right. The training trend has been flat for a while.
+Javier Ortega: I went through the security dashboard this morning and saw nothing unusual.
+Kofi Mensah: I checked the HR logs during the weekend and they were clean.
+Mei Lin: Our billing reports ran on time every day last week.
+Mei Lin: The dashboard is up to date; I added the October values last week.
+Mei Lin: Just to recap for Mei, the reporting capacity chart was signed off in October.
+Elena Rossi: I spoke with the reporting lead yesterday; they are happy with the training slides.
+Javier Ortega: I finished the HR user guide yesterday and shared it with the team.
+Mei Lin: The training figures went up a little, which is normal for this time of year.
+Samuel Okoye: I have no news on finance this week, it has been a calm week.
+Javier Ortega: We closed the old tickets on the payroll queue, about thirty of them.
+Samuel Okoye: Yes, I saw the email about the network test summary, thanks for sharing it.
+Kofi Mensah: Yes, I saw the email about the network inventory sheet, thanks for sharing it.
+Mei Lin: The payroll meeting last Thursday was short; they only went through the capacity chart.
+Elena Rossi: The new colleague in network started on Monday last week and is settling in well.
+Samuel Okoye: The network figures went up a little, which is normal for this time of year.
+Mei Lin: The HR figures went up a little, which is normal for this time of year.
+Javier Ortega: I went through the payroll test summary this morning and saw nothing unusual.
+Elena Rossi: The new colleague in billing started on Monday last week and is settling in well.
+Mei Lin: The new colleague in reporting started on Monday last week and is settling in well.
+Elena Rossi: The finance meeting last Thursday was short; they only went through the capacity chart.
+Samuel Okoye: That is fine. I read the training slides as well, and it looked complete.
+Javier Ortega: The data numbers from last week look normal to me.
+Kofi Mensah: I also looked at the release notes draft, and the totals add up.
+Javier Ortega: For the record, the release notes draft for billing is now on the shared site.
+Elena Rossi: The training slides layout is a bit different now, but the content is the same.
+Kofi Mensah: I finished the security change log yesterday and shared it with the team.
+Kofi Mensah: Just to recap for Javier, the finance release notes draft was signed off in October.
+Samuel Okoye: I also looked at the capacity chart, and the totals add up.
+Kofi Mensah: Okay, thanks. That helps me understand the security picture.
+Elena Rossi: The procurement team finished the access list review last week.
+Elena Rossi: Yes, I saw the email about the billing user guide, thanks for sharing it.
+Samuel Okoye: For the record, the change log for billing is now on the shared site.
+Samuel Okoye: I checked the reporting logs during the weekend and they were clean.
+Elena Rossi: The data users gave good feedback on the test summary in the last survey.
+Javier Ortega: That is fine. I read the test summary as well, and it looked complete.
+Javier Ortega: The access list is up to date; I added the October values last week.
+Elena Rossi: I spoke with the procurement lead yesterday; they are happy with the dashboard.
+Javier Ortega: Just to recap for Mei, the data risk register entry from last month was signed off in October.
+Samuel Okoye: That sounds right. The procurement trend has been flat for a while.
+Samuel Okoye: The user guide is up to date; I added the October values last week.
+Kofi Mensah: I finished the network release notes draft yesterday and shared it with the team.
+Elena Rossi: For the record, the training slides for procurement is now on the shared site.
+Elena Rossi: I checked the finance logs during the weekend and they were clean.
+Samuel Okoye: That is fine. I read the user guide as well, and it looked complete.
+Samuel Okoye: The training meeting last Thursday was short; they only went through the test summary.
+Mei Lin: I have no news on service desk this week, it has been a calm week.
+Samuel Okoye: The storage users gave good feedback on the dashboard in the last survey.
+Javier Ortega: Good to hear. The security side is quiet at the moment.
+Javier Ortega: Thanks, that matches what I saw in the payroll capacity chart.
+Elena Rossi: I checked the storage logs during the weekend and they were clean.
+Mei Lin: The HR team finished the change log review last week.
+Kofi Mensah: For the record, the access list for billing is now on the shared site.
+Javier Ortega: The new colleague in data started on Monday last week and is settling in well.
+Javier Ortega: I also looked at the user guide, and the totals add up.
+Mei Lin: Thanks, that matches what I saw in the data capacity chart.
+Mei Lin: The data figures went up a little, which is normal for this time of year.
+Samuel Okoye: Yes, I saw the email about the service desk capacity chart, thanks for sharing it.
+Samuel Okoye: The network users gave good feedback on the risk register entry from last month in the last survey.
+Kofi Mensah: Good to hear. The security side is quiet at the moment.
+Javier Ortega: Just to recap for Elena, the finance test summary was signed off in October.
+Kofi Mensah: The new colleague in billing started on Monday last week and is settling in well.
+Samuel Okoye: That sounds right. The service desk trend has been flat for a while.
+Elena Rossi: I finished the data inventory sheet yesterday and shared it with the team.
+Mei Lin: I'll send the meeting summary to the steering group by Wednesday.
+Javier Ortega: For the record, the test summary for network is now on the shared site.
+Elena Rossi: The reporting meeting last Thursday was short; they only went through the capacity chart.
+Javier Ortega: Okay, thanks. That helps me understand the reporting picture.
+Samuel Okoye: For the record, the capacity chart for HR is now on the shared site.
+Mei Lin: Our billing reports ran on time every day last week.
+Samuel Okoye: Thanks, that matches what I saw in the HR change log.
+Javier Ortega: The user guide layout is a bit different now, but the content is the same.
+Javier Ortega: Just to recap for Javier, the service desk inventory sheet was signed off in October.
+Samuel Okoye: I checked the storage logs during the weekend and they were clean.
+Javier Ortega: The reporting users gave good feedback on the capacity chart in the last survey.
+Javier Ortega: I checked the security logs during the weekend and they were clean.
+Elena Rossi: We closed the old tickets on the training queue, about thirty of them.
+Javier Ortega: No change on training since the last call.
+Mei Lin: The network meeting last Thursday was short; they only went through the inventory sheet.
+Kofi Mensah: I went through the network risk register entry from last month this morning and saw nothing unusual.
+Kofi Mensah: Yes, I saw the email about the finance test summary, thanks for sharing it.
+Javier Ortega: The network figures went up a little, which is normal for this time of year.
+Samuel Okoye: The reporting users gave good feedback on the test summary in the last survey.
+Kofi Mensah: I spoke with the network lead yesterday; they are happy with the test summary.
+Kofi Mensah: I also looked at the budget sheet, and the totals add up.
+Mei Lin: Yes, I saw the email about the reporting capacity chart, thanks for sharing it.
+Kofi Mensah: The HR meeting last Thursday was short; they only went through the release notes draft.
+Elena Rossi: Okay, thanks. That helps me understand the training picture.

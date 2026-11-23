@@ -1,0 +1,7 @@
+Call – School parent portal – weekly
+
+Rosa Lima: The login page still fails for parents with old browsers.
+Ethan Ward: I'll write the browser notice by Friday.
+Rosa Lima: Good. And the attendance export?
+Ethan Ward: That goes into the next sprint.
+Rosa Lima: We assume most parents use a phone app anyway.

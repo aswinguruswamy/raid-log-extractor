@@ -1,0 +1,6 @@
+Call – E-commerce launch – sprint review
+
+Carmen Diaz: Three open jobs before launch. Jon, Alisa, Crab – the test plan, the payment pipeline and the release notes.
+Carmen Diaz: Also, the payment provider still needs our tax ID before they switch on live mode.
+Alisa Novak: And the checkout page is slow on older phones today.
+Carmen Diaz: We agreed to launch only after the load test passes.

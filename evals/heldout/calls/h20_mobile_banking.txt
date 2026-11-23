@@ -1,0 +1,7 @@
+Call – Mobile banking – release scope
+
+Ivan Petrov: Let's ship the card freeze feature in this release.
+Sara Holt: The security review is not done yet.
+Ivan Petrov: True. Let's not decide yet; we look again after the review.
+Sara Holt: I'll book the security review for next week.
+Ivan Petrov: The app store review takes up to a week, so a late build could slip the launch.

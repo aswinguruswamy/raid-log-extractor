@@ -1,0 +1,7 @@
+Call – Regulatory reporting – data quality
+
+Priya Shah: The customer address field is empty in 4% of records.
+Priya Nair: That breaks the quarterly report validation.
+Daniel Kim: Priya, can you write the clean-up script?
+Priya: Yes, I'll do it this week.
+Daniel Kim: Thanks. I'll book a review with compliance for next week.

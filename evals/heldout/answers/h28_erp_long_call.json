@@ -1,0 +1,128 @@
+{
+  "call": "h28_erp_long_call.txt",
+  "case": "E7",
+  "meeting_date": "2026-12-01",
+  "writer": "Claude (AI) drafted; approved by Aswin Guruswamy on 2026-11-23",
+  "items": [
+    {
+      "id": "h28-01",
+      "case": null,
+      "type": "Risk",
+      "summary": "Data centre move slip puts January payroll at risk",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "If the data centre move slips, the payroll run in January is at risk."
+    },
+    {
+      "id": "h28-02",
+      "case": null,
+      "type": "Action",
+      "summary": "Update the cut-over runbook",
+      "owner": "Kofi Mensah",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-03",
+      "date_words": "by Thursday",
+      "evidence": "I'll update the cut-over runbook by Thursday."
+    },
+    {
+      "id": "h28-03",
+      "case": null,
+      "type": "Issue",
+      "summary": "Test environment down since Monday",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "The test environment has been down since Monday morning, so nobody can test."
+    },
+    {
+      "id": "h28-04",
+      "case": null,
+      "type": "Decision",
+      "summary": "Keep the old reporting tool until March",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "We agreed to keep the old reporting tool until March."
+    },
+    {
+      "id": "h28-05",
+      "case": null,
+      "type": "Action",
+      "summary": "Send the vendor contract to legal",
+      "owner": "Elena Rossi",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-04",
+      "date_words": "by Friday",
+      "evidence": "Elena, can you send the vendor contract to legal by Friday?"
+    },
+    {
+      "id": "h28-06",
+      "case": null,
+      "type": "Dependency",
+      "summary": "Network team must open the firewall ports",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "We need the network team to open the firewall ports before the cut-over."
+    },
+    {
+      "id": "h28-07",
+      "case": null,
+      "type": "Assumption",
+      "summary": "Vendor keeps the same support hours over the holidays",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "We assume the vendor keeps the same support hours over the holidays."
+    },
+    {
+      "id": "h28-08",
+      "case": null,
+      "type": "Action",
+      "summary": "Book the cut-over war room",
+      "owner": "Samuel Okoye",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-18",
+      "date_words": "for 18 December",
+      "evidence": "I'll book the cut-over war room for 18 December."
+    },
+    {
+      "id": "h28-09",
+      "case": null,
+      "type": "Risk",
+      "summary": "Key users on leave may stop testing finishing",
+      "owner": "Not stated",
+      "owner_state": "Not stated",
+      "owner_note": "",
+      "due_date": "Not stated",
+      "date_words": "",
+      "evidence": "If the key users are on leave in late December, testing may not finish."
+    },
+    {
+      "id": "h28-10",
+      "case": "E7",
+      "type": "Action",
+      "summary": "Send the meeting summary to the steering group",
+      "owner": "Mei Lin",
+      "owner_state": "Confirmed",
+      "owner_note": "",
+      "due_date": "2026-12-02",
+      "date_words": "by Wednesday",
+      "evidence": "I'll send the meeting summary to the steering group by Wednesday."
+    }
+  ]
+}

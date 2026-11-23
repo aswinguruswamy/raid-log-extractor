@@ -1,0 +1,7 @@
+Call – Clinic scheduling app – weekly
+
+Helen Price: The pilot clinic wants the booking reminders by text message, not email.
+Sam Osei: Text messages need a new contract with the SMS provider.
+Helen Price: Give the SMS contract to Maria. She knows the provider.
+Sam Osei: Okay. I'll update the reminder screens by Tuesday.
+Helen Price: We decided to keep email as a backup channel.
