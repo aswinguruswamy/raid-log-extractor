@@ -56,11 +56,11 @@ def build(stem: str) -> dict:
 
 
 def main() -> int:
+    built = {stem: build(stem) for stem in DEMOS}  # build all first: a failure leaves the old files
     for old in DEMO.glob("*.json"):
         old.unlink()
-    for stem in DEMOS:
-        (DEMO / f"{stem}.json").write_text(json.dumps(build(stem), indent=2, ensure_ascii=False) + "\n",
-                                           encoding="utf-8")
+    for stem, data in built.items():
+        (DEMO / f"{stem}.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"demo/{stem}.json")
     return 0
 
