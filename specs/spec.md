@@ -1,6 +1,6 @@
 # Spec: RAID v2 – Hard cases right, proved on a held-out set
 
-Version: 1.2 | Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (1.1 = demo decision; 1.2 = year rule, approved 2026-11-23) | Date: 2026-11-23
+Version: 1.3 | Status: **APPROVED by Aswin Guruswamy, 2026-11-22** (1.1 = demo decision; 1.2 = year rule and 1.3 = R5.5, R8.3 as built, approved 2026-11-23) | Date: 2026-11-23
 Tool: RAID | MoSCoW: Must (R12: Should) | Source: `specs/RAID/requirements.md` v1.3, `context/RAID-v2-analysis.md` §7 (failure catalogue) and §8 (DL1–DL4), `clarify/RAID-clarify-log.md`, RAID v1.0.0 code (`raid/extract.py`, `raid/schema.py`, `raid/export.py`, `evals/`, read 2026-11-22)
 
 Requirement IDs `RAID-Rn.m` belong to R1–R19 and N1–N7 on the requirements page. Catalogue IDs (A2, B1 …) are rows in the failure catalogue.
@@ -68,7 +68,7 @@ RAID v1 turns call notes into a RAID log with quotes that the code checks. But i
 | RAID-R5.2 | Unwanted | If the owner name is not in the notes, then the RAID shall write owner "Not stated", state Not stated, and add a Needs attention line. | R5 |
 | RAID-R5.3 | Unwanted | If the owner name, or the date words, are not in the quote, the reply quote, or the speaker turn just before or after the quote, then the RAID shall add a Needs attention line "owner/date not near the quote – check" (F1). | R5, cat F1 |
 | RAID-R5.4 | Unwanted | If the date words are not in the notes, then the RAID shall write due date "Not stated" and add a Needs attention line. | R5 |
-| RAID-R5.5 | Unwanted | If two items have the same quote, or quotes that overlap by half or more of the shorter one, then the RAID shall keep the first item and add a Needs attention line. | R5 |
+| RAID-R5.5 | Unwanted | If two items have the same type and the same task, and the same quote or quotes that overlap by half or more of the shorter one, then the RAID shall keep the first item and add a Needs attention line. Items of another type, or another task from the same sentence (an Action and its Dependency, A5; three tasks from one list of names, B1), are kept. | R5, Aswin's decision RAID-5.1 |
 | RAID-R5.6 | Unwanted | If the reply quote that names the owner is one word ("yes", "sure"), then the RAID shall add a Needs attention line "owner from a one-word reply – check the speaker" (E1). | R5, cat E1 |
 
 ### Input and failure (R6)
@@ -84,7 +84,7 @@ RAID v1 turns call notes into a RAID log with quotes that the code checks. But i
 | RAID-R7.1 | Ubiquitous | The RAID shall show Needs attention above the log, with: Tentative, Not confirmed and Declined owners; Actions with no due date; R5.2–R5.6 lines; no meeting date; input warnings. | R7 |
 | RAID-R8.1 | Ubiquitous | The RAID shall show the log as one table with the columns **Type · Item · Owner · Due date · Reviewed**. Rows with a Needs attention line come first, then by type (Action, Issue, Risk, Dependency, Assumption, Decision), then by short ID. | R8, RAID-3.1, proposal (sort) |
 | RAID-R8.2 | Ubiquitous | The RAID shall give each item a short ID by type and order (ACT-1, ISS-1, RSK-1, DEP-1, ASM-1, DEC-1) and show it at the start of the Item cell. | R8, proposal |
-| RAID-R8.3 | Event | When the user clicks the "verified ✓" of an item, the RAID shall show its source quote (and reply quote). | R8 |
+| RAID-R8.3 | Event | When the user picks an item in the "Show the quote for an item" box under the table, the RAID shall show its source quote (and reply quote). The ✓ in the Item cell marks a quote found word for word. | R8, Aswin's decision RAID-5.2 |
 | RAID-R8.4 | Ubiquitous | The RAID shall show the owner state in brackets after the owner, unless it is Confirmed ("Aiko (tentative)", "Ben (not confirmed)", "Not stated"); and at the end of the Item cell "✓" when the code found the quote, or "(quote not found)". | R8, RAID-3.4 |
 | RAID-R8.5 | Ubiquitous | The RAID shall give each row a Reviewed checkbox, unticked at start. The ticks last for the page session only. | R8, RAID-3.3, proposal (session only) |
 | RAID-R8.6 | Ubiquitous | The RAID v2 shall not write an Excel file (v1 did). | R9, RAID-3.1 |
@@ -137,7 +137,7 @@ Meeting date for all examples: Tuesday 2026-12-01, unless stated. `eval` = model
 | AC19 | R5.2 | Fake reply owner "Priya"; "Priya" not in the notes | Checks | Owner "Not stated"; Needs attention line | unit |
 | AC20 | R5.3 | Quote and neighbour turns lack the owner name | Checks | Needs attention "owner/date not near the quote – check" | unit (F1) |
 | AC21 | R5.4 | Fake reply date words "by Friday" not in the notes | Checks | Due "Not stated"; Needs attention line | unit |
-| AC22 | R5.5 | Two items with the same quote | Checks | First kept; Needs attention line | unit |
+| AC22 | R5.5 | Two Actions with the same quote and the same task; three Actions with different tasks from one sentence | Checks | First of the two kept, with a Needs attention line; all three kept | unit |
 | AC23 | R5.6 | Reply quote "Yes." | Checks | Needs attention "owner from a one-word reply …" | unit (E1) |
 | AC24 | R6.1 | Fake reply with stop reason max_tokens | Extract | Error "The notes are too long …"; no table, no Markdown | unit (E7) |
 | AC25 | R6.2 | Notes of 16,000 words | Upload | Warning before the log | unit |
@@ -147,7 +147,7 @@ Meeting date for all examples: Tuesday 2026-12-01, unless stated. `eval` = model
 | AC29 | R7.1 | Action with no due date | Page | Listed in Needs attention | unit |
 | AC30 | R8.1 | Items: Decision, Risk with a Needs attention line, Action | Page | Order: the Risk, the Action, the Decision; 5 columns as named | unit (UI test) |
 | AC31 | R8.4 | Action owner Aiko, Tentative, quote found; Action owner Ben, Confirmed; Issue, quote not found | Page | Owner "Aiko (tentative)", item ends "✓"; owner "Ben"; Issue item ends "(quote not found)" | unit |
-| AC32 | R8.3 | Click "✓" of ACT-1 | Page | Quote shows | unit (UI test) |
+| AC32 | R8.3 | Pick ACT-1 in "Show the quote for an item" | Page | Quote (and reply quote) shows | unit (UI test) |
 | AC33 | R8.5, R9.1 | Tick Reviewed on ACT-1 only | Download Markdown | ACT-1 "✓ reviewed"; all others "not reviewed" | unit |
 | AC34 | R9.1, R8.6 | Sample output | Markdown | Run details, Needs attention, table, Evidence list; equals the golden file; no Excel file written | golden file |
 | AC35 | R10.1 | Any run | Output | Model, prompt version, run date, file name on page and in Markdown | unit |
@@ -233,6 +233,7 @@ Output changed to the page table + Markdown (requirements v1.1). The v0.2 fixes 
 ## 13. Change log
 | Version | Date | Change | Approved by |
 |---|---|---|---|
+| 1.3 | 2026-11-23 | R5.5 and R8.3 match the build (Aswin's decisions RAID-5.1, RAID-5.2) | Aswin Guruswamy |
 | 1.2 | 2026-11-23 | R4.3 year rule: a day and month more than 30 days before the meeting date take the next year | Aswin Guruswamy |
 | 1.1 | 2026-11-22 | Keyless demo and video (requirements v1.3) | Aswin Guruswamy (SH-4.4) |
 | 1.0 | 2026-11-22 | Approved as is, including the §12 proposals | Aswin Guruswamy |
