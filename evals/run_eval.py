@@ -233,7 +233,7 @@ def render(report, runs, *, v2=None, set_name: str = "tuning", runs_count: int =
         "|---|---|---|---|",
         f"| Recall on risks, issues, dependencies, actions | 85% or more | {pct(key_recall)} | {check(key_recall is not None and key_recall >= TARGETS['recall'])} |",
         f"| Precision on all item types | 80% or more | {pct(total.precision)} | {check(total.precision is not None and total.precision >= TARGETS['precision'])} |",
-        f"| Owners or dates that the tool invents | 0 | {len(report.invented_owners) + len(report.invented_dates)} | {check(not report.invented_owners and not report.invented_dates)} |",
+        f"| Owners or dates that the tool invents (v2 definitions) | 0 | {len(v2.gate_failures)} | {check(not v2.gate_failures)} |",
         "",
         "## Owners and dates (on matched items)",
         "",
@@ -242,8 +242,8 @@ def render(report, runs, *, v2=None, set_name: str = "tuning", runs_count: int =
         f"| Correct owner | {report.owner_correct} of {report.owner_checked} ({pct(owner_acc)}) |",
         f"| Correct due date | {report.date_correct} of {report.date_checked} ({pct(date_acc)}) |",
         f"| Owner given where the notes name nobody | {len(report.guessed_owners)} |",
-        f"| Owner not in the notes at all (invented) | {len(report.invented_owners)} |",
-        f"| Date not in the notes at all (invented) | {len(report.invented_dates)} |",
+        f"| Owner not in the notes at all (v1 check) | {len(report.invented_owners)} |",
+        f"| Date not written as YYYY-MM-DD in the notes (v1 check; v2 converts date words) | {len(report.invented_dates)} |",
         "",
         "## Cost and time",
         "",
@@ -272,8 +272,8 @@ def render(report, runs, *, v2=None, set_name: str = "tuning", runs_count: int =
         misses, extras, mixups = misses_and_extras(s)
         lines.append(f"**{s.sample}** — expected {len(s.expected)}, found {len(s.found)}, matched {len(s.pairs)}")
         for label, entries in (("Missed", misses), ("Extra", extras), ("Type mix-up", mixups),
-                               ("Guessed owner", s.guessed_owners), ("Invented owner", s.invented_owners),
-                               ("Invented date", s.invented_dates)):
+                               ("Guessed owner", s.guessed_owners), ("Owner not in the notes (v1)", s.invented_owners),
+                               ("Date not written in the notes (v1)", s.invented_dates)):
             for entry in entries:
                 lines.append(f"- {label}: {entry}")
         lines.append("")

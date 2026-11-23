@@ -177,3 +177,16 @@ def test_short_lines_do_not_widen_the_context():
     log = RaidLog(items=[RaidItem(type="Action", description="Send the report.", owner="Priya",
                                   owner_state="Not confirmed", source_quote="Thanks.")])
     assert NOT_NEAR_QUOTE in lines_for(run_checks(log, notes), "ACT-1")
+
+
+def test_owners_by_list_tasks_with_the_same_note_are_kept():
+    # Live spec example AC6: the model wrote the owner note into each description.
+    quote = "Jon, Alisa, Crab – the test plan, the pipeline and the release notes."
+    note = "owners by list: Jon, Alisa, Crab – confirm"
+    log = RaidLog(items=[
+        RaidItem(type="Action", description=f"{d} (owner to be confirmed from the list Jon, Alisa, Crab).",
+                 source_quote=quote, owner_state="Not confirmed", owner_note=note)
+        for d in ("Prepare the test plan", "Set up the pipeline", "Write the release notes")
+    ])
+    run_checks(log, "Carmen Diaz: " + quote)
+    assert len(log.items) == 3

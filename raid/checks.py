@@ -106,10 +106,15 @@ def _overlap(a: tuple[int, int] | None, b: tuple[int, int] | None) -> float:
 _STOP = {"the", "a", "an", "to", "of", "and", "for", "on", "in", "by", "with", "do", "is", "be", "will"}
 
 
+def _task_words(text: str) -> set[str]:
+    text = re.sub(r"\([^)]*\)", " ", text.lower())  # "(owner to be confirmed …)" is not the task
+    return {w for w in _WORD.findall(text) if w not in _STOP}
+
+
 def _same_task(a: str, b: str) -> bool:
-    """Descriptions share half or more of the shorter one's words (stop words left out)."""
-    wa = {w for w in _WORD.findall(a.lower()) if w not in _STOP}
-    wb = {w for w in _WORD.findall(b.lower()) if w not in _STOP}
+    """Descriptions share half or more of the shorter one's words (stop words and text in
+    brackets left out)."""
+    wa, wb = _task_words(a), _task_words(b)
     return bool(wa and wb) and len(wa & wb) / min(len(wa), len(wb)) >= 0.5
 
 
@@ -118,6 +123,8 @@ def _is_duplicate(a: RaidItem, b: RaidItem, notes: _Notes) -> bool:
     more, and the same task (one sentence can hold three tasks: spec R2.2, catalogue B1)."""
     if a.type != b.type or not _same_task(a.description, b.description):
         return False
+    if a.owner_note.lower().startswith("owners by list") and b.owner_note.lower().startswith("owners by list"):
+        return False  # one sentence, several tasks (R2.2)
     if _norm(a.source_quote) == _norm(b.source_quote):
         return True
     return _overlap(notes.span(a.source_quote), notes.span(b.source_quote)) >= 0.5
