@@ -60,11 +60,11 @@ def test_kan10_no_owners_in_notes_gives_not_stated(name):
     assert owners == {NOT_STATED}
 
 
-def test_kan13_command_writes_excel_with_the_real_api(tmp_path, capsys):
+def test_kan13_command_writes_markdown_with_the_real_api(tmp_path, capsys):
     from raid.__main__ import main
 
     assert main(["extract", str(FIXTURES / "teams_call.vtt"), "--out", str(tmp_path)]) == 0
-    assert (tmp_path / "teams_call_raid_log.xlsx").is_file()
+    assert (tmp_path / "teams_call_raid_log.md").is_file()
     print("\n" + capsys.readouterr().out)
 
 
