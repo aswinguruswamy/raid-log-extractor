@@ -88,3 +88,8 @@ def test_owner_not_on_the_call_is_not_confirmed_by_code():
 def test_first_name_of_a_speaker_is_on_the_call():
     analysis = analyse(NOTES, TUE, client=FakeClient([raw(owner="Aiko", owner_state="Confirmed")]))
     assert analysis.log.items[0].owner_state is OwnerState.CONFIRMED
+
+
+def test_a_note_that_repeats_the_state_is_not_shown_twice():
+    analysis = analyse(NOTES, TUE, client=FakeClient([raw(owner_state="Declined", owner_note="declined – reassign")]))
+    assert "Owner declined – reassign." in analysis.lines_for("ACT-1")
