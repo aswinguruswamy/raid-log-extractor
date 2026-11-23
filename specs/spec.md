@@ -109,7 +109,7 @@ RAID v1 turns call notes into a RAID log with quotes that the code checks. But i
 | RAID-R17.1 | Ubiquitous | CI shall meet the shared standard: Python 3.11–3.13, lint, gitleaks, SHA-pinned actions, Dependabot, pip-audit, licence scan. | R17, I9 |
 | RAID-R18.1 | Event | When a version tag is pushed, the release workflow shall run the tests, build, and publish release notes. | R18 |
 | RAID-R19.1 | Ubiquitous | The README shall start with "Known limits"; every bug fix shall add a test, and a sample call for AI bugs, first. | R19 |
-| RAID-R20.1 | Ubiquitous | The README shall show screenshots of 2 demo calls with the table, Needs attention and owner states, with a link that opens each call in the hosted demo. The hosted demo shall run with no API key (saved results, v1). No video (v2 adds little to see over v1). | R20, SH-4.4, Aswin's decision 2026-11-23 |
+| RAID-R20.1 | Ubiquitous | The README shall have a "Screenshots" section after "Known limits" with 2–3 screenshots of the keyless demo (the table with Needs attention, the quote of an item, an owner state), with links that open the demo. No video. The hosted demo shall run with no API key (saved results, v1). | R20, SH-4.4, SH-5.5 |
 
 ## 6. Acceptance criteria
 Meeting date for all examples: Tuesday 2026-12-01, unless stated. `eval` = model behaviour, scored against an answer key; `unit` = code with a fake model reply.
@@ -161,7 +161,7 @@ Meeting date for all examples: Tuesday 2026-12-01, unless stated. `eval` = model
 | AC43 | R17.1–R19.1 | Repository | CI and docs tests | Workflow lint passes; README first section "Known limits"; release workflow on tags | unit (repo tests) |
 | AC44 | N3 | 30-minute sample call (about 4,500 words) | Extract | Under 60 s | timed live test |
 | AC45 | N7 | Owner states on the page | View | Each state shows as a word | unit (UI test) |
-| AC46 | R20.1 | README; demo with no key | Docs test; app start | 2 screenshots present and linked; ?demo= opens that call; demo mode works with no key | unit |
+| AC46 | R20.1 | README; demo with no key | Docs test; app start | "Screenshots" section after Known limits with 2–3 images that exist; ?demo= opens that call; demo mode works with no key | unit |
 
 ## 7. Non-functional requirements
 | ID | Area | Requirement | Check |
@@ -233,7 +233,7 @@ Output changed to the page table + Markdown (requirements v1.1). The v0.2 fixes 
 ## 13. Change log
 | Version | Date | Change | Approved by |
 |---|---|---|---|
-| 1.4 | 2026-11-23 | R20.1: screenshots of 2 demo calls instead of a video | Aswin Guruswamy |
+| 1.4 | 2026-11-23 | R20.1, AC46: README screenshots in place of the video | Aswin 2026-11-23 (SH-5.5) |
 | 1.3 | 2026-11-23 | R5.5 and R8.3 match the build (Aswin's decisions RAID-5.1, RAID-5.2) | Aswin Guruswamy |
 | 1.2 | 2026-11-23 | R4.3 year rule: a day and month more than 30 days before the meeting date take the next year | Aswin Guruswamy |
 | 1.1 | 2026-11-22 | Keyless demo and video (requirements v1.3) | Aswin Guruswamy (SH-4.4) |

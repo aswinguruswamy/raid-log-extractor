@@ -111,9 +111,12 @@ def test_heldout_run_is_started_by_hand_with_five_runs_and_full_history():
     assert "${{ secrets.ANTHROPIC_API_KEY }}" in text
 
 
-def test_readme_shows_two_demo_screenshots_that_exist():
-    # RAID v2 spec R20.1, AC46 (v1.4): screenshots of 2 demo calls, linked to the hosted demo.
+def test_readme_has_a_screenshots_section_after_known_limits():
+    # RAID v2 spec R20.1, AC46 (v1.4, SH-5.5): 2-3 screenshots of the keyless demo, no video.
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    shots = re.findall(r"\]\((docs/screenshots/[^)]+\.png)\)", readme)
-    assert len(shots) == 2 and all((ROOT / shot).is_file() for shot in shots)
-    assert readme.count("raid-log-extractor.streamlit.app/?demo=") == 2
+    sections = re.findall(r"^## (.+)$", readme, flags=re.MULTILINE)
+    assert sections[:2] == ["Known limits", "Screenshots"]
+    body = readme.split("## Screenshots", 1)[1].split("\n## ", 1)[0]
+    shots = re.findall(r"\]\((docs/images/[^)]+\.png)\)", body)
+    assert 2 <= len(shots) <= 3 and all((ROOT / shot).is_file() for shot in shots)
+    assert "streamlit.app/?demo=" in body

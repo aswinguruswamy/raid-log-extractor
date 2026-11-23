@@ -6,14 +6,6 @@ Turn the notes from a team call into a RAID log in less than one minute.
 
 **[Try the live demo](https://raid-log-extractor.streamlit.app/)**: no sign-in and no API key.
 
-**A reply that does not commit** ("Not sure, I'll discuss it with my manager"): Omar is *not confirmed*, Needs attention says so, and "by Friday" becomes 2026-12-04 from the meeting date. [Open this sample](https://raid-log-extractor.streamlit.app/?demo=h01_warehouse_scanners)
-
-![Demo: the warehouse call with an owner who is not confirmed, Needs attention, and dates from weekdays](docs/screenshots/demo_h01_warehouse_scanners.png)
-
-**A refusal** ("No, sorry, I'm full this week"): Ama is *declined*, and Needs attention says "reassign". [Open this sample](https://raid-log-extractor.streamlit.app/?demo=h03_mobile_release)
-
-![Demo: the mobile release call with a declined owner and Needs attention](docs/screenshots/demo_h03_mobile_release.png)
-
 ## Known limits
 
 - **The held-out score is on 28 calls written by Claude (AI).** Aswin Guruswamy approved every answer key before the first run, and no held-out call was used to tune the prompt. But the tool also uses Claude, so these calls may be easier than real notes. 28 calls (one per hard case) show a direction, not a statistical proof.
@@ -27,6 +19,22 @@ Turn the notes from a team call into a RAID log in less than one minute.
 - **Speakers:** the tool cannot see a wrong speaker label in a transcript. An owner taken from a one-word reply ("Yes.") gets a check line in Needs attention.
 - **Page:** you see an item's quote by choosing the item in a box under the table (a table cell cannot be clicked). The Reviewed ticks last for the page session only; the Markdown download keeps them.
 - **Privacy:** your notes go to the Anthropic API. Do not upload notes that you may not share.
+
+## Screenshots
+
+From the keyless demo ([open it](https://raid-log-extractor.streamlit.app/)); no API key, saved results.
+
+**1. Needs attention and owner states.** "Warehouse scanners": Omar replied "Not sure. I'll discuss it with my manager and let you know." He is *not confirmed*, Needs attention says so, and "by Friday" becomes 2026-12-04 from the meeting date (Tue 1 Dec). Rita said yes, so she is confirmed. [Open this sample](https://raid-log-extractor.streamlit.app/?demo=h01_warehouse_scanners)
+
+![Warehouse scanners: Needs attention, the table with an owner who is not confirmed, and dates from weekdays](docs/images/warehouse_needs_attention.png)
+
+**2. The quote behind an item.** Choose ACT-1 in "Show the quote for an item": the request and Omar's reply, found word for word in the notes. "Download Markdown" saves the table with your Reviewed ticks and the quotes.
+
+![The quote box for ACT-1 with the request and the reply, and the Download Markdown button](docs/images/warehouse_quote.png)
+
+**3. A refusal.** "Mobile app release": Ama said "No, sorry, I'm full this week." She is *declined*, and Needs attention says "reassign". [Open this sample](https://raid-log-extractor.streamlit.app/?demo=h03_mobile_release)
+
+![Mobile app release: Ama Owusu declined, with Needs attention](docs/images/mobile_release_declined.png)
 
 ## The problem
 
